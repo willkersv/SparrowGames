@@ -19,7 +19,21 @@ public class ControlUsuario{
         } catch (SQLException e) {
             System.out.println("Problema com a transacao!");     
         }
-        
-        
+    }
+
+    public void cadastraUsuario(Usuario us){
+        try{
+            DaoUsuario du = new DaoUsuario();
+            ResultSet confirma = du.findByEmail(us);
+            if(confirma.next()){
+                System.out.println("usuario ja cadastrado");
+            }
+            else{
+                du.insertUser(us);
+                System.out.println("usuario cadastrado");
+            }
+        }catch(SQLException e){
+            System.out.println("deu erro kk");
+        }
     }
 }

@@ -15,12 +15,13 @@ public class Main extends Application {
     
     private double xOffset = 0;
     private double yOffset = 0;
+    
     public static void main(String[] args) {
         launch();
     }
 
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaCadastro.fxml"));
         Parent root = fxmlLoader.load();
         Scene tela = new Scene(root);
         stage.initStyle(StageStyle.UNDECORATED);

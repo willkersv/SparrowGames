@@ -44,9 +44,15 @@ public class TelaLoginController {
     }
 
     @FXML
-    private void btFecha(){
+    private void btFechar(){
         Stage stage = (Stage) btnFechar.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void hyCadastro(){
+        // Stage stage = (Stage) hyCadastro.getScene().getWindow();
+        
     }
 }
 

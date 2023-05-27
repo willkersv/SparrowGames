@@ -4,7 +4,7 @@ public class Usuario {
     
     private int idUsuario;
     
-    private String nomeUsuaio;
+    private String nomeUsuario;
 
     private String emailUsuario;
 
@@ -20,12 +20,12 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public String getNomeUsuaio() {
-        return nomeUsuaio;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setNomeUsuaio(String nomeUsuaio) {
-        this.nomeUsuaio = nomeUsuaio;
+    public void setNomeUsuario(String nomeUsuaio) {
+        this.nomeUsuario = nomeUsuaio;
     }
 
     public String getEmailUsuario() {
