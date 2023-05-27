@@ -16,7 +16,7 @@ public class ConnectBd {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(mysqlURL+nomeBD, usuario, senha);
             connection.setAutoCommit(false);
-            System.out.println("Conectado com sucesso");
+            System.out.println("Conectado com sucesso aaaaaaaa");
         }
         catch(SQLException ex){
             System.err.println("Erro de conexao: " +ex.getMessage());
