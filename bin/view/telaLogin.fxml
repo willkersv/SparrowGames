@@ -32,7 +32,7 @@
                   <Font size="14.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="TEXT" />
                </cursor></TextField>
             <PasswordField fx:id="tfSenha" layoutX="232.0" layoutY="302.0" prefHeight="40.0" prefWidth="250.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
                <font>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Hyperlink fx:id="hyCadastro" layoutX="370.0" layoutY="433.0" text="Cadastre-se." textFill="#4d4d4d" />
+            <Hyperlink fx:id="hylCadastro" layoutX="370.0" layoutY="433.0" onAction="#hylCadastro" text="Cadastre-se." textFill="#4d4d4d" />
             <Label layoutX="271.0" layoutY="436.0" text="Novo no Sparrow?" textFill="WHITE" />
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="196.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>

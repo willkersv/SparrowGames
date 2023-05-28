@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" spacing="20.0" style="-fx-background-color: #2c2c2c;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/sparrow%20games.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Button>
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/search%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <TextField prefHeight="32.0" prefWidth="283.0" promptText="Pesquisar" style="-fx-border-color: #ffffff;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Pane prefHeight="60.0" prefWidth="444.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+            <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/shopping-cart.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </HBox>
+   </top>
+   <right>
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c; -fx-region-border: #2c2c2c;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="810.0" prefWidth="1080.0" style="-fx-background-color: #000000;">
+               <children>
+                  <ImageView fitHeight="192.0" fitWidth="1032.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/test.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="266.0" prefWidth="1078.0">
+                     <children>
+                        <Label text="Mais vendidos:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="26.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="225.0" prefWidth="1045.0">
+                           <children>
+                              <VBox prefHeight="310.0" prefWidth="261.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/1.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="217.0" prefWidth="245.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/2.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="217.0" prefWidth="245.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/4.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="217.0" prefWidth="245.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/5.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="255.0" prefWidth="1080.0">
+                     <children>
+                        <Label text="Pra você:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="26.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="210.0" prefWidth="1045.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox prefHeight="310.0" prefWidth="261.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/6.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="310.0" prefWidth="261.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/7.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="310.0" prefWidth="261.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/8.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="310.0" prefWidth="261.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/9.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField alignment="TOP_LEFT" promptText="The Last of Us - Part I" style="-fx-background-color: transparent;">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/wallet%20(1).png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="210,00" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </right>
+</BorderPane>

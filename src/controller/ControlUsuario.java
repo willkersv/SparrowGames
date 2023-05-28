@@ -2,6 +2,8 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import controlFxml.Main;
 import dao.DaoUsuario;
 import model.Usuario;
 
@@ -12,6 +14,8 @@ public class ControlUsuario{
             DaoUsuario du = new DaoUsuario();
             ResultSet confirma = du.findByEmail(us);
             if(confirma.next()){
+                Main.emailIdent = us.getEmailUsuario();
+                Main.verAdmin = us.getVerAdmin();
                 System.out.println("login com sucesso");
             }else{
                 System.out.println("LOGIN NEGADO");
@@ -21,7 +25,7 @@ public class ControlUsuario{
         }
     }
 
-    public void cadastraUsuario(Usuario us){
+    public void cadastrarUsuario(Usuario us){
         try{
             DaoUsuario du = new DaoUsuario();
             ResultSet confirma = du.findByEmail(us);
@@ -36,4 +40,12 @@ public class ControlUsuario{
             System.out.println("deu erro kk");
         }
     }
+
+    public void alterarUsuario(String novoNome){
+        DaoUsuario du = new DaoUsuario();
+        du.updateUsuario(novoNome);
+        System.out.println("usuario alterado");
+    }
+
+
 }

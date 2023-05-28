@@ -29,25 +29,34 @@ public class TelaCadastroController {
     private TextField tfSenhaUsuario;
 
     @FXML
-    private void btFechar(){
+    protected void btFechar(){
         Stage stage = (Stage) btnFechar.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    private void btCadastrar(){
-
+    protected void btCadastrar(){
+        /*
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
         if(tfSenhaUsuario.getText().equals(tfConfirmaSenhaUsuario.getText())){
             us.setNomeUsuario(tfNomeUsuario.getText());
             us.setEmailUsuario(tfEmailUsuario.getText());
             us.setSenhaUsuario(tfSenhaUsuario.getText());
-            cu.cadastraUsuario(us);
+            cu.cadastrarUsuario(us);
         }
         else{
-            System.out.println("senhas diferentes, fera");
-        }     
+            System.out.println("Senha errada, fera");
+        }*/
+
+        ControlUsuario cu = new ControlUsuario();
+        if(tfNomeUsuario.getText() != ""){
+            cu.alterarUsuario(tfNomeUsuario.getText());
+        }
+        else{
+            System.out.println("Coloca um nome ai pow!");
+        }
     }
+
 }
 

@@ -16,12 +16,12 @@ public class DaoUsuario {
         ConnectBd bd = new ConnectBd();
         
         try{
-            command = "SELECT emailUsuario, senhaUsuario FROM Usuario WHERE emailUsuario = ? AND senhaUsuario = ? ";
+            command = "SELECT emailUsuario, senhaUsuario, verAdmin FROM Usuario WHERE emailUsuario = ? AND senhaUsuario = ? ";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, us.getEmailUsuario());
             declaracao.setString(2, us.getSenhaUsuario());
             ResultSet resultado = declaracao.executeQuery();
-            System.out.println("Transação realizada com sucesso!");
+            System.out.println("Transacao realizada com sucesso!");
             return resultado;
             }
         catch(SQLException ex){
@@ -72,7 +72,7 @@ public class DaoUsuario {
             declaracao.setString(1, id);
             declaracao.executeBatch();
             bd.getConnection().commit();
-            System.out.println("Transação realizada com sucesso!");
+            System.out.println("Transacao realizada com sucesso!");
 
         }
         catch(SQLException ex){
@@ -82,7 +82,31 @@ public class DaoUsuario {
                 System.err.println("Erro na transacao: " + ex.getMessage());
             }
             catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+            }
             
+        }
+    }
+
+    public void updateUsuario(String novoNome){
+        ConnectBd bd = new ConnectBd();                                                       
+                                                                                        
+        try{                                                                                 
+            command = "UPDATE usuario SET nomeUsuario = ? WHERE emailUsuario = ?";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setString(1, novoNome);
+            declaracao.setString(2, controlFxml.Main.emailIdent);
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Transacao de uptade realizada com suceso!");
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao de update cancelada!");
+                System.err.println("Erro na transacao de uptade: " + ex.getMessage());
+            }
+            catch(SQLException exe){
                 System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
             }
             
