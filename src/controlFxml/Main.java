@@ -1,4 +1,5 @@
 package controlFxml;
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -21,31 +22,16 @@ public class Main extends Application {
     private double xOffset = 0;
     private double yOffset = 0;
 
-    //Teste kk
-    private static Stage stage;
-    private static Scene TelaLogin;
-    private static Scene TelaCadastro;
     
     public static void main(String[] args) {
         launch();
     }
 
-    public void start(Stage primaryStage) throws IOException {
-        stage = primaryStage;
-
+    public void start(Stage Stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
         Parent root = fxmlLoader.load();
-        //Scene tela = new Scene(root);
-        TelaLogin = new Scene(root);
-        
-        
-        //tela de cadastro
-        FXMLLoader fxmlLoader2 = new FXMLLoader(this.getClass().getResource("/view/telaCadastro.fxml"));
-        Parent root2 = fxmlLoader2.load();
-        //Scene tela = new Scene(root);
-        TelaCadastro = new Scene(root2);
-        
-        stage.initStyle(StageStyle.UNDECORATED);
+        Scene TelaLogin = new Scene(root);
+        Stage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event){
@@ -57,25 +43,15 @@ public class Main extends Application {
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event){
-                primaryStage.setX(event.getScreenX() - xOffset);
-               primaryStage.setY(event.getScreenY() - yOffset);
+                Stage.setX(event.getScreenX() - xOffset);
+                Stage.setY(event.getScreenY() - yOffset);
 
             }
         });
-        primaryStage.setScene(TelaLogin);
-        primaryStage.show();
+        Stage.setScene(TelaLogin);
+        Stage.show();
     }
 
-    public static void changeScreen(String scr){
-        switch(scr){
-            case "login":
-                stage.setScene(TelaLogin);
-                break;
-            case "TelaCadastro":
-                stage.setScene(TelaCadastro);
-                break;
-        }
-    }
     
 }
 

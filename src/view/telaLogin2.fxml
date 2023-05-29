@@ -28,14 +28,14 @@
    <center>
       <AnchorPane id="arcor" prefHeight="670.0" prefWidth="1698.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="tfEmail" layoutX="232.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
+            <TextField fx:id="tfEmail" layoutX="232.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #FF0000; -fx-border-width: 0px 0px 3px 0px;">
                <font>
                   <Font size="14.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <PasswordField fx:id="tfSenha" layoutX="232.0" layoutY="302.0" prefHeight="40.0" prefWidth="250.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
+            <PasswordField fx:id="tfSenha" layoutX="232.0" layoutY="302.0" prefHeight="40.0" prefWidth="250.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #FF0000; -fx-border-width: 0px 0px 3px 0px;">
                <font>
                   <Font size="14.0" />
                </font></PasswordField>

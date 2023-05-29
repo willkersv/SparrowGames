@@ -14,18 +14,19 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlFxml.TelaLoginController">
    <left>
-      <AnchorPane prefHeight="670.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <AnchorPane id="arcor" prefHeight="670.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="670.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/imgLogin.png" />
                </image>
             </ImageView>
+            
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="670.0" prefWidth="1698.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+      <AnchorPane id="arcor" prefHeight="670.0" prefWidth="1698.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="tfEmail" layoutX="232.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
                <font>

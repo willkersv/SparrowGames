@@ -1,5 +1,7 @@
 package controlFxml;
 
+import java.io.IOException;
+
 import controller.ControlUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,13 +39,19 @@ public class TelaLoginController {
     private Button btnFechar;
 
     @FXML
-    private void btLogar() {
+    private void btLogar(ActionEvent e) throws IOException {
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
         us.setEmailUsuario(tfEmail.getText());
         us.setSenhaUsuario(tfSenha.getText());
         System.out.println("------------------------\nBOTAO LOGIN AINDA FUNCIONA");
         cu.consultarLogin(us);
+        SceneController sc = new SceneController();
+        if(Main.emailIdent == null){ 
+            sc.switchTelaLogin2(e);
+        }else{
+            sc.switchTelaInicial(e);
+        }
     }
 
     @FXML
@@ -53,10 +61,9 @@ public class TelaLoginController {
     }
 
     @FXML
-    private void hylCadastro(ActionEvent e){
-        Main.changeScreen("TelaCadastro");
-        // Stage stage = (Stage) hyCadastro.getScene().getWindow();
-        
+    private void hylCadastro(ActionEvent e) throws IOException{
+        SceneController sc = new SceneController();
+        sc.switchTelaCadastro(e);
     }
 
 }

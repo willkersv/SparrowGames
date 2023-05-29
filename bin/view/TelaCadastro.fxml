@@ -12,21 +12,21 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="292.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlFxml.TelaCadastroController">
    <children>
+      <TextField fx:id="tfNomeUsuario" layoutX="71.0" layoutY="114.0" />
+      <TextField fx:id="tfEmailUsuario" layoutX="71.0" layoutY="176.0" />
       <Button fx:id="btnCadastrar" layoutX="112.0" layoutY="379.0" mnemonicParsing="false" onAction="#btCadastrar" style="-fx-background-color: #2C2C2C;" text="Cadastrar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <PasswordField fx:id="tfConfirmaSenhaUsuario" layoutX="71.0" layoutY="303.0" />
       <Label layoutX="74.0" layoutY="286.0" prefHeight="17.0" prefWidth="94.0" text="Confirme a senha" textFill="WHITE" />
       <Label layoutX="74.0" layoutY="159.0" text="Endereço de e-mail" textFill="WHITE" />
-      <TextField fx:id="tfEmailUsuario" layoutX="71.0" layoutY="176.0" />
-      <TextField fx:id="tfSenhaUsuario" layoutX="71.0" layoutY="238.0" />
       <Label layoutX="83.0" layoutY="38.0" text="CADASTRAR-SE" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
       <Label layoutX="70.0" layoutY="221.0" text="Senha" textFill="WHITE" />
       <Label layoutX="74.0" layoutY="97.0" text="Nome" textFill="WHITE" />
-      <TextField fx:id="tfNomeUsuario" layoutX="71.0" layoutY="114.0" />
       <Button fx:id="btnFechar" layoutX="252.0" layoutY="20.0" mnemonicParsing="false" onAction="#btFechar" opacity="0.0" prefHeight="25.0" prefWidth="20.0">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -37,6 +37,6 @@
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="tfConfirmaSenhaUsuario" layoutX="71.0" layoutY="303.0" />
+      <PasswordField fx:id="tfSenhaUsuario" layoutX="71.0" layoutY="238.0" />
    </children>
 </Pane>

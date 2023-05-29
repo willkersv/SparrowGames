@@ -1,6 +1,9 @@
 package controlFxml;
 
+import java.io.IOException;
+
 import controller.ControlUsuario;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -35,8 +38,7 @@ public class TelaCadastroController {
     }
 
     @FXML
-    protected void btCadastrar(){
-        /*
+    void btCadastrar(ActionEvent e) throws IOException{
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
         if(tfSenhaUsuario.getText().equals(tfConfirmaSenhaUsuario.getText())){
@@ -44,19 +46,26 @@ public class TelaCadastroController {
             us.setEmailUsuario(tfEmailUsuario.getText());
             us.setSenhaUsuario(tfSenhaUsuario.getText());
             cu.cadastrarUsuario(us);
+            SceneController sc = new SceneController();
+            sc.switchTelaInicial(e);
         }
         else{
             System.out.println("Senha errada, fera");
-        }*/
-
-        ControlUsuario cu = new ControlUsuario();
-        if(tfNomeUsuario.getText() != ""){
-            cu.alterarUsuario(tfNomeUsuario.getText());
-        }
-        else{
-            System.out.println("Coloca um nome ai pow!");
         }
     }
+
+
+
+    // protected void btAlterar(){
+    //     ControlUsuario cu = new ControlUsuario();   
+    //     if(tfNomeUsuario.getText() != ""){
+    //         cu.alterarUsuario(tfNomeUsuario.getText());
+    //     }
+    //     else{
+    //         System.out.println("Coloca um nome ai pow!");
+    //     }
+    // }
+        
 
 }
 

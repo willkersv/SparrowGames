@@ -18,7 +18,7 @@ public class ControlUsuario{
                 Main.verAdmin = us.getVerAdmin();
                 System.out.println("login com sucesso");
             }else{
-                System.out.println("LOGIN NEGADO");
+                System.out.println("senha errada, fera kk");   
             }
         } catch (SQLException e) {
             System.out.println("Problema com a transacao!");     
