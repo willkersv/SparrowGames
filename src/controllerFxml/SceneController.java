@@ -1,6 +1,7 @@
-package controlFxml;
+package controllerFxml;
 
 import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class SceneController {
     private Stage stage;
@@ -23,7 +25,7 @@ public class SceneController {
         stage.show();
     }
 
-    public void switchTelaLogin2(ActionEvent event) throws IOException {
+    public void switchTelaLogin2(ActionEvent event) throws IOException, InterruptedException {
         root = FXMLLoader.load(getClass().getResource("/view/telaLogin2.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -32,19 +34,22 @@ public class SceneController {
     }
     
     public void switchTelaCadastro(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/view/telaCadastro.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/telaCadastro.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);;
+        stage.setScene(new Scene(root1));
         stage.show();
     }
 
-    public void switchTelaInicial(ActionEvent event) throws IOException {
+    public void switchTelaInicial(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("/view/telaInicial.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        
     }
 
     // public void switchTelaBiblioteca(ActionEvent event) throws IOException {

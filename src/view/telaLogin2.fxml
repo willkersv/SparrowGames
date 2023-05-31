@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlFxml.TelaLoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaLoginController">
    <left>
       <AnchorPane id="arcor" prefHeight="670.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
@@ -40,7 +40,7 @@
                   <Font size="14.0" />
                </font></PasswordField>
             <Hyperlink fx:id="hySenha" layoutX="374.0" layoutY="291.0" text="Esqueceu a senha?" textFill="#4d4d4d" />
-            <Button fx:id="btLogin" layoutX="232.0" layoutY="370.0" mnemonicParsing="false" onAction="#btLogar" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" text="Login">
+            <Button fx:id="btnLogin" layoutX="232.0" layoutY="370.0" mnemonicParsing="false" onAction="#btLogin" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" text="Login">
                <font>
                   <Font size="14.0" />
                </font>

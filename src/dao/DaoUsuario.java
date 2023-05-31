@@ -95,7 +95,7 @@ public class DaoUsuario {
             command = "UPDATE usuario SET nomeUsuario = ? WHERE emailUsuario = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, novoNome);
-            declaracao.setString(2, controlFxml.Main.emailIdent);
+            declaracao.setString(2, controllerFxml.Main.emailIdent);
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Transacao de uptade realizada com suceso!");

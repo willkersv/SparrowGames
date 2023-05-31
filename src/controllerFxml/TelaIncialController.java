@@ -1,4 +1,4 @@
-package controlFxml;
+package controllerFxml;
 
 public class TelaIncialController {
     

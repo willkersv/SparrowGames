@@ -1,4 +1,4 @@
-package controlFxml;
+package controllerFxml;
 
 import java.io.IOException;
 
@@ -10,7 +10,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import model.Usuario;
 
 
@@ -18,8 +17,11 @@ import model.Usuario;
 public class TelaLoginController {
 
     @FXML
-    private Button btLogin;
+    private Button btnLogin;
 
+    @FXML
+    private Button btnFechar;
+    
     @FXML
     private ImageView btSair;
 
@@ -35,11 +37,12 @@ public class TelaLoginController {
     @FXML
     private PasswordField tfSenha;
 
-    @FXML 
-    private Button btnFechar;
+    @FXML
+    private ImageView testeTrans;
 
     @FXML
-    private void btLogar(ActionEvent e) throws IOException {
+    private void btLogin(ActionEvent e) throws IOException, InterruptedException {
+        
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
         us.setEmailUsuario(tfEmail.getText());
@@ -52,12 +55,15 @@ public class TelaLoginController {
         }else{
             sc.switchTelaInicial(e);
         }
+
     }
 
     @FXML
     private void btFechar(){
-        Stage stage = (Stage) btnFechar.getScene().getWindow();
-        stage.close();
+        //usar o System.exit para fechar tudo :)
+        System.exit(1);
+        //Stage stage = (Stage) btnFechar.getScene().getWindow();
+        //stage.close();
     }
 
     @FXML

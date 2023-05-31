@@ -3,7 +3,7 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import controlFxml.Main;
+import controllerFxml.Main;
 import dao.DaoUsuario;
 import model.Usuario;
 
@@ -25,20 +25,24 @@ public class ControlUsuario{
         }
     }
 
-    public void cadastrarUsuario(Usuario us){
+    public boolean cadastrarUsuario(Usuario us){
         try{
             DaoUsuario du = new DaoUsuario();
             ResultSet confirma = du.findByEmail(us);
             if(confirma.next()){
                 System.out.println("usuario ja cadastrado");
+                return false;
             }
             else{
                 du.insertUser(us);
                 System.out.println("usuario cadastrado");
+                return true;
             }
         }catch(SQLException e){
             System.out.println("deu erro kk");
+            return false;
         }
+        
     }
 
     public void alterarUsuario(String novoNome){

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="292.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlFxml.TelaCadastroController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="420.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaCadastroController">
    <children>
       <TextField fx:id="tfNomeUsuario" layoutX="71.0" layoutY="114.0" />
       <TextField fx:id="tfEmailUsuario" layoutX="71.0" layoutY="176.0" />
@@ -32,11 +32,16 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="245.0" layoutY="14.0">
+      <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="246.0" layoutY="15.0">
          <image>
             <Image url="@../images/close.png" />
          </image>
       </ImageView>
       <PasswordField fx:id="tfSenhaUsuario" layoutX="71.0" layoutY="238.0" />
+      <ImageView fx:id="noPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="251.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/noPhoto.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
