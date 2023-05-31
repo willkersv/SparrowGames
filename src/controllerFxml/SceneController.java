@@ -37,10 +37,13 @@ public class SceneController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/telaCadastro.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);;
-        stage.setScene(new Scene(root1));
-        stage.show();
+        //parte nova
+        TelaCadastroController tcc = fxmlLoader.getController();
+        Stage stage1 = new Stage();
+        stage1.initStyle(StageStyle.UNDECORATED);;
+        stage1.setScene(new Scene(root1));
+        tcc.setStage(stage1);
+        stage1.show();
     }
 
     public void switchTelaInicial(ActionEvent event) throws IOException{

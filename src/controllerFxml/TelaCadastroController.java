@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -22,6 +23,14 @@ import model.Usuario;
 
 public class TelaCadastroController implements Initializable{
 
+    private double x = 0, y = 0;
+
+    private Stage stage;
+    
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+    
     @FXML
     private Button btnCadastrar;
 
@@ -43,9 +52,22 @@ public class TelaCadastroController implements Initializable{
     @FXML
     private ImageView noPhoto;
 
+    @FXML
+    private ImageView neymar;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
+        neymar.setOnMousePressed(mouseEvent -> {
+            x = mouseEvent.getSceneX();
+            y = mouseEvent.getSceneY();
+        });
+
+        neymar.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX() - x);
+            stage.setY(mouseEvent.getScreenY() - y);
+        });
+
         noPhoto.setOnMouseClicked((MouseEvent e)->{
             selecionaFoto();
         });

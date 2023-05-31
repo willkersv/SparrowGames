@@ -43,5 +43,10 @@
             <Image url="@../images/noPhoto.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="neymar" fitHeight="93.0" fitWidth="140.0" layoutX="256.0" layoutY="68.0">
+         <image>
+            <Image url="@../images/neymar.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

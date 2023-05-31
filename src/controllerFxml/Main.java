@@ -27,14 +27,13 @@ public class Main extends Application {
         launch();
     }
 
-    public void start(Stage Stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         Image image = new Image("images/sex.gif");
-        
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene TelaLogin = new Scene(root);
-        Stage.initStyle(StageStyle.UNDECORATED);
-        Stage.getIcons().add(image);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.getIcons().add(image);
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event){
@@ -46,13 +45,13 @@ public class Main extends Application {
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event){
-                Stage.setX(event.getScreenX() - xOffset);
-                Stage.setY(event.getScreenY() - yOffset);
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
 
             }
         });
-        Stage.setScene(TelaLogin);
-        Stage.show();
+        primaryStage.setScene(TelaLogin);
+        primaryStage.show();
     }
 
     
