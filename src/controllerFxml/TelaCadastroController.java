@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -23,6 +22,7 @@ import model.Usuario;
 
 public class TelaCadastroController implements Initializable{
 
+    //tela draggable
     private double x = 0, y = 0;
 
     private Stage stage;
@@ -30,7 +30,8 @@ public class TelaCadastroController implements Initializable{
     public void setStage(Stage stage){
         this.stage = stage;
     }
-    
+    public String caminhoImg;
+
     @FXML
     private Button btnCadastrar;
 
@@ -55,15 +56,16 @@ public class TelaCadastroController implements Initializable{
     @FXML
     private ImageView neymar;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
-        neymar.setOnMousePressed(mouseEvent -> {
+        neymar.setOnMousePressed(mouseEvent ->{
             x = mouseEvent.getSceneX();
             y = mouseEvent.getSceneY();
         });
 
-        neymar.setOnMouseDragged(mouseEvent -> {
+        neymar.setOnMouseDragged(mouseEvent ->{
             stage.setX(mouseEvent.getScreenX() - x);
             stage.setY(mouseEvent.getScreenY() - y);
         });
@@ -74,11 +76,17 @@ public class TelaCadastroController implements Initializable{
 
     }
 
+    
     public void selecionaFoto(){
         FileChooser f = new FileChooser();
         f.getExtensionFilters().add(new ExtensionFilter("Imagens","*.png", "*.jpg", "*.jpeg")); 
         File file = f.showOpenDialog(new Stage());
-        noPhoto.setImage(new Image(file.getAbsolutePath()));
+        //se der erro no notebook, colcoar ali em baixo o "file:///"+
+        if(file != null){
+            noPhoto.setImage(new Image(file.getAbsolutePath()));
+            caminhoImg = file.getAbsolutePath();
+        }
+        
     }
 
     
@@ -98,6 +106,7 @@ public class TelaCadastroController implements Initializable{
             us.setNomeUsuario(tfNomeUsuario.getText());
             us.setEmailUsuario(tfEmailUsuario.getText());
             us.setSenhaUsuario(tfSenhaUsuario.getText());
+            us.setImgUsuario(caminhoImg);
             confirma = cu.cadastrarUsuario(us);
             if(confirma == true){
                 //Fecha o Pop-UP

@@ -38,10 +38,7 @@ public class TelaLoginController {
     private PasswordField tfSenha;
 
     @FXML
-    private ImageView testeTrans;
-
-    @FXML
-    private void btLogin(ActionEvent e) throws IOException, InterruptedException {
+    private void btLogin(ActionEvent e) throws IOException{
         
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();

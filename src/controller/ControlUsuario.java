@@ -16,6 +16,7 @@ public class ControlUsuario{
             if(confirma.next()){
                 Main.emailIdent = us.getEmailUsuario();
                 Main.verAdmin = us.getVerAdmin();
+                Main.usuImg = confirma.getString("imgUsuario");
                 System.out.println("login com sucesso");
             }else{
                 System.out.println("senha errada, fera kk");   

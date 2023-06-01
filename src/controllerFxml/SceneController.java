@@ -25,7 +25,7 @@ public class SceneController {
         stage.show();
     }
 
-    public void switchTelaLogin2(ActionEvent event) throws IOException, InterruptedException {
+    public void switchTelaLogin2(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("/view/telaLogin2.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

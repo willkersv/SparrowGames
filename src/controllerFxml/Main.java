@@ -17,8 +17,10 @@ public class Main extends Application {
     
     //Identificadores do usuario durante toda a utilizacao do sistema
     public static String emailIdent;
+    public static int idIdent;
+    public static String usuImg;
     public static Boolean verAdmin;
-
+    
     //Torna a tela Draggeble
     private double xOffset = 0;
     private double yOffset = 0;
@@ -56,4 +58,3 @@ public class Main extends Application {
 
     
 }
-

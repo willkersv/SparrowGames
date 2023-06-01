@@ -3,7 +3,9 @@ package model;
 public class Usuario {
     
     private int idUsuario;
-    
+
+    private String imgUsuario;
+
     private String nomeUsuario;
 
     private String emailUsuario;
@@ -18,6 +20,14 @@ public class Usuario {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getImgUsuario() {
+        return imgUsuario;
+    }
+
+    public void setImgUsuario(String imgUsuario) {
+        this.imgUsuario = imgUsuario;
     }
 
     public String getNomeUsuario() {
