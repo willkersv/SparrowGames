@@ -12,14 +12,16 @@ public class ControlUsuario{
     public void consultarLogin(Usuario us){
         try {
             DaoUsuario du = new DaoUsuario();
-            ResultSet confirma = du.findByEmail(us);
-            if(confirma.next()){
-                Main.emailIdent = us.getEmailUsuario();
-                Main.verAdmin = us.getVerAdmin();
-                Main.usuImg = confirma.getString("imgUsuario");
+            ResultSet resultado = du.findByEmail(us);
+            if(resultado.next()){
+                Main.idIdent = resultado.getInt("idUsuario");
+                Main.usuImg = resultado.getString("imgUsuario");
+                Main.nomeUsuario = resultado.getString("nomeUsuario");
+                Main.emailIdent = resultado.getString("emailUsuario");
+                Main.verAdmin = resultado.getBoolean("verAdmin");
                 System.out.println("login com sucesso");
             }else{
-                System.out.println("senha errada, fera kk");   
+                System.out.println("senha e/ou email errado, fera kk");   
             }
         } catch (SQLException e) {
             System.out.println("Problema com a transacao!");     

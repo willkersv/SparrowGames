@@ -16,6 +16,7 @@ import java.io.IOException;
 public class Main extends Application {
     
     //Identificadores do usuario durante toda a utilizacao do sistema
+    public static String nomeUsuario;
     public static String emailIdent;
     public static int idIdent;
     public static String usuImg;
@@ -24,7 +25,8 @@ public class Main extends Application {
     //Torna a tela Draggeble
     private double xOffset = 0;
     private double yOffset = 0;
-    
+
+    public static Scene teste;     
     public static void main(String[] args) {
         launch();
     }
@@ -34,6 +36,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene TelaLogin = new Scene(root);
+        teste = TelaLogin;
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image);
         root.setOnMousePressed(new EventHandler<MouseEvent>() {

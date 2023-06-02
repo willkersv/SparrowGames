@@ -1,44 +1,55 @@
 package controllerFxml;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import controller.ControlUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import model.Usuario;
 
 
 
-public class TelaLoginController {
+public class TelaLoginController implements Initializable{
 
     @FXML
     private Button btnLogin;
 
     @FXML
-    private Button btnFechar;
-    
-    @FXML
-    private ImageView btSair;
+    private ImageView btnFechar;
 
     @FXML
-    private Hyperlink hyCadastro;
+    private Hyperlink hylCadastro;
 
     @FXML
-    private Hyperlink hyEsqueceuSenha;
+    private Hyperlink hylSenha;
 
     @FXML
     private TextField tfEmail;
     
     @FXML
     private PasswordField tfSenha;
+    
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        btnFechar.setOnMouseClicked((MouseEvent e)->{
+            btFechar();
+        });
+    }
+    
+    
     @FXML
-    private void btLogin(ActionEvent e) throws IOException{
+    protected void btLogin(ActionEvent e) throws IOException{
         
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
@@ -48,7 +59,9 @@ public class TelaLoginController {
         cu.consultarLogin(us);
         SceneController sc = new SceneController();
         if(Main.emailIdent == null){ 
-            sc.switchTelaLogin2(e);
+            String css = this.getClass().getResource("/css/teste.css").toExternalForm();
+            Main.teste.getStylesheets().add(css);
+            //sc.switchTelaLogin2(e);
         }else{
             sc.switchTelaInicial(e);
         }
@@ -68,6 +81,8 @@ public class TelaLoginController {
         SceneController sc = new SceneController();
         sc.switchTelaCadastro(e);
     }
+
+    
 
 }
 

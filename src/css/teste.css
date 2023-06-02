@@ -1,0 +1,5 @@
+.campos{
+    -fx-background-color: transparent !important;
+    -fx-border-color:#ff0000 !important;
+    -fx-border-width: 0px 0px 3px 0px !important;
+}

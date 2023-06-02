@@ -79,7 +79,7 @@ public class TelaCadastroController implements Initializable{
     
     public void selecionaFoto(){
         FileChooser f = new FileChooser();
-        f.getExtensionFilters().add(new ExtensionFilter("Imagens","*.png", "*.jpg", "*.jpeg")); 
+        f.getExtensionFilters().add(new ExtensionFilter("Imagens","*.png", "*.jpg", "*.jpeg", "*.gif")); 
         File file = f.showOpenDialog(new Stage());
         //se der erro no notebook, colcoar ali em baixo o "file:///"+
         if(file != null){

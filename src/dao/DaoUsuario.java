@@ -15,7 +15,7 @@ public class DaoUsuario {
         ConnectBd bd = new ConnectBd();
         
         try{
-            command = "SELECT imgUsuario, emailUsuario, senhaUsuario, verAdmin FROM Usuario WHERE emailUsuario = ? AND senhaUsuario = ? ";
+            command = "SELECT idUsuario, imgUsuario, nomeUsuario, emailUsuario, verAdmin FROM Usuario WHERE emailUsuario = ? AND senhaUsuario = ? ";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, us.getEmailUsuario());
             declaracao.setString(2, us.getSenhaUsuario());

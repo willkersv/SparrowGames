@@ -14,33 +14,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaLoginController">
    <left>
-      <AnchorPane id="arcor" prefHeight="670.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="670.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="670.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/imgLogin.png" />
                </image>
             </ImageView>
-            
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane id="arcor" fx:id="testekk" prefHeight="670.0" prefWidth="1698.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="670.0" prefWidth="1698.0" style="-fx-background-color: #272727;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="tfEmail" layoutX="232.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-            <PasswordField fx:id="tfSenha" layoutX="232.0" layoutY="302.0" prefHeight="40.0" prefWidth="250.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #2c2c2c; -fx-border-width: 0px 0px 3px 0px;">
+            <PasswordField fx:id="tfSenha" layoutX="232.0" layoutY="302.0" prefHeight="40.0" prefWidth="250.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px;" styleClass="campos">
                <font>
                   <Font size="14.0" />
                </font></PasswordField>
-            <Hyperlink fx:id="hySenha" layoutX="374.0" layoutY="291.0" text="Esqueceu a senha?" textFill="#4d4d4d" />
-            <Button fx:id="btnLogin" layoutX="232.0" layoutY="370.0" mnemonicParsing="false" onAction="#btLogin" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" text="Login">
+            <Button fx:id="btnLogin" layoutX="232.0" layoutY="370.0" mnemonicParsing="false" onAction="#btLogin" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #D7D7D7;" text="Login">
                <font>
                   <Font size="14.0" />
                </font>
@@ -48,8 +39,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Hyperlink fx:id="hylCadastro" layoutX="370.0" layoutY="433.0" onAction="#hylCadastro" text="Cadastre-se." textFill="#4d4d4d" />
+            <TextField fx:id="tfEmail" layoutX="232.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px;" styleClass="campos">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextField>
+            <Hyperlink fx:id="hylSenha" layoutX="374.0" layoutY="280.0" text="Esqueceu a senha?" textFill="#d7d7d7" />
             <Label layoutX="271.0" layoutY="436.0" text="Novo no Sparrow?" textFill="WHITE" />
+            <Hyperlink fx:id="hylCadastro" layoutX="370.0" layoutY="433.0" text="Cadastre-se." textFill="#d7d7d7" />
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="196.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.png" />
@@ -60,15 +59,15 @@
                   <Image url="@../images/lock.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btSair" fitHeight="31.0" fitWidth="38.0" layoutX="635.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="553.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+            <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="636.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/close.png" />
                </image>
-            </ImageView>
-            <Button fx:id="btnFechar" accessibleRole="IMAGE_VIEW" layoutX="643.0" layoutY="14.0" mnemonicParsing="false" onAction="#btFechar" style="-fx-opacity: 0;">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
