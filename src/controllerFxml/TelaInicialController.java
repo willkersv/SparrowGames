@@ -71,10 +71,7 @@ public class TelaInicialController implements Initializable{
         });
 
         if(Main.usuImg != null){
-            //System.out.println(Main.usuImg);
-            //System.out.println(Main.emailIdent);
             Image usuImage = new Image(Main.usuImg, false);
-            circleUsu.setStroke(Color.WHITE);
             circleUsu.setFill(new ImagePattern(usuImage));
 
         }

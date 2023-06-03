@@ -11,6 +11,7 @@
         "libraries-javafx/javafx.media.jar",
         "libraries-javafx/javafx.swing.jar",
         "libraries-javafx/javafx.web.jar",
-        "libraries-javafx/javafx-swt.jar"
+        "libraries-javafx/javafx-swt.jar",
+        "libraries-javafx/AnimateFX-1.2.0.jar"
     ]
 }

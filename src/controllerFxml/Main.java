@@ -26,7 +26,7 @@ public class Main extends Application {
     private double xOffset = 0;
     private double yOffset = 0;
 
-    public static Scene teste;     
+    public static Scene mainScene;     
     public static void main(String[] args) {
         launch();
     }
@@ -36,7 +36,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene TelaLogin = new Scene(root);
-        teste = TelaLogin;
+        mainScene = TelaLogin;
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image);
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -56,6 +56,7 @@ public class Main extends Application {
             }
         });
         primaryStage.setScene(TelaLogin);
+        new animatefx.animation.ZoomIn(root);
         primaryStage.show();
     }
 

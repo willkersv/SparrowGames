@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class SceneController {
+    
     public static Stage stage;
     private Scene scene;
     private Parent root;

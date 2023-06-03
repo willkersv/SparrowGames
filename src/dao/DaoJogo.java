@@ -15,7 +15,7 @@ public class DaoJogo{
         ConnectBd bd = new ConnectBd();
 
         try{//                                                         PESQUISA COM QUALQUER COISA ANTES E QUALQUER COISA DEPOIS / Pesquisa mais generica
-            command = "SELECT idJogo, precoJogo, desenvolvedora, descricao, genero FROM Jogo WHERE nomeJogo LIKE %?%";
+            command = "SELECT idJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE nomeJogo LIKE %?%";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, nomeJogoPesq);
             ResultSet resultado = declaracao.executeQuery();
@@ -40,7 +40,7 @@ public class DaoJogo{
         ConnectBd bd = new ConnectBd();
 
         try{//                                                         PESQUISA COM ESPECIFICA / Não tenho crtz de onde usar, mas ja ta feita ;)
-            command = "SELECT nomeJogo, precoJogo, desenvolvedora, descricao, genero FROM Jogo WHERE idJogo = ?";
+            command = "SELECT nomeJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE idJogo = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogoPesq);
             ResultSet resultado = declaracao.executeQuery();
@@ -75,7 +75,6 @@ public class DaoJogo{
             declaracao.setDouble(2, jg.getPrecoJogo());
             declaracao.setString(3, jg.getDesenvolvedora());
             declaracao.setString(4, jg.getDescricao());
-            declaracao.setString(4, jg.getGenero());
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Adicionou com sucesso o jogito ao banco!");

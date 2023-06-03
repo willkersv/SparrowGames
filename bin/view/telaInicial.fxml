@@ -434,25 +434,22 @@
                      </children>
                   </HBox>
                   <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="500.0" scaleShape="false" />
-                  <ImageView fx:id="imgCarrinho" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/shopping-cart.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="60.0" prefWidth="113.0">
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="60.0" prefWidth="180.0">
                      <children>
-                        <Label fx:id="nomeUsuario" text="Usuário" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
+                        <ImageView fx:id="imgCarrinho" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/shopping-cart.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="nomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Circle fx:id="circleUsu" fill="DODGERBLUE" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="circleUsu" fill="DODGERBLUE" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
                      </children>
                   </HBox>
                </children>
