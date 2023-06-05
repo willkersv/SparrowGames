@@ -14,6 +14,8 @@ public class Usuario {
 
     private Boolean verAdmin;
 
+    private String codRec;
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -60,5 +62,13 @@ public class Usuario {
 
     public void setVerAdmin(Boolean verAdmin) {
         this.verAdmin = verAdmin;
+    }
+
+    public String getCodRec() {
+        return codRec;
+    }
+
+    public void setCodRec(String codRec) {
+        this.codRec = codRec;
     }
 }

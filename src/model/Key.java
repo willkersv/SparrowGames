@@ -1,18 +1,18 @@
 package model;
 
 public class Key {
-    private int ifJogo;
+    private int idJogo;
 
     private int idSerial;
 
     private boolean disponivel;
 
-    public int getIfJogo() {
-        return ifJogo;
+    public int getidJogo() {
+        return idJogo;
     }
 
-    public void setIfJogo(int ifJogo) {
-        this.ifJogo = ifJogo;
+    public void setidJogo(int idJogo) {
+        this.idJogo = idJogo;
     }
 
     public int getIdSerial() {

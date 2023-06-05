@@ -13,7 +13,6 @@ public class ConnectBd {
     
     public ConnectBd(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(mysqlURL+nomeBD, usuario, senha);
             connection.setAutoCommit(false);
             System.out.println("Conectado com sucesso aaaaaaaa");

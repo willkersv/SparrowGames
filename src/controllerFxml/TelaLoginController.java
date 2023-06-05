@@ -85,6 +85,47 @@ public class TelaLoginController implements Initializable{
     @FXML
     private Button btnCadastrar;
 
+    //Tela de recuperar senha
+    @FXML
+    private Pane pnRecSenha;
+
+    @FXML
+    private ImageView btnSair3;
+
+    @FXML
+    private ImageView btnVoltarRecSenha;
+
+    @FXML
+    private TextField tfEmailRec;
+
+    @FXML
+    private TextField tfCodRec;
+
+    //Tela de Redigitar senha
+    @FXML
+    private Pane pnRedSenha;
+
+    @FXML
+    private ImageView btnVoltar3;
+
+    @FXML
+    private Button btnRecSenha;
+    
+    @FXML
+    private PasswordField tfNovaSenha1;
+
+    @FXML
+    private PasswordField tfNovaSenha2;
+    
+    @FXML
+    private Pane barraCod;
+
+    @FXML
+    private Label labCodSenha;
+
+    private int permite;
+
+    private String cssSenha = "-fx-border-color:#ff0000 !important; -fx-border-width: 0px 0px 3px 0px !important; -fx-background-color: transparent !important; -fx-text-fill:  #D7D7D7 !important;";
    
 
     @Override
@@ -98,70 +139,48 @@ public class TelaLoginController implements Initializable{
             sair();
         });
 
+        btnSair3.setOnMouseClicked((MouseEvent e)->{
+            sair();
+        });
+
         circleUsu.setOnMouseClicked((MouseEvent e)->{
             selecionaFoto();
         });
 
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
-            voltar();
+            voltarCodSenha();
+            voltarCad();
+            
+        });
+
+        btnVoltarRecSenha.setOnMouseClicked((MouseEvent e)->{
+            voltarRecSenha();
+            
+        });
+        
+        btnVoltar3.setOnMouseClicked((MouseEvent e)->{
+            voltarRedSenha();
+            
+        });
+
+        tfEmail.setOnMouseClicked((MouseEvent e)->{
+            if(permite == 1){
+                voltarCodSenha();
+            }
+            permite = 0;
             
         });
     }
 
-    public void selecionaFoto(){
-        FileChooser f = new FileChooser();
-        f.getExtensionFilters().add(new ExtensionFilter("Imagens","*.png", "*.jpg", "*.jpeg", "*.gif")); 
-        File file = f.showOpenDialog(new Stage());
-        //se der erro no notebook, colcoar ali em baixo o "file:///"+
-        if(file != null){
-            
-            Image Img = new Image(file.getAbsolutePath(), false);
-            circleUsu.setFill(new ImagePattern(Img));
-            caminhoImg = file.getAbsolutePath();
-        }}
-
+    //Funções dos botões de mais importancia
     @FXML
-    protected void btCadastrar(ActionEvent e) throws IOException{
-        Usuario us = new Usuario();
-        ControlUsuario cu = new ControlUsuario();
-        boolean confirma;
-        if(tfSenhaCad1.getText().equals(tfSenhaCad2.getText())){
-            us.setNomeUsuario(tfNomeCad.getText());
-            us.setEmailUsuario(tfEmailCad.getText());
-            us.setSenhaUsuario(tfSenhaCad1.getText());
-            us.setImgUsuario(caminhoImg);
-            confirma = cu.cadastrarUsuario(us);
-            if(confirma == true){
-                voltar();
-            }
-            else{
-                System.out.println("f total");
-            } 
-        }
-        else{
-            System.out.println("Senhas diferentes, fera");
-        }
-    }
-    
-    protected void voltar(){
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(1));
-        slide.setNode(pnCadastro);
-        slide.setToY(700);
-        slide.play();
-    }
-
-    @FXML
-    protected void login(ActionEvent e) throws IOException{
+    private void login(ActionEvent e) throws IOException{
         
-        Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
-        us.setEmailUsuario(tfEmail.getText());
-        us.setSenhaUsuario(tfSenha.getText());
         System.out.println("------------------------\nBOTAO LOGIN AINDA FUNCIONA");
-        cu.consultarLogin(us);
+        boolean confirma = cu.consultarLogin(tfEmail.getText(), tfSenha.getText());
         SceneController sc = new SceneController();
-        if(Main.emailIdent == null){ 
+        if(confirma == false){ 
             String css = this.getClass().getResource("/css/invalido.css").toExternalForm();
             lbIncorreto.setVisible(true);
             Main.mainScene.getStylesheets().add(css);
@@ -171,10 +190,92 @@ public class TelaLoginController implements Initializable{
         }
 
     }
+    
+    @FXML
+    private void btCadastrar(ActionEvent e) throws IOException{
+        Usuario us = new Usuario();
+        ControlUsuario cu = new ControlUsuario();
+        boolean confirma;
+        if(tfSenhaCad1.getText().equals(tfSenhaCad2.getText())){
+            us.setNomeUsuario(tfNomeCad.getText());
+            us.setEmailUsuario(tfEmailCad.getText());
+            us.setSenhaUsuario(tfSenhaCad1.getText());
+            us.setImgUsuario(caminhoImg);
+            String tempCod = cu.codRecuperarSenha();
+            labCodSenha.setText(tempCod);
+            us.setCodRec(tempCod);
+            confirma = cu.cadastrarUsuario(us);
+            if(confirma == true){
+                limpaCamposCad();
+                voltarCad();
+                sobeCodSenha();
+                permite = 1;
+            }
+            else{
+                
+                System.out.println("f total");
+            } 
+        }
+        else{
+            tfSenhaCad1.setStyle(cssSenha);
+            tfSenhaCad2.setStyle(cssSenha);
+            System.out.println("Senhas diferentes, fera");
+        }
+    }
+
+    private void selecionaFoto(){
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new ExtensionFilter("Imagens","*.png", "*.jpg", "*.jpeg", "*.gif")); 
+        File file = fc.showOpenDialog(new Stage());
+        //se der erro no notebook, colcoar ali em baixo o "file:///"+
+        if(file != null){
+            
+            Image Img = new Image(file.getAbsolutePath(), false);
+            circleUsu.setFill(new ImagePattern(Img));
+            caminhoImg = file.getAbsolutePath();
+        }}
+
+    @FXML
+    void btRecSenha(){
+        ControlUsuario cu = new ControlUsuario();
+        System.out.println("------------------------\nBOTAO REC AINDA FUNCIONA");
+        if(cu.consultaCodRec(tfEmailRec.getText(), tfCodRec.getText()).equals(tfCodRec.getText())){
+            Main.emailIdent= tfEmailRec.getText();
+            limpaCamposRec();
+            voltarRecSenha();
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(1));
+            slide.setNode(pnRedSenha);
+            slide.setToY(700);
+            slide.play();
+        }
+        else{
+            tfCodRec.setStyle(cssSenha);
+            tfEmailRec.setStyle(cssSenha);
+        }
+    }
+    
+    @FXML
+    private void btRedSenha(){
+        ControlUsuario cu = new ControlUsuario();
+        System.out.println("------------------------\nBOTAO RED AINDA FUNCIONA");
+        if((tfNovaSenha1.getText()).equals(tfNovaSenha2.getText())){
+            String temp = cu.codRecuperarSenha();
+            cu.alterarSenhaUsuario(tfNovaSenha1.getText(), temp);
+            labCodSenha.setText(temp);
+            limpaCamposRed();
+            voltarRedSenha();
+            sobeCodSenha();
+            permite = 1;
+        }
+        else{
+            tfNovaSenha1.setStyle(cssSenha);
+            tfNovaSenha2.setStyle(cssSenha);
+        }
+    }
 
     @FXML
     private void sair(){
-        //usar o System.exit para fechar tudo :)
         System.exit(1);
         //Stage stage = (Stage) btnFechar.getScene().getWindow();
         //stage.close();
@@ -186,7 +287,7 @@ public class TelaLoginController implements Initializable{
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(1));
         slide.setNode(pnCadastro);
-        slide.setToY(-700);
+        slide.setToY(-810);
         slide.play();
         pnCadastro.toFront();
         Image usuImage = new Image("/images/sparrow games.png", false);
@@ -194,6 +295,84 @@ public class TelaLoginController implements Initializable{
 
     }
 
+    @FXML
+    void hySenha(ActionEvent event) {
+        
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(1));
+        slide.setNode(pnRecSenha);
+        slide.setToX(-700);
+        slide.play();
+        pnCadastro.toFront();
+
+    }
+
+    //Funções para voltar de tela em tela
+    protected void voltarCad(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(1));
+        slide.setNode(pnCadastro);
+        slide.setToY(700);
+        slide.play();
+    }
+    
+    @FXML
+    void voltarRecSenha() {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(1));
+        slide.setNode(pnRecSenha);
+        slide.setToX(700);
+        slide.play();
+    }
+    
+    @FXML
+    void voltarRedSenha(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(2));
+        slide.setNode(pnRedSenha);
+        slide.setToY(-700);
+        slide.play();
+        voltarCodSenha();
+    }
+
+    @FXML
+    void voltarCodSenha(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(1));
+        slide.setNode(barraCod);
+        slide.setToY(90);
+        slide.play();
+    }
+    
+    //Funções para subir as telas
+    @FXML
+    void sobeCodSenha(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(1));
+        slide.setNode(barraCod);
+        slide.setToY(-90);
+        slide.play();
+        barraCod.toFront();
+    }
+
+
+    //Funções pra limpar campos das telas
+    private void limpaCamposCad(){
+        tfNomeCad.setText("");
+        tfEmailCad.setText("");
+        tfSenhaCad1.setText("");
+        tfSenhaCad2.setText("");
+    }
+
+    private void limpaCamposRec(){
+        tfEmailRec.setText("");
+        tfCodRec.setText("");
+    }
+    
+    private void limpaCamposRed(){
+        tfSenhaCad1.setText("");
+        tfSenhaCad2.setText("");
+    }
 
     
 

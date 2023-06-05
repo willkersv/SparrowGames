@@ -21,6 +21,8 @@ public class Main extends Application {
     public static int idIdent;
     public static String usuImg;
     public static Boolean verAdmin;
+
+    public static int idJogoAux;
     
     //Torna a tela Draggeble
     private double xOffset = 0;
@@ -32,7 +34,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws IOException {
-        Image image = new Image("images/sex.gif");
+        Image image = new Image("images/sparrow games.png");
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene TelaLogin = new Scene(root);
@@ -56,7 +58,7 @@ public class Main extends Application {
             }
         });
         primaryStage.setScene(TelaLogin);
-        new animatefx.animation.ZoomIn(root);
+        new animatefx.animation.ZoomIn(root).setSpeed(2).play();;
         primaryStage.show();
     }
 

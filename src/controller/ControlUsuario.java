@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 import controllerFxml.Main;
 import dao.DaoUsuario;
@@ -9,10 +10,13 @@ import model.Usuario;
 
 public class ControlUsuario{
     
-    public void consultarLogin(Usuario us){
+    public boolean consultarLogin(String email, String senha){
         try {
+            Usuario us = new Usuario();
+            us.setEmailUsuario(email);
+            us.setSenhaUsuario(senha);
             DaoUsuario du = new DaoUsuario();
-            ResultSet resultado = du.findByEmail(us);
+            ResultSet resultado = du.confirmaLogin(us);
             if(resultado.next()){
                 Main.idIdent = resultado.getInt("idUsuario");
                 Main.usuImg = resultado.getString("imgUsuario");
@@ -20,18 +24,40 @@ public class ControlUsuario{
                 Main.emailIdent = resultado.getString("emailUsuario");
                 Main.verAdmin = resultado.getBoolean("verAdmin");
                 System.out.println("login com sucesso");
+                return true;
             }else{
-                System.out.println("senha e/ou email errado, fera kk");   
+                System.out.println("senha e/ou email errado, fera kk"); 
+                return false;  
             }
         } catch (SQLException e) {
             System.out.println("Problema com a transacao!");     
         }
+        return false;
+    }
+
+    public String consultaCodRec(String email, String codRec){
+        try {
+            DaoUsuario du = new DaoUsuario();
+            ResultSet resultado = du.confirmaCodRec(email, codRec);
+            if(resultado.next()){
+                System.out.println("Pesquisa deu certo kkk");
+                return resultado.getString("CodRec");
+                
+            }else{
+                System.out.println("N encontrou");
+                return "";
+                   
+            }
+        } catch (SQLException e) {
+            System.out.println("Problema com a transacao!");     
+        }
+        return ""; 
     }
 
     public boolean cadastrarUsuario(Usuario us){
         try{
             DaoUsuario du = new DaoUsuario();
-            ResultSet confirma = du.findByEmail(us);
+            ResultSet confirma = du.confirmaLogin(us);
             if(confirma.next()){
                 System.out.println("usuario ja cadastrado");
                 return false;
@@ -44,15 +70,54 @@ public class ControlUsuario{
         }catch(SQLException e){
             System.out.println("deu erro kk");
             return false;
-        }
-        
+        }    
     }
 
-    public void alterarUsuario(String novoNome){
+    public void alterarNomeUsuario(String novoNome){
         DaoUsuario du = new DaoUsuario();
-        du.updateUsuario(novoNome);
+        du.updateNomeUsuario(novoNome);
         System.out.println("usuario alterado");
     }
+
+    public void alterarSenhaUsuario(String novaSenha, String codRec){
+        DaoUsuario du = new DaoUsuario();
+        du.updateSenhaUsuario(novaSenha, codRec);
+        System.out.println("usuario alterado com sucesso rsrs");
+    }
+
+    
+    public String codRecuperarSenha(){
+        String alphaNum = "ABCDEFGHIJKLMNOIPQRSTUVWXYZ0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+
+        int length = 6; 
+        for(int i = 0; i < length; i++){
+            int index = random.nextInt(alphaNum.length());
+            char randomChar = alphaNum.charAt(index);
+            sb.append(randomChar);
+        }
+
+        String codRecSenha = sb.toString();
+        System.out.println("Codigo de recuperacao de senha: " + codRecSenha);
+        return codRecSenha;
+    }
+
+    // public String findByEmail(Usuario us) {
+    //     try {
+    //         DaoUsuario du = new DaoUsuario();
+    //         ResultSet resultado = du.findByEmail(us);
+    //         if(resultado.next()){
+    //             System.out.println("tudo certo com a pesquisa");
+    //             return resultado.getString("CodRec");
+    //         }else{
+    //             System.out.println("senha e/ou email errado, fera kk");   
+    //         }
+    //     } catch (SQLException e) {
+    //         System.out.println("Problema com a transacao!");     
+    //     }
+    //     return null;
+    // }
 
 
 }

@@ -25,14 +25,6 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchTelaLogin2(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("/view/telaLogin2.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
     
     public void switchTelaCadastro(ActionEvent event) throws IOException {
 
@@ -56,7 +48,7 @@ public class SceneController {
         
     }
 
-    public void switchTelaJogo(ActionEvent event) throws IOException {
+    public void switchTelaJogo(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/telaJogo.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

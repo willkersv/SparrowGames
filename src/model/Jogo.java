@@ -5,6 +5,8 @@ public class Jogo {
     
     private int idJogo;
 
+    private String imgJogo;
+
     private String nomeJogo;
 
     private Double precoJogo;
@@ -21,6 +23,14 @@ public class Jogo {
 
     public void setIdJogo(int idJogo) {
         this.idJogo = idJogo;
+    }
+
+    public String getImgJogo() {
+        return imgJogo;
+    }
+
+    public void setImgJogo(String imgJogo) {
+        this.imgJogo = imgJogo;
     }
 
     public String getNomeJogo() {

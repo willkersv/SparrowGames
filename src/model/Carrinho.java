@@ -1,20 +1,12 @@
 package model;
 
 public class Carrinho {
-    
-    private int sequencial;
 
     private int idUsuario;
 
     private int  idJogo;
 
-    public int getSequencial() {
-        return sequencial;
-    }
-
-    public void setSequencial(int sequencial) {
-        this.sequencial = sequencial;
-    }
+    private String idSerial;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -30,5 +22,13 @@ public class Carrinho {
 
     public void setIdJogo(int idJogo) {
         this.idJogo = idJogo;
+    }
+
+    public String getIdSerial() {
+        return idSerial;
+    }
+
+    public void setIdSerial(String idSerial) {
+        this.idSerial = idSerial;
     }
 }

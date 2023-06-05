@@ -11,7 +11,7 @@ public class DaoJogo{
     private PreparedStatement declaracao;
     private String command = "";
 
-    public ResultSet FindByNome(String nomeJogoPesq){
+    public ResultSet findByNome(String nomeJogoPesq){
         ConnectBd bd = new ConnectBd();
 
         try{//                                                         PESQUISA COM QUALQUER COISA ANTES E QUALQUER COISA DEPOIS / Pesquisa mais generica
@@ -36,11 +36,11 @@ public class DaoJogo{
         }
     }
 
-    public ResultSet FindById(int idJogoPesq){
+    public ResultSet findById(int idJogoPesq){
         ConnectBd bd = new ConnectBd();
 
-        try{//                                                         PESQUISA COM ESPECIFICA / Não tenho crtz de onde usar, mas ja ta feita ;)
-            command = "SELECT nomeJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE idJogo = ?";
+        try{//                                                         PESQUISA ESPECIFICA
+            command = "SELECT * FROM Jogo WHERE idJogo = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogoPesq);
             ResultSet resultado = declaracao.executeQuery();
@@ -62,14 +62,10 @@ public class DaoJogo{
     }
 
 
-
-
-
-
     public void insertjogo(Jogo jg, ImagemJogo imgJg){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "INSERT INTO Jogo VALUES (NULL, ?, ?, ?, ?, ?)";
+            command = "INSERT INTO Jogo VALUES (NULL, ?, ?, ?, ?)";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, jg.getNomeJogo());
             declaracao.setDouble(2, jg.getPrecoJogo());
