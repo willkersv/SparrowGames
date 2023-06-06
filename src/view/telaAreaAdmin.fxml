@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox prefHeight="90.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/close.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/minus.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/arrow-left.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #565759;">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <HBox>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/sparrow_games-removebg-preview.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                     <children>
+                        <TextField prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/search%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="465.0" scaleShape="false" />
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="60.0" prefWidth="180.0">
+                     <children>
+                        <ImageView fx:id="imgCarrinho" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/shopping-cart.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="nomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER">
+               <content>
+                  <VBox prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1080.0">
+                           <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/settings-sliders.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" text="Área do Admin" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#565759" />
+                        <VBox prefHeight="320.0" prefWidth="1080.0">
+                           <children>
+                              <Label text="Adicionar Jogo:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="321.0" prefWidth="1080.0">
+                                 <children>
+                                    <VBox prefHeight="277.0" prefWidth="430.0">
+                                       <children>
+                                          <Label text="Imagem do jogo:" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Italic" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b7b9bc" height="225.0" stroke="BLACK" strokeType="INSIDE" width="400.0">
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Rectangle>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" height="35.0" stroke="BLACK" strokeType="INSIDE" translateX="385.0" translateY="-40.0" width="35.0" />
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="387.0" translateY="-73.0">
+                                             <image>
+                                                <Image url="@../images/camera.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="304.0" prefWidth="654.0">
+                                       <children>
+                                          <HBox prefHeight="80.0" prefWidth="654.0">
+                                             <children>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="ID Jogo" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Nome do jogo" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="50.0" prefWidth="654.0">
+                                             <children>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Preço do jogo" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Desenvolvedora" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox prefHeight="84.0" prefWidth="654.0">
+                                             <children>
+                                                <TextField prefHeight="40.0" prefWidth="523.0" promptText="Descrição" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Adicionar Jogo">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#565759" />
+                        <VBox prefHeight="202.0" prefWidth="1080.0">
+                           <children>
+                              <Label text="Adicionar Key:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="165.0" prefWidth="1080.0">
+                                 <children>
+                                    <VBox prefHeight="151.0" prefWidth="719.0">
+                                       <children>
+                                          <HBox prefHeight="39.0" prefWidth="719.0">
+                                             <children>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="ID Jogo" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Serial Key" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Adicionar Key">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="20.0" top="30.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#565759" />
+                        <VBox prefHeight="202.0" prefWidth="1080.0">
+                           <children>
+                              <Label text="Excluir Usuário: EM BREVE" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="165.0" prefWidth="1080.0">
+                                 <children>
+                                    <VBox prefHeight="71.0" prefWidth="719.0">
+                                       <children>
+                                          <HBox prefHeight="39.0" prefWidth="719.0">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/user-minus.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="ID Usuário" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Pane fx:id="pnTeste" layoutX="1110.0" layoutY="10.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #565759;">
+               <children>
+                  <VBox prefHeight="145.0" prefWidth="200.0">
+                     <children>
+                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <HBox prefHeight="0.0" prefWidth="250.0">
+                           <children>
+                              <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="104.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Minha conta" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/book.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/star.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/settings-sliders.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

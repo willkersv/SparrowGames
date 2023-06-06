@@ -14,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -24,9 +23,13 @@ public class TelaInicialController implements Initializable{
     
     private double x = 0, y = 0;
 
+    @FXML
+    private Pane barra;
+    
     //Variavel para o modalzinho
     private boolean permite = true;
     
+    //pre load de dados
     @FXML
     private Circle circleUsu;
 
@@ -35,23 +38,84 @@ public class TelaInicialController implements Initializable{
 
     @FXML
     private ImageView imgCarrinho;
-
+    
+    //Modal things
     @FXML
-    private Pane barra;
-
-    @FXML
-    private ImageView btnTW;
-
-    @FXML
-    private Pane pnTeste;
+    private Pane pnModal;
 
     @FXML
     private Button btnConta;
 
+    //Image view dos jogos da tela
+    @FXML
+    private ImageView imgTL;
 
-    private void btTW(MouseEvent e) throws IOException{
-        System.out.println("saaaaaaaaaaaaaaaaaaa");
+    @FXML
+    private ImageView imgER;
+
+    @FXML
+    private ImageView imgTW;
+
+    @FXML
+    private ImageView imgDS;
+
+    @FXML
+    private ImageView imgBB;
+
+    @FXML
+    private ImageView imgFS;
+
+    @FXML
+    private ImageView imgMK;
+
+    @FXML
+    private ImageView imgWD;
+
+
+    private void TelaTL(MouseEvent e) throws IOException{
+        Main.idJogoAux = 3;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaER(MouseEvent e) throws IOException{
+        Main.idJogoAux = 4;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaTW(MouseEvent e) throws IOException{
         Main.idJogoAux = 2;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaDS(MouseEvent e) throws IOException{
+        Main.idJogoAux = 5;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaBB(MouseEvent e) throws IOException{
+        Main.idJogoAux = 6;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaFS(MouseEvent e) throws IOException{
+        Main.idJogoAux = 7;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaMK(MouseEvent e) throws IOException{
+        Main.idJogoAux = 8;
+        SceneController sc = new SceneController();
+        sc.switchTelaJogo(e); 
+    }
+
+    private void TelaWD(MouseEvent e) throws IOException{
+        Main.idJogoAux = 9;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
@@ -85,25 +149,88 @@ public class TelaInicialController implements Initializable{
 
         circleUsu.setOnMouseClicked((MouseEvent e)->{
             if(permite == true){
-                puxaPane();
+                puxaModal();
                 permite = false;
             }
             else{
-                voltaPane();
+                voltaModal();
                 permite = true;
             }
             
         });
 
-        btnTW.setOnMouseClicked((MouseEvent e)->{
+        //imagens para ir para os jogos
+        imgTL.setOnMouseClicked((MouseEvent e)->{
+                try {
+                    TelaTL(e);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            
+        });
+
+        imgER.setOnMouseClicked((MouseEvent e)->{
             try {
-                btTW(e);
+                TelaER(e);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
+        
         });
 
-        
+        imgTW.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaTW(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+    
+        });
+
+        imgDS.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaDS(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
+
+        imgBB.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaBB(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
+
+        imgFS.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaFS(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
+
+        imgMK.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaMK(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
+
+        imgWD.setOnMouseClicked((MouseEvent e)->{
+            try {
+                TelaWD(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
 
         btnConta.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -117,22 +244,24 @@ public class TelaInicialController implements Initializable{
         });
     }
 
-    private void puxaPane(){
+    private void puxaModal(){
         TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.5));
-        slide.setNode(pnTeste);
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
         slide.setByX(-200);
         slide.play();
-        pnTeste.toFront();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
     }
 
-    private void voltaPane(){
+    private void voltaModal(){
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.5));
-        slide.setNode(pnTeste);  
+        slide.setNode(pnModal);  
         slide.setByX(200);
         slide.play();
-        pnTeste.toFront();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
     }
 
     private void preLoadDados(){

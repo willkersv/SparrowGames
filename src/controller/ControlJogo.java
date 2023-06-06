@@ -13,9 +13,12 @@ public class ControlJogo {
             DaoJogo dj = new DaoJogo();
             ResultSet resultado = dj.findById(id);
             if(resultado.next()){
+                System.out.println("Jogo encontrado");
                 jg.setImgJogo(resultado.getString("imgJogo"));
                 jg.setNomeJogo(resultado.getString("nomeJogo"));
-                System.out.println("Jogo encontrado");
+                jg.setPrecoJogo(resultado.getDouble("precoJogo"));
+                jg.setDesenvolvedora(resultado.getString("desenvolvedora"));
+                jg.setDescricao(resultado.getString("descricao")); 
                 return jg;  
             }else{
                 System.out.println("jogo nao encontrado :(");

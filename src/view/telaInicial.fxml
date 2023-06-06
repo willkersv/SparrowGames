@@ -84,6 +84,9 @@
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
                         <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
                            <cursor>
@@ -99,7 +102,7 @@
    <center>
       <Pane layoutX="700.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565759;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pnTeste" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #565759;">
+            <Pane fx:id="pnModal" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #565759;">
                <children>
                   <VBox prefHeight="145.0" prefWidth="200.0">
                      <children>
@@ -130,7 +133,7 @@
                            </VBox.margin>
                         </HBox>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
+                        <Button fx:id="btnBiblioteca" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -143,7 +146,7 @@
                            </graphic>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
+                        <Button fx:id="btnFavoritos" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -156,7 +159,7 @@
                            </graphic>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
+                        <Button fx:id="btnAdmin" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -199,7 +202,7 @@
                                  <children>
                                     <VBox prefHeight="225.0" prefWidth="104.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgTL" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/1.png" />
                                              </image>
@@ -245,7 +248,7 @@
                                     </VBox>
                                     <VBox prefHeight="225.0" prefWidth="214.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgER" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/2.png" />
                                              </image>
@@ -288,7 +291,7 @@
                                     </VBox>
                                     <VBox prefHeight="225.0" prefWidth="30.0">
                                        <children>
-                                          <ImageView fx:id="btnTW" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgTW" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/4.png" />
                                              </image>
@@ -331,7 +334,7 @@
                                     </VBox>
                                     <VBox prefHeight="225.0" prefWidth="178.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgDS" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/5.png" />
                                              </image>
@@ -391,7 +394,7 @@
                                        <children>
                                           <VBox prefHeight="225.0" prefWidth="104.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgBB" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/6.png" />
                                                    </image>
@@ -437,7 +440,7 @@
                                           </VBox>
                                           <VBox prefHeight="225.0" prefWidth="214.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgFS" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/7.png" />
                                                    </image>
@@ -480,7 +483,7 @@
                                           </VBox>
                                           <VBox prefHeight="225.0" prefWidth="30.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgMK" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/8.png" />
                                                    </image>
@@ -523,7 +526,7 @@
                                           </VBox>
                                           <VBox prefHeight="225.0" prefWidth="178.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgWD" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/9.png" />
                                                    </image>

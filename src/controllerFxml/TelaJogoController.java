@@ -34,6 +34,7 @@ public class TelaJogoController implements Initializable {
     @FXML
     private Pane barra;
 
+    //Campos do jogo
     @FXML
     private ImageView imgJogo;
 
@@ -41,7 +42,13 @@ public class TelaJogoController implements Initializable {
     private Label labelNomeJogo;
 
     @FXML
-    private Label testeDesc;
+    private Label descJogo;
+
+    @FXML
+    private Label desenvolvedora;
+
+    @FXML
+    private Label preco;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,16 +64,6 @@ public class TelaJogoController implements Initializable {
 
         preLoadDados();
         infoJogo();
-
-        // btnConta.setOnMouseClicked((MouseEvent e)->{
-        //     SceneController sc = new SceneController();
-        //     try {
-        //         sc.switchTelaJogo(e);
-        //     } 
-        //     catch (IOException e1) {
-        //         e1.printStackTrace();
-        //     }
-        // });
         
     }
     
@@ -74,9 +71,10 @@ public class TelaJogoController implements Initializable {
     private void infoJogo(){
         
         ControlJogo cj = new ControlJogo();
-        labelNomeJogo.setText(cj.consultaJogo(2).getNomeJogo());
-        //Faz a label quebrar linha
-        testeDesc.setTextOverrun(OverrunStyle.CENTER_ELLIPSIS);
+        labelNomeJogo.setText(cj.consultaJogo(Main.idJogoAux).getNomeJogo());
+        descJogo.setText(cj.consultaJogo(Main.idJogoAux).getDescricao());
+        desenvolvedora.setText(cj.consultaJogo(Main.idJogoAux).getDesenvolvedora());
+        preco.setText(cj.consultaJogo(Main.idJogoAux).getPrecoJogo().toString());
 
         Image image = new Image(cj.consultaJogo(Main.idJogoAux).getImgJogo());
         System.out.println(cj.consultaJogo(Main.idJogoAux).getImgJogo());

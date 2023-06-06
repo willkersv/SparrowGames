@@ -174,18 +174,25 @@ public class TelaLoginController implements Initializable{
 
     //Funções dos botões de mais importancia
     @FXML
+    private void sair(){
+        System.exit(1);
+        //Stage stage = (Stage) btnFechar.getScene().getWindow();
+        //stage.close();
+    }
+    
+    @FXML
     private void login(ActionEvent e) throws IOException{
         
         ControlUsuario cu = new ControlUsuario();
         System.out.println("------------------------\nBOTAO LOGIN AINDA FUNCIONA");
         boolean confirma = cu.consultarLogin(tfEmail.getText(), tfSenha.getText());
-        SceneController sc = new SceneController();
         if(confirma == false){ 
             String css = this.getClass().getResource("/css/invalido.css").toExternalForm();
             lbIncorreto.setVisible(true);
             Main.mainScene.getStylesheets().add(css);
             tfSenha.setText("");
         }else{
+            SceneController sc = new SceneController();
             sc.switchTelaInicial(e);
         }
 
@@ -274,12 +281,6 @@ public class TelaLoginController implements Initializable{
         }
     }
 
-    @FXML
-    private void sair(){
-        System.exit(1);
-        //Stage stage = (Stage) btnFechar.getScene().getWindow();
-        //stage.close();
-    }
 
     @FXML
     private void hyCadastro(ActionEvent e) throws IOException{

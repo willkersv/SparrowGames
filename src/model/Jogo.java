@@ -15,8 +15,6 @@ public class Jogo {
 
     private String descricao;
 
-    private String genero;
-
     public int getIdJogo() {
         return idJogo;
     }
@@ -63,13 +61,5 @@ public class Jogo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 }
