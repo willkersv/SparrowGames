@@ -44,7 +44,17 @@ public class TelaInicialController implements Initializable{
     private Pane pnModal;
 
     @FXML
-    private Button btnConta;
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaFavoritos;
+
+    @FXML
+    private Button btnTelaAdmin;
+
 
     //Image view dos jogos da tela
     @FXML
@@ -73,7 +83,7 @@ public class TelaInicialController implements Initializable{
 
 
     private void TelaTL(MouseEvent e) throws IOException{
-        Main.idJogoAux = 3;
+        Main.idJogoAux = 1;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
@@ -87,7 +97,7 @@ public class TelaInicialController implements Initializable{
     private void TelaTW(MouseEvent e) throws IOException{
         Main.idJogoAux = 2;
         SceneController sc = new SceneController();
-        sc.switchTelaJogo(e); 
+        sc.switchTelaJogo(e);
     }
 
     private void TelaDS(MouseEvent e) throws IOException{
@@ -232,16 +242,46 @@ public class TelaInicialController implements Initializable{
 
         });
 
-        btnConta.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.idJogoAux = 2;
-                sc.switchTelaJogo(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
+        //Botões do modal
+        // btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+        //     SceneController sc = new SceneController();
+        //     try {
+        //         sc.switchTelaConta(e);
+        //     } 
+        //     catch (IOException e1) {
+        //         e1.printStackTrace();
+        //     }
+        // });
+
+        // btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+        //     SceneController sc = new SceneController();
+        //     try {
+        //         sc.switchTelaBiblioteca(e);
+        //     } 
+        //     catch (IOException e1) {
+        //         e1.printStackTrace();
+        //     }
+        // });
+
+        // btnTelaFavoritos.setOnMouseClicked((MouseEvent e)->{
+        //     SceneController sc = new SceneController();
+        //     try {
+        //         sc.switchTelaFavoritos(e);
+        //     } 
+        //     catch (IOException e1) {
+        //         e1.printStackTrace();
+        //     }
+        // });
+
+        // btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+        //     SceneController sc = new SceneController();
+        //     try {
+        //         sc.switchTelaAdmin(e);
+        //     } 
+        //     catch (IOException e1) {
+        //         e1.printStackTrace();
+        //     }
+        // });
     }
 
     private void puxaModal(){

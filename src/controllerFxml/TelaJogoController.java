@@ -2,23 +2,29 @@ package controllerFxml;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.print.attribute.standard.PrinterIsAcceptingJobs;
 
+import controller.ControlComentario;
 import controller.ControlJogo;
-import javafx.application.Preloader;
+import controller.ControlUsuario;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.OverrunStyle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import model.Comentario;
 
 public class TelaJogoController implements Initializable {
 
@@ -49,9 +55,36 @@ public class TelaJogoController implements Initializable {
 
     @FXML
     private Label preco;
+
+    //V-box dos comentario
+    @FXML
+    private VBox comentarioLayout;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ControlComentario cc = new ControlComentario();
+        List<Comentario> comentarioList  = new ArrayList<>(cc.exibirComentarios());  
+
+        for(int i =0; i<comentarioList.size(); i++){
+            
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/modeloComent.fxml"));
+                HBox hBox = fxmlLoader.load();
+                ModeloComentController mcd = fxmlLoader.getController();
+                mcd.setData(comentarioList.get(i));
+            //NAO APAGAR ESSA PORRA KKKK
+                //((ModeloComentController) fxmlLoader.getController()).getNomeUsuario().setText(comentarioList.get(i).getNomeUsuario());
+                //((ModeloComentController) fxmlLoader.getController()).getLbComentario().setText(comentarioList.get(i).getComentario());
+                //Image usuImage = new Image(comentarioList.get(i).getImgUsuario()); 
+                //((ModeloComentController) fxmlLoader.getController()).getFotoComentario().setFill(new ImagePattern(usuImage));
+                comentarioLayout.getChildren().add(hBox);
+                    
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        }
+        
         barra.setOnMousePressed(mouseEvent ->{
             x = mouseEvent.getSceneX();
             y = mouseEvent.getSceneY();

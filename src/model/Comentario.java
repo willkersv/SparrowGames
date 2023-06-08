@@ -2,15 +2,19 @@ package model;
 
 public class Comentario {
     
+    
+    private int idComentario;
+    
     private int idjogo;
 
     private int idUsuario;
 
-    private String conteudo;
-
     private String nomeUsuario;
 
-    private int idComentário;
+    private String imgUsuario;
+
+    private String comentario;
+
 
     public int getIdjogo() {
         return idjogo;
@@ -18,6 +22,14 @@ public class Comentario {
 
     public void setIdjogo(int idjogo) {
         this.idjogo = idjogo;
+    }
+
+    public int getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(int idComentario) {
+        this.idComentario = idComentario;
     }
 
     public int getIdUsuario() {
@@ -28,12 +40,12 @@ public class Comentario {
         this.idUsuario = idUsuario;
     }
 
-    public String getConteudo() {
-        return conteudo;
+    public String getComentario() {
+        return comentario;
     }
 
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
     public String getNomeUsuario() {
@@ -44,12 +56,13 @@ public class Comentario {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public int getIdComentário() {
-        return idComentário;
+    public String getImgUsuario() {
+        return imgUsuario;
     }
 
-    public void setIdComentário(int idComentário) {
-        this.idComentário = idComentário;
+    public void setImgUsuario(String imgUsuario) {
+        this.imgUsuario = imgUsuario;
     }
+
 
 }

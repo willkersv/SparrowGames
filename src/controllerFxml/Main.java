@@ -22,6 +22,7 @@ public class Main extends Application {
     public static String usuImg;
     public static Boolean verAdmin;
 
+    //Guarda dado do jogo
     public static int idJogoAux;
     
     //Torna a tela Draggeble
@@ -32,7 +33,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
-
+    
+    @Override
     public void start(Stage primaryStage) throws IOException {
         Image image = new Image("images/sparrow games.png");
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/telaLogin.fxml"));

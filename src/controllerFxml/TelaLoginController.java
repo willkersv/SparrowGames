@@ -356,7 +356,6 @@ public class TelaLoginController implements Initializable{
         barraCod.toFront();
     }
 
-
     //Funções pra limpar campos das telas
     private void limpaCamposCad(){
         tfNomeCad.setText("");
