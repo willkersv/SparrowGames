@@ -2,14 +2,12 @@ package controllerFxml;
 
 import java.io.IOException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class SceneController {
     
@@ -26,7 +24,7 @@ public class SceneController {
         stage.show();
     }
     
-    public void switchTelaInicial(ActionEvent event) throws IOException{
+    public void switchTelaInicial(MouseEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("/view/telaInicial.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

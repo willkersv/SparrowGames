@@ -1,10 +1,9 @@
 package model;
 
 public class Comentario {
-    
-    
+
     private int idComentario;
-    
+
     private int idjogo;
 
     private int idUsuario;

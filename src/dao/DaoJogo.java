@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.ImagemJogo;
 import model.Jogo;
 
 public class DaoJogo{
@@ -15,7 +14,7 @@ public class DaoJogo{
         ConnectBd bd = new ConnectBd();
 
         try{//                                                         PESQUISA COM QUALQUER COISA ANTES E QUALQUER COISA DEPOIS / Pesquisa mais generica
-            command = "SELECT idJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE nomeJogo LIKE %?%";
+            command = "SELECT idJogo, nomeJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE nomeJogo LIKE %?%";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, nomeJogoPesq);
             ResultSet resultado = declaracao.executeQuery();
@@ -61,16 +60,41 @@ public class DaoJogo{
         }
     }
 
+    public ResultSet confirmaJogoExiste(String nomeJogo){
+        ConnectBd bd = new ConnectBd();
+        try{//                                                         PESQUISA COM QUALQUER COISA ANTES E QUALQUER COISA DEPOIS / Pesquisa mais generica
+            command = "SELECT * FROM Jogo WHERE nomeJogo = ?";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setString(1, nomeJogo);
+            ResultSet resultado = declaracao.executeQuery();
+            System.out.println("Transacao realizada com sucesso!");
+            return resultado;
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao cancelada!");
+                System.err.println("Erro na transacao: " + ex.getMessage());
+                return null;
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+                return null;
+            }
+        }
+    }
 
-    public void insertjogo(Jogo jg, ImagemJogo imgJg){
+
+    public void insertJogo(Jogo jg){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "INSERT INTO Jogo VALUES (NULL, ?, ?, ?, ?)";
+            command = "INSERT INTO Jogo VALUES (NULL, ?, ?, ?, ?, ?)";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setString(1, jg.getNomeJogo());
-            declaracao.setDouble(2, jg.getPrecoJogo());
-            declaracao.setString(3, jg.getDesenvolvedora());
-            declaracao.setString(4, jg.getDescricao());
+            declaracao.setString(1, jg.getImgJogo());
+            declaracao.setString(2, jg.getNomeJogo());
+            declaracao.setDouble(3, jg.getPrecoJogo());
+            declaracao.setString(4, jg.getDesenvolvedora());
+            declaracao.setString(5, jg.getDescricao());
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Adicionou com sucesso o jogito ao banco!");

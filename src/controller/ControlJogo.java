@@ -30,4 +30,23 @@ public class ControlJogo {
         }
         return null;
     }
+
+    public boolean insereJogo(Jogo jg){
+         try{
+            DaoJogo dj = new DaoJogo();
+            ResultSet confirma = dj.confirmaJogoExiste(jg.getNomeJogo());
+            if(confirma.next()){
+                System.out.println("Jogo ja cadastrado");
+                return false;
+            }
+            else{
+                dj.insertJogo(jg);
+                System.out.println("Jogo cadastrado no sistema");
+                return true;
+            }
+        }catch(SQLException e){
+            System.out.println("deu erro kk");
+            return false;
+        }    
+    }
 }

@@ -124,7 +124,7 @@
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="btnLogin" layoutX="231.0" layoutY="372.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="250.0" styleClass="buttons" stylesheets="@../css/hoverMouse.css" text="Login">
+                  <Button fx:id="btnLogin" layoutX="231.0" layoutY="372.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="buttons" stylesheets="@../css/hoverMouse.css" text="Login">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

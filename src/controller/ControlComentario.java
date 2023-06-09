@@ -3,7 +3,6 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import controllerFxml.Main;
 import dao.DaoComentario;
@@ -21,13 +20,9 @@ public class ControlComentario {
             while(resultado.next()){
                 Comentario comentario = new Comentario();
                 comentario.setIdComentario(resultado.getInt("idComentario"));
-                System.out.println(resultado.getInt("idComentario"));
                 comentario.setNomeUsuario(resultado.getString("nomeUsuario"));
-                System.out.println(resultado.getString("nomeUsuario"));
                 comentario.setImgUsuario(resultado.getString("imgUsuario"));
-                System.out.println(resultado.getString("imgUsuario"));
                 comentario.setComentario(resultado.getString("comentario"));
-                System.out.println(resultado.getString("comentario"));
                 comentariosUsu.add(comentario);
             }
             return comentariosUsu;
@@ -37,4 +32,29 @@ public class ControlComentario {
             return null;
         }
     }
+    // private int idComentario;
+
+    // private int idjogo;
+
+    // private int idUsuario;
+
+    // private String nomeUsuario;
+
+    // private String imgUsuario;
+
+    // private String comentario;
+
+
+    public void addComentario(String tfComentario){
+        Comentario comentario = new Comentario();
+        DaoComentario dct = new DaoComentario();
+
+        comentario.setIdjogo(Main.idJogoAux);
+        comentario.setIdUsuario(Main.idIdent);
+        comentario.setComentario(tfComentario);
+
+        dct.insertComentario(comentario);
+    }
+
+
 }

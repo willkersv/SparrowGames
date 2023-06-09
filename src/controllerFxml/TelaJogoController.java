@@ -6,16 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.print.attribute.standard.PrinterIsAcceptingJobs;
-
 import controller.ControlComentario;
 import controller.ControlJogo;
-import controller.ControlUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -28,24 +25,26 @@ import model.Comentario;
 
 public class TelaJogoController implements Initializable {
 
-    //public static int idJogo;
     private double x = 0, y = 0;
 
+    @FXML
+    private Pane barra;
+    
+    @FXML
+    private ImageView btnVoltar;
+    
     @FXML
     private Circle circleUsu;
 
     @FXML
     private Label lbNomeUsuario;
-    
-    @FXML
-    private Pane barra;
 
     //Campos do jogo
     @FXML
     private ImageView imgJogo;
 
     @FXML
-    private Label labelNomeJogo;
+    private Label nomeJogo;
 
     @FXML
     private Label descJogo;
@@ -59,6 +58,16 @@ public class TelaJogoController implements Initializable {
     //V-box dos comentario
     @FXML
     private VBox comentarioLayout;
+
+    //Comentario
+    @FXML
+    private Circle circleUsuComent;
+    
+    @FXML
+    private TextField tfComentario;
+
+    @FXML
+    private ImageView btnConfirmar;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,11 +82,6 @@ public class TelaJogoController implements Initializable {
                 HBox hBox = fxmlLoader.load();
                 ModeloComentController mcd = fxmlLoader.getController();
                 mcd.setData(comentarioList.get(i));
-            //NAO APAGAR ESSA PORRA KKKK
-                //((ModeloComentController) fxmlLoader.getController()).getNomeUsuario().setText(comentarioList.get(i).getNomeUsuario());
-                //((ModeloComentController) fxmlLoader.getController()).getLbComentario().setText(comentarioList.get(i).getComentario());
-                //Image usuImage = new Image(comentarioList.get(i).getImgUsuario()); 
-                //((ModeloComentController) fxmlLoader.getController()).getFotoComentario().setFill(new ImagePattern(usuImage));
                 comentarioLayout.getChildren().add(hBox);
                     
             } catch (Exception e) {
@@ -95,16 +99,37 @@ public class TelaJogoController implements Initializable {
             SceneController.stage.setY(mouseEvent.getScreenY() - y);
         });
 
-        preLoadDados();
+        preLoadDadosUsuario();
         infoJogo();
+
+        btnConfirmar.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                cc.addComentario(tfComentario.getText());
+                sc.switchTelaJogo(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
+
+        btnVoltar.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaInicial(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
+
         
     }
-    
 
     private void infoJogo(){
         
         ControlJogo cj = new ControlJogo();
-        labelNomeJogo.setText(cj.consultaJogo(Main.idJogoAux).getNomeJogo());
+        nomeJogo.setText(cj.consultaJogo(Main.idJogoAux).getNomeJogo());
         descJogo.setText(cj.consultaJogo(Main.idJogoAux).getDescricao());
         desenvolvedora.setText(cj.consultaJogo(Main.idJogoAux).getDesenvolvedora());
         preco.setText(cj.consultaJogo(Main.idJogoAux).getPrecoJogo().toString());
@@ -116,16 +141,19 @@ public class TelaJogoController implements Initializable {
         imgJogo.setSmooth(true); 
     }
 
-    private void preLoadDados(){
+    private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
             Image usuImage = new Image(Main.usuImg, false);
             circleUsu.setFill(new ImagePattern(usuImage));
+            circleUsuComent.setFill(new ImagePattern(usuImage));
         }
         else{
-            Image usuImage = new Image("/images/user.png");
+            Image usuImage = new Image("/images/sparrow games.png");
             circleUsu.setFill(new ImagePattern(usuImage));
+            circleUsuComent.setFill(new ImagePattern(usuImage));
         }
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
     }
+
 }

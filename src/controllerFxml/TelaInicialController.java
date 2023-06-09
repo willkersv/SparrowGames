@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,7 +28,7 @@ public class TelaInicialController implements Initializable{
     //Variavel para o modalzinho
     private boolean permite = true;
     
-    //pre load de dados
+    //pre load de dados do user
     @FXML
     private Circle circleUsu;
 
@@ -145,7 +144,7 @@ public class TelaInicialController implements Initializable{
             SceneController.stage.setY(mouseEvent.getScreenY() - y);
         });
 
-        preLoadDados();
+        preLoadDadosUsuario();
 
         imgCarrinho.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -243,15 +242,6 @@ public class TelaInicialController implements Initializable{
         });
 
         //Botões do modal
-        // btnTelaConta.setOnMouseClicked((MouseEvent e)->{
-        //     SceneController sc = new SceneController();
-        //     try {
-        //         sc.switchTelaConta(e);
-        //     } 
-        //     catch (IOException e1) {
-        //         e1.printStackTrace();
-        //     }
-        // });
 
         // btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
         //     SceneController sc = new SceneController();
@@ -273,15 +263,15 @@ public class TelaInicialController implements Initializable{
         //     }
         // });
 
-        // btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
-        //     SceneController sc = new SceneController();
-        //     try {
-        //         sc.switchTelaAdmin(e);
-        //     } 
-        //     catch (IOException e1) {
-        //         e1.printStackTrace();
-        //     }
-        // });
+        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaAdmin(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
     private void puxaModal(){
@@ -304,13 +294,13 @@ public class TelaInicialController implements Initializable{
         new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
     }
 
-    private void preLoadDados(){
+    private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
             Image usuImage = new Image(Main.usuImg, false);
             circleUsu.setFill(new ImagePattern(usuImage));
         }
         else{
-            Image usuImage = new Image("/images/user.png");
+            Image usuImage = new Image("/images/sparrow games.png");
             circleUsu.setFill(new ImagePattern(usuImage));
         }
         //Faz nome aparecer ao lado da foto do usuário

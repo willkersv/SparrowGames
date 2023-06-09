@@ -18,9 +18,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaJogoController">
    <right>
-      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="713.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
                <children>
                   <HBox prefHeight="372.0" prefWidth="1054.0">
                      <children>
@@ -35,7 +35,7 @@
                                     <Font name="System Bold" size="20.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="labelNomeJogo" layoutX="14.0" layoutY="14.0" text="The Witcher 3: Wild Hunt" textFill="WHITE">
+                              <Label fx:id="nomeJogo" layoutX="14.0" layoutY="14.0" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
@@ -77,7 +77,7 @@
                         <Insets left="26.0" top="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <VBox prefHeight="293.0" prefWidth="1080.0">
+                  <VBox prefHeight="300.0" prefWidth="1093.0">
                      <children>
                         <Label text="Comentários:" textFill="WHITE">
                            <VBox.margin>
@@ -96,28 +96,32 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1040.0" style="-fx-background-color: #272727;">
                                        <children>
-                                          <Circle fill="#8593a1" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="946.0">
+                                          <Circle fx:id="circleUsuComent" fill="#8593a1" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                                          <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="616.0">
                                              <children>
-                                                <Label text="Willker Dark Santana" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label text="Eu sou o Willker, adoro falar palavras estranhas" textFill="WHITE" wrapText="true">
+                                                <TextField fx:id="tfComentario" prefHeight="40.0" prefWidth="915.0" promptText="Adicione um comentário..." style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
-                                                </Label>
+                                                   <cursor>
+                                                      <Cursor fx:constant="TEXT" />
+                                                   </cursor>
+                                                </TextField>
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
                                           </VBox>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="btnConfirmar" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../images/trash.png" />
+                                                <Image url="@../images/check.png" />
                                              </image>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                        </children>
                                     </HBox>
@@ -145,10 +149,13 @@
                         <Image url="@../images/close.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/arrow-left.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
                      <image>

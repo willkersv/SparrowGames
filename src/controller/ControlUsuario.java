@@ -2,12 +2,10 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Random;
 
 import controllerFxml.Main;
 import dao.DaoUsuario;
-import model.Comentario;
 import model.Usuario;
 
 public class ControlUsuario{

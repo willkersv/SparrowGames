@@ -144,6 +144,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                         <Button fx:id="btnFavoritos" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
@@ -157,9 +160,12 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button fx:id="btnAdmin" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
+                        <Button fx:id="btnTelaAdmin" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -170,6 +176,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>

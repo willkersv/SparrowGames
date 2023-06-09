@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Comentario;
+
 public class DaoComentario{
     private PreparedStatement declaracao;
     private String command = "";
@@ -29,6 +31,30 @@ public class DaoComentario{
             catch(SQLException exe){
                 System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
                 return null;
+            }
+        }
+    }
+
+    public void insertComentario(Comentario coment){
+        ConnectBd bd = new ConnectBd();
+        try{
+            command = "INSERT INTO comentario VALUES (NULL, ?, ?, ?)";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setInt(1, coment.getIdjogo());
+            declaracao.setInt(2, coment.getIdUsuario());
+            declaracao.setString(3, coment.getComentario());
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Adicionou com sucesso o comentario ao banco!");
+            }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao de adicao cancelada!");
+                System.err.println("Erro na transacao na adicao: " + ex.getMessage());
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar a transacao de adicao: " + exe.getMessage());
             }
         }
     }

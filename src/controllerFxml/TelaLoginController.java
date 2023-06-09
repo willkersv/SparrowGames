@@ -170,6 +170,15 @@ public class TelaLoginController implements Initializable{
             permite = 0;
             
         });
+
+        btnLogin.setOnMouseClicked((MouseEvent e)->{
+            try {
+                login(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
     }
 
     //Funções dos botões de mais importancia
@@ -181,7 +190,7 @@ public class TelaLoginController implements Initializable{
     }
     
     @FXML
-    private void login(ActionEvent e) throws IOException{
+    private void login(MouseEvent e) throws IOException{
         
         ControlUsuario cu = new ControlUsuario();
         System.out.println("------------------------\nBOTAO LOGIN AINDA FUNCIONA");
@@ -207,6 +216,9 @@ public class TelaLoginController implements Initializable{
             us.setNomeUsuario(tfNomeCad.getText());
             us.setEmailUsuario(tfEmailCad.getText());
             us.setSenhaUsuario(tfSenhaCad1.getText());
+            if(caminhoImg == null){
+                caminhoImg = "/images/sparrow games.png";
+            }
             us.setImgUsuario(caminhoImg);
             String tempCod = cu.codRecuperarSenha();
             labCodSenha.setText(tempCod);
