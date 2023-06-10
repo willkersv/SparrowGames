@@ -15,7 +15,7 @@ public class ControlCarrinho {
 
     public ArrayList<Carrinho> exibirJogosCarrinho(){
         try{
-            ResultSet resultado = dcr.FindByIdUsu();
+            ResultSet resultado = dcr.findByIdUsu();
             while(resultado.next()){
                 Carrinho jogoCarrinho = new Carrinho();
                 jogoCarrinho.setIdJogo(resultado.getInt("idJogo"));

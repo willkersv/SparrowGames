@@ -10,7 +10,7 @@ public class DaoCarrinho{
     private PreparedStatement declaracao;
     private String command = "";
 
-    public ResultSet FindByIdUsu(){
+    public ResultSet findByIdUsu(){
         ConnectBd bd = new ConnectBd();
 
         try{

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,6 +38,12 @@ public class TelaBuscaController implements Initializable{
 
     @FXML
     private ImageView btnMinimizar;
+    
+    @FXML
+    private ImageView imgLupa;
+
+    @FXML
+    private TextField tfPesquisa;
    //////////////////////////////////
     @FXML
     private VBox jogoLayout;
@@ -70,6 +77,19 @@ public class TelaBuscaController implements Initializable{
         preLoadDadosUsuario();
         
         //Botoes do topo
+        imgLupa.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                Main.nomeJogoAux = tfPesquisa.getText();
+                sc.switchTelaBusca(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+            
+        });
+        
+        
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {

@@ -79,16 +79,25 @@
                      <image>
                         <Image url="@../images/close.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/arrow-left.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fx:id="btnMinimizar" fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/minus.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </Pane>
@@ -115,7 +124,7 @@
                   </Button>
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                      <children>
-                        <TextField fx:id="tfPesquisar" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                        <TextField fx:id="tfPesquisa" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -124,6 +133,9 @@
                            <image>
                               <Image url="@../images/search%20(2).png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </HBox>
@@ -143,7 +155,10 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                        <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
                      </children>
                   </HBox>
                </children>

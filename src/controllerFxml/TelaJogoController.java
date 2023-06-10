@@ -42,6 +42,9 @@ public class TelaJogoController implements Initializable {
     private ImageView btnMinimizar;
     
     @FXML
+    private ImageView imgCarrinho;
+
+    @FXML
     private Circle circleUsu;
 
     @FXML
@@ -124,6 +127,16 @@ public class TelaJogoController implements Initializable {
             System.exit(1); 
         });
 
+        imgCarrinho.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaCarrinho(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
+
         btnConfirmar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -135,15 +148,6 @@ public class TelaJogoController implements Initializable {
             }
         });
 
-        btnVoltar.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaInicial(e);
-            } catch (IOException e1) {
-
-                e1.printStackTrace();
-            }
-        });
 
         
     }
