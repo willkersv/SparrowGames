@@ -103,21 +103,5 @@ public class ControlUsuario{
         return codRecSenha;
     }
 
-    // public String findByEmail(Usuario us) {
-    //     try {
-    //         DaoUsuario du = new DaoUsuario();
-    //         ResultSet resultado = du.findByEmail(us);
-    //         if(resultado.next()){
-    //             System.out.println("tudo certo com a pesquisa");
-    //             return resultado.getString("CodRec");
-    //         }else{
-    //             System.out.println("senha e/ou email errado, fera kk");   
-    //         }
-    //     } catch (SQLException e) {
-    //         System.out.println("Problema com a transacao!");     
-    //     }
-    //     return null;
-    // }
-
 
 }

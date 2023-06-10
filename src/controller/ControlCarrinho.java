@@ -4,54 +4,45 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import controllerFxml.Main;
 import dao.DaoCarrinho;
-import dao.DaoJogo;
-import dao.DaoKey;
 import model.Carrinho;
 
 public class ControlCarrinho {
-
-    DaoCarrinho dcr;
-    DaoJogo djg;
-    DaoKey dky;
-
+    
     private ArrayList<Carrinho> carrinho = new ArrayList<>();
 
-    public void addJogoCarrinho(int idJogo){ //A key ainda n entra na brincadeira, so entra quando for finalizar a compra!!!!!!!
-        dcr.insertJogoCarrinho(Main.idIdent, idJogo);
+    DaoCarrinho dcr = new DaoCarrinho();
+
+    public ArrayList<Carrinho> exibirJogosCarrinho(){
+        try{
+            ResultSet resultado = dcr.FindByIdUsu();
+            while(resultado.next()){
+                Carrinho jogoCarrinho = new Carrinho();
+                jogoCarrinho.setIdJogo(resultado.getInt("idJogo"));
+                jogoCarrinho.setNomeJogo(resultado.getString("nomeJogo"));
+                jogoCarrinho.setImgJogo(resultado.getString("imgJogo"));
+                jogoCarrinho.setPrecoJogo(Double.parseDouble(resultado.getString("precoJogo")) );
+                carrinho.add(jogoCarrinho);
+                }
+            System.out.println();
+            return carrinho;
+        }
+        catch(SQLException e){
+            System.out.println("Problema com a transacao!");
+            return null;
+        }
+    }
+
+    public void addJogoCarrinho(int idJogo){
+        dcr.insertJogoCarrinho();
     }
 
     public void removerJogoCarrinho(int idJogo){
-        dcr.excluirJogoCarrinho(Main.idIdent, idJogo);
+        dcr.excluirJogoCarrinho(idJogo);
     }
 
     public void limparCarrinho(){
-        dcr.limparCarrinho(Main.idIdent);
+        dcr.limparCarrinho();
     }
     
-    public void finalizarCompra(ArrayList<Carrinho> carrinho) throws SQLException{
-        for(Carrinho jogoCarrinho : carrinho){ //FINALIZAR AQUI!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            ResultSet resultKey = dky.findByIdJogo(jogoCarrinho.getIdJogo());
-            jogoCarrinho.setIdSerial(resultKey.getString("idSerial"));
-            dcr.atribuirKeyCarrinho(jogoCarrinho);
-        }
-    }
-
-    public void exibirCarrinho(){
-        try{
-            ResultSet resultado = dcr.consultCarUsu(Main.idIdent);
-            while(resultado.next()){
-                Carrinho jogoCarrinho = new Carrinho();
-                jogoCarrinho.setIdUsuario(resultado.getInt("idUsuario"));
-                jogoCarrinho.setIdJogo(resultado.getInt("Key_idJogo"));
-                jogoCarrinho.setIdSerial(resultado.getString("Key_idSerial"));
-
-                carrinho.add(jogoCarrinho);
-            }
-        }
-        catch(SQLException e){
-            System.out.println("Problema com a transacao!");     
-        }
-    }
 }

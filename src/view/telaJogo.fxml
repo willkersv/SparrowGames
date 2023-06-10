@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaJogoController">
@@ -24,7 +25,7 @@
                <children>
                   <HBox prefHeight="372.0" prefWidth="1054.0">
                      <children>
-                        <ImageView fx:id="imgJogo" fitHeight="450.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" />
+                        <Rectangle fx:id="imgJogo" arcHeight="5.0" arcWidth="5.0" fill="#545454" height="450.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
                         <AnchorPane prefHeight="450.0" prefWidth="332.0" style="-fx-background-color: #565759; -fx-background-radius: 10;">
                            <HBox.margin>
                               <Insets left="10.0" right="26.0" />
@@ -144,10 +145,13 @@
          <children>
             <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/close.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -157,10 +161,13 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnMinimizar" fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/minus.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </Pane>

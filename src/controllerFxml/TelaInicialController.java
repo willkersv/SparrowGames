@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,8 +23,24 @@ public class TelaInicialController implements Initializable{
     
     private double x = 0, y = 0;
 
+    //BARRA SUPERIOR THINGS
     @FXML
     private Pane barra;
+
+    @FXML
+    private ImageView btnFechar;
+
+    @FXML
+    private ImageView btnMinimizar;
+
+    @FXML
+    private TextField tfPesquisa;
+    
+    @FXML
+    private ImageView imgLupa;
+
+    @FXML
+    private ImageView imgCarrinho;
     
     //Variavel para o modalzinho
     private boolean permite = true;
@@ -34,9 +51,6 @@ public class TelaInicialController implements Initializable{
 
     @FXML
     private Label lbNomeUsuario;
-
-    @FXML
-    private ImageView imgCarrinho;
     
     //Modal things
     @FXML
@@ -146,10 +160,26 @@ public class TelaInicialController implements Initializable{
 
         preLoadDadosUsuario();
 
+        btnFechar.setOnMouseClicked((MouseEvent e)->{
+            System.exit(1); 
+        });
+
+        imgLupa.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                Main.nomeJogoAux = tfPesquisa.getText();
+                sc.switchTelaBusca(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+            
+        });
+        
         imgCarrinho.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
-                sc.switchTelaLogin(e);
+                sc.switchTelaCarrinho(e);
             } catch (IOException e1) {
 
                 e1.printStackTrace();
@@ -273,7 +303,7 @@ public class TelaInicialController implements Initializable{
             }
         });
     }
-
+    
     private void puxaModal(){
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));

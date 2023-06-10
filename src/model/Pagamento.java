@@ -1,21 +1,27 @@
 package model;
 
 public class Pagamento {
+    private int idPagamento;
+
     private int idJogo;
 
     private int idUsuario;
 
+    private int cpf;
+
     private Double valor;
-
-    private String data;
-
-    private String hora;
 
     private String numCartao;
 
     private int cvv;
 
-    private int sequencial;
+    public int getIdPagamento() {
+        return idPagamento;
+    }
+
+    public void setIdPagamento(int idPagamento) {
+        this.idPagamento = idPagamento;
+    }
 
     public int getIdJogo() {
         return idJogo;
@@ -33,28 +39,20 @@ public class Pagamento {
         this.idUsuario = idUsuario;
     }
 
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
     public Double getValor() {
         return valor;
     }
 
     public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 
     public String getNumCartao() {
@@ -73,11 +71,4 @@ public class Pagamento {
         this.cvv = cvv;
     }
 
-    public int getSequencial() {
-        return sequencial;
-    }
-
-    public void setSequencial(int sequencial) {
-        this.sequencial = sequencial;
-    }
 }

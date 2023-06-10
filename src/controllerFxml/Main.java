@@ -23,6 +23,7 @@ public class Main extends Application {
     public static Boolean verAdmin;
 
     //Guarda dado do jogo
+    public static String nomeJogoAux;
     public static int idJogoAux;
     
     //Torna a tela Draggeble

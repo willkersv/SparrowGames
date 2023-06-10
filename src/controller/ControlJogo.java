@@ -1,11 +1,15 @@
 package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import controllerFxml.Main;
 import dao.DaoJogo;
 import model.Jogo;
 
 public class ControlJogo {
+    
+    private ArrayList<Jogo> jogoPesquisado = new ArrayList<>();
     
     public Jogo consultaJogo(int id){
         try {
@@ -48,5 +52,25 @@ public class ControlJogo {
             System.out.println("deu erro kk");
             return false;
         }    
+    }
+
+    public ArrayList<Jogo> exibirJogos(){
+        try{
+            DaoJogo dj = new DaoJogo();
+            ResultSet resultado = dj.findByNome(Main.nomeJogoAux);
+            while(resultado.next()){
+                Jogo jogo = new Jogo();
+                jogo.setIdJogo(resultado.getInt("idJogo"));
+                jogo.setNomeJogo(resultado.getString("nomeJogo"));
+                jogo.setImgJogo(resultado.getString("imgJogo"));
+                jogo.setPrecoJogo(resultado.getDouble("PrecoJogo"));
+                jogoPesquisado.add(jogo);
+            }
+            return jogoPesquisado;
+        }
+        catch(SQLException e){
+            System.out.println("Problema com a transacao! aqui kkk");
+            return null;
+        }
     }
 }

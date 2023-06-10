@@ -21,17 +21,25 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import model.Comentario;
 
 public class TelaJogoController implements Initializable {
 
     private double x = 0, y = 0;
 
+    //BARRA SUPERIOR
     @FXML
     private Pane barra;
     
     @FXML
     private ImageView btnVoltar;
+
+    @FXML
+    private ImageView btnFechar;
+
+    @FXML
+    private ImageView btnMinimizar;
     
     @FXML
     private Circle circleUsu;
@@ -41,7 +49,7 @@ public class TelaJogoController implements Initializable {
 
     //Campos do jogo
     @FXML
-    private ImageView imgJogo;
+    private Rectangle imgJogo;
 
     @FXML
     private Label nomeJogo;
@@ -102,6 +110,20 @@ public class TelaJogoController implements Initializable {
         preLoadDadosUsuario();
         infoJogo();
 
+        btnVoltar.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaInicial(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
+
+        btnFechar.setOnMouseClicked((MouseEvent e)->{
+            System.exit(1); 
+        });
+
         btnConfirmar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -136,8 +158,7 @@ public class TelaJogoController implements Initializable {
 
         Image image = new Image(cj.consultaJogo(Main.idJogoAux).getImgJogo());
         System.out.println(cj.consultaJogo(Main.idJogoAux).getImgJogo());
-        imgJogo.setImage(image);
-        imgJogo.setPreserveRatio(true);
+        imgJogo.setFill(new ImagePattern(image));
         imgJogo.setSmooth(true); 
     }
 

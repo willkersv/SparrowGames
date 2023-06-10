@@ -6,7 +6,12 @@ public class Carrinho {
 
     private int  idJogo;
 
-    private String idSerial;
+    private String nomeJogo;
+
+    private Double precoJogo;
+
+    private String imgJogo;
+
 
     public int getIdUsuario() {
         return idUsuario;
@@ -24,11 +29,27 @@ public class Carrinho {
         this.idJogo = idJogo;
     }
 
-    public String getIdSerial() {
-        return idSerial;
+    public Double getPrecoJogo() {
+        return precoJogo;
     }
 
-    public void setIdSerial(String idSerial) {
-        this.idSerial = idSerial;
+    public void setPrecoJogo(Double precoJogo) {
+        this.precoJogo = precoJogo;
+    }
+
+    public String getNomeJogo() {
+        return nomeJogo;
+    }
+
+    public void setNomeJogo(String nomeJogo) {
+        this.nomeJogo = nomeJogo;
+    }
+
+    public String getImgJogo() {
+        return imgJogo;
+    }
+
+    public void setImgJogo(String imgJogo) {
+        this.imgJogo = imgJogo;
     }
 }

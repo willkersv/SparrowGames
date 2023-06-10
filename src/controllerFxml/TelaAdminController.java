@@ -9,6 +9,8 @@ import controller.ControlJogo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,16 +24,19 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Jogo;
 
 public class TelaAdminController implements Initializable{
 
     private double x = 0, y = 0;
 
+    @FXML
+    private Pane pnModal;
+
     //Barra superior
     @FXML
     private Pane barra;
-
 
     @FXML
     private ImageView btnFechar;
@@ -46,8 +51,14 @@ public class TelaAdminController implements Initializable{
     private Circle circleUsu;
 
     @FXML
+    private Label lbNomeUsuario;
+
+    @FXML
     private ImageView imgCarrinho;
 
+    //Parte referente ao jogo
+    private String caminhoImgJogo;
+    
     @FXML
     private Rectangle imgJogo;
 
@@ -55,10 +66,13 @@ public class TelaAdminController implements Initializable{
     private Rectangle btnCamera;
 
     @FXML
-    private Label lbNomeUsuario;
+    private TextField tfNomeJogo;
 
     @FXML
-    private Pane pnTeste;
+    private TextField tfPrecoJogo;
+
+    @FXML
+    private TextField tfDesenvolvedora;
 
     @FXML
     private TextField tfDescricao;
@@ -66,26 +80,16 @@ public class TelaAdminController implements Initializable{
     @FXML
     private Button btnAdicionarJogo;
 
-    @FXML
-    private TextField tfDesenvolvedora;
-
+    //Parte refente a adicao de keys
     @FXML
     private TextField tfIdJogo;
 
     @FXML
-    private TextField tfIdUsuario;
-
-    @FXML
-    private String caminhoImgJogo;
-    
-    @FXML
-    private TextField tfNomeJogo;
-
-    @FXML
-    private TextField tfPrecoJogo;
-
-    @FXML
     private TextField tfSerialKey;
+
+    //parte referte a exlusao de usuarios do sistema
+    @FXML
+    private TextField tfIdUsuario;
 
     
     
@@ -138,14 +142,15 @@ public class TelaAdminController implements Initializable{
         confirma = cj.insereJogo(jg);
         if(confirma == true){
             limpaCamposJogo();
+            Alert a = new Alert(AlertType.CONFIRMATION);
+            a.initStyle(StageStyle.UNDECORATED);
+            a.setContentText("O jogo foi inserido com sucesso");
+            a.show();
         }
         else{    
             System.out.println("f total ao cadastrar o jogo");
         } 
     
-    }
-    
-    private void limpaCamposJogo() {
     }
 
     private void selecionaFoto(){
@@ -162,7 +167,7 @@ public class TelaAdminController implements Initializable{
         }}
     
 
-
+    //preload
     private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
             Image usuImage = new Image(Main.usuImg, false);
@@ -177,4 +182,14 @@ public class TelaAdminController implements Initializable{
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
     }
+
+    private void limpaCamposJogo() {
+        tfNomeJogo.setText("");
+        tfPrecoJogo.setText("");
+        tfDesenvolvedora.setText("");
+        tfDescricao.setText(""); 
+    
+    }
+
+    
 }

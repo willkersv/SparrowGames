@@ -1,72 +1,65 @@
 package controllerFxml;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import controller.ControlCarrinho;
+import controller.ControlJogo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import model.Carrinho;
+import model.Jogo;
 
-
-public class TelaCarrinhoController implements Initializable{
+public class TelaBuscaController implements Initializable{
 
     private double x = 0, y = 0;
-    //Barra superior things
-   @FXML
+    
+    //BARRA SUPERIOR THINGS
+    @FXML
     private Pane barra;
+
+    @FXML
+    private ImageView btnVoltar;
 
     @FXML
     private ImageView btnFechar;
 
     @FXML
     private ImageView btnMinimizar;
-
+   //////////////////////////////////
     @FXML
-    private TextField tfPesquisa;
-    
-    @FXML
-    private ImageView imgLupa;
-
-    @FXML
-    private ImageView imgCarrinho;
-
-    //Dados user
-    @FXML
-    private Circle circleUsu;
+    private VBox jogoLayout;
 
     @FXML
     private Label lbNomeUsuario;
 
-
-    //Layout para aparecer os jogos
     @FXML
-    private VBox jogoLayout;
+    private Circle circleUsu;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ControlCarrinho cc = new ControlCarrinho();
-        List<Carrinho> carrinho  = new ArrayList<>(cc.exibirJogosCarrinho());  
+        ControlJogo cj = new ControlJogo();
+        List<Jogo> jogoList  = new ArrayList<>(cj.exibirJogos());  
 
-        for(int i =0; i<carrinho.size(); i++){
+        for(int i =0; i<jogoList.size(); i++){
+            
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/modeloCarrinho.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/view/modeloBusca.fxml"));
                 HBox hBox = fxmlLoader.load();
-                ModeloCarrinhoController mcc = fxmlLoader.getController();
-                mcc.setData(carrinho.get(i));
+                ModeloBuscaController mbc = fxmlLoader.getController();
+                mbc.setData(jogoList.get(i));
                 jogoLayout.getChildren().add(hBox);
                     
             } catch (Exception e) {
@@ -75,6 +68,22 @@ public class TelaCarrinhoController implements Initializable{
         }
         
         preLoadDadosUsuario();
+        
+        //Botoes do topo
+        btnVoltar.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaInicial(e);
+            } catch (IOException e1) {
+
+                e1.printStackTrace();
+            }
+        });
+
+        btnFechar.setOnMouseClicked((MouseEvent e)->{
+            System.exit(1); 
+        });
+
         
         barra.setOnMousePressed(mouseEvent ->{
             x = mouseEvent.getSceneX();

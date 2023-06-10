@@ -58,7 +58,7 @@ public class SceneController {
         stage.show();
     }
 
-//Telas do modal
+    //Telas do modal
     public void switchTelaConta(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/telaConta.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -85,6 +85,15 @@ public class SceneController {
 
     public void switchTelaAdmin(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/telaAdmin.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //tela de buscar jogos
+    public void switchTelaBusca(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/view/telaBusca.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -212,10 +212,13 @@ public class TelaLoginController implements Initializable{
         Usuario us = new Usuario();
         ControlUsuario cu = new ControlUsuario();
         boolean confirma;
-        if(tfSenhaCad1.getText().equals(tfSenhaCad2.getText())){
-            us.setNomeUsuario(tfNomeCad.getText());
-            us.setEmailUsuario(tfEmailCad.getText());
-            us.setSenhaUsuario(tfSenhaCad1.getText());
+        if(tfEmailCad.getText() == "" || tfNomeCad.getText() == "" || tfSenhaCad1.getText()== "" || tfSenhaCad2.getText() == ""){
+            System.out.println("Preenche tudo ai");
+        }else{
+            if(tfSenhaCad1.getText().equals(tfSenhaCad2.getText())){
+                us.setNomeUsuario(tfNomeCad.getText());
+                us.setEmailUsuario(tfEmailCad.getText());
+                us.setSenhaUsuario(tfSenhaCad1.getText());
             if(caminhoImg == null){
                 caminhoImg = "/images/sparrow games.png";
             }
@@ -240,6 +243,10 @@ public class TelaLoginController implements Initializable{
             tfSenhaCad2.setStyle(cssSenha);
             System.out.println("Senhas diferentes, fera");
         }
+            
+        }
+        
+        
     }
 
     private void selecionaFoto(){

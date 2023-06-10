@@ -4,19 +4,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Carrinho;
+import controllerFxml.Main;
 
 public class DaoCarrinho{
     private PreparedStatement declaracao;
     private String command = "";
 
-    public ResultSet consultCarUsu(int idUsuario){
+    public ResultSet FindByIdUsu(){
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT * FROM Carrinho WHERE idUsuario = ?";
+            command = "SELECT Jogo.idJogo, Jogo.nomeJogo, Jogo.precoJogo, Jogo.imgJogo FROM jogo, carrinho WHERE Carrinho.idUsuario = ? and Carrinho.idJogo = Jogo.idJogo;";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setInt(1, idUsuario);
+            declaracao.setInt(1, Main.idIdent);
             ResultSet resultado = declaracao.executeQuery();
             System.out.println("Transacao realizada com sucesso!");
             return resultado;
@@ -35,13 +35,13 @@ public class DaoCarrinho{
         }
     }
 
-    public void insertJogoCarrinho(int idUsuario, int idJogo){
+    public void insertJogoCarrinho(){
         ConnectBd bd = new ConnectBd();
         try{
             command = "INSERT INTO Carrinho VALUES (?,?,NULL)";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setInt(1, idUsuario);
-            declaracao.setInt(2, idJogo);
+            declaracao.setInt(1, Main.idIdent);
+            declaracao.setInt(2, Main.idJogoAux);
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Adicionou com sucesso o produto no carrinho!");
@@ -58,37 +58,13 @@ public class DaoCarrinho{
         }  
     }
 
-    public void atribuirKeyCarrinho(Carrinho car){
-        ConnectBd bd = new ConnectBd();
-        try{
-            command = "UPDATE carrinho SET Key_idSerial = ? WHERE idUsuario = ? AND idJogo = ?";
-            declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setString(1,car.getIdSerial());
-            declaracao.setInt(2, car.getIdUsuario());
-            declaracao.setInt(3, car.getIdJogo());
-            declaracao.execute();
-            bd.getConnection().commit();
-            System.out.println("Transacao de uptade realizada com suceso!");
-        }
-        catch(SQLException ex){
-            try{
-                bd.getConnection().rollback();
-                System.out.println("Transacao de UPDATE cancelada!");
-                System.err.println("Erro na transacao na UPDATE: " + ex.getMessage());
-            }
-            catch(SQLException exe){
-                System.err.println("Erro ao cancelar a transacao de UPDATE: " + exe.getMessage());
-            }
-        }  
-    }
-
-    public void limparCarrinho(int idUsuario){
+    public void limparCarrinho(){
         ConnectBd bd = new ConnectBd();                                                     
                                                                                         
         try{                                                                                 
             command = "DELETE * FROM Carrinho WHERE idUsuario = ?";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setInt(1, idUsuario);
+            declaracao.setInt(1, Main.idIdent);
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Transacao de DELETE realizada com suceso!");
@@ -106,13 +82,13 @@ public class DaoCarrinho{
         }
     }
 
-    public void excluirJogoCarrinho(int idUsuario, int idJogo){
+    public void excluirJogoCarrinho(int idJogo){
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "DELETE * FROM Carrinho WHERE idUsuario = ? AND idJogo = ?";
+            command = "DELETE FROM Carrinho WHERE idUsuario = ? AND idJogo = ?";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setInt(1, idUsuario);
+            declaracao.setInt(1, Main.idIdent);
             declaracao.setInt(2, idJogo);
             declaracao.execute();
             bd.getConnection().commit();

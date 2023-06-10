@@ -14,9 +14,9 @@ public class DaoJogo{
         ConnectBd bd = new ConnectBd();
 
         try{//                                                         PESQUISA COM QUALQUER COISA ANTES E QUALQUER COISA DEPOIS / Pesquisa mais generica
-            command = "SELECT idJogo, nomeJogo, precoJogo, desenvolvedora, descricao FROM Jogo WHERE nomeJogo LIKE %?%";
+            command = "SELECT * FROM Jogo WHERE nomeJogo Like ?";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setString(1, nomeJogoPesq);
+            declaracao.setString(1, "%" + nomeJogoPesq + "%");
             ResultSet resultado = declaracao.executeQuery();
             System.out.println("Transacao realizada com sucesso!");
             return resultado;
