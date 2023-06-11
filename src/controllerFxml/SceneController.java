@@ -75,8 +75,8 @@ public class SceneController {
         stage.show();
     }
 
-    public void switchTelaFavoritos(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/view/telaFavoritos.fxml"));
+    public void switchTelaDesejo(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/view/telaDesejo.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

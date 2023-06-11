@@ -32,18 +32,6 @@ public class ControlComentario {
             return null;
         }
     }
-    // private int idComentario;
-
-    // private int idjogo;
-
-    // private int idUsuario;
-
-    // private String nomeUsuario;
-
-    // private String imgUsuario;
-
-    // private String comentario;
-
 
     public void addComentario(String tfComentario){
         Comentario comentario = new Comentario();

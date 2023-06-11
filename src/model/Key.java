@@ -3,7 +3,7 @@ package model;
 public class Key {
     private int idJogo;
 
-    private int idSerial;
+    private String idSerial;
 
     private boolean disponivel;
 
@@ -15,11 +15,11 @@ public class Key {
         this.idJogo = idJogo;
     }
 
-    public int getIdSerial() {
+    public String getIdSerial() {
         return idSerial;
     }
 
-    public void setIdSerial(int idSerial) {
+    public void setIdSerial(String idSerial) {
         this.idSerial = idSerial;
     }
 

@@ -7,7 +7,7 @@ public class Pagamento {
 
     private int idUsuario;
 
-    private int cpf;
+    private String cpf;
 
     private Double valor;
 
@@ -39,11 +39,11 @@ public class Pagamento {
         this.idUsuario = idUsuario;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

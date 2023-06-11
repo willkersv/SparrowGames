@@ -118,7 +118,7 @@
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                         <HBox prefHeight="0.0" prefWidth="250.0">
                            <children>
-                              <Button fx:id="btnConta" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="104.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Minha conta" textFill="WHITE">
+                              <Button fx:id="btnTelaConta" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="104.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Minha conta" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -142,7 +142,7 @@
                            </VBox.margin>
                         </HBox>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button fx:id="btnBiblioteca" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
+                        <Button fx:id="btnTelaBiblioteca" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -158,7 +158,7 @@
                            </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button fx:id="btnFavoritos" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
+                        <Button fx:id="btnTelaDesejo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

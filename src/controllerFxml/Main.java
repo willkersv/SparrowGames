@@ -22,7 +22,10 @@ public class Main extends Application {
     public static String usuImg;
     public static Boolean verAdmin;
 
-    //Guarda dado do jogo
+    //Guarda dados do carrinho
+    public static Double precoTotalCarrinho = 0.0;
+
+    //Guarda dados dos jogos
     public static String nomeJogoAux;
     public static int idJogoAux;
     

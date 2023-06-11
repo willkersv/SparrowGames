@@ -73,7 +73,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
+                        <Button fx:id="btnFinalizarCompra" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
                            <font>
                               <Font size="14.0" />
                            </font>

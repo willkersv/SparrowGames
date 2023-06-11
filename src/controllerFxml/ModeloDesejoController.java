@@ -8,12 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import model.Jogo;
+import model.Desejo;
 
-public class ModeloBuscaController implements Initializable{
+public class ModeloDesejoController implements Initializable{
 
     @FXML
     private Label precoJogo;
@@ -24,17 +25,20 @@ public class ModeloBuscaController implements Initializable{
     @FXML
     private Label nomeJogo;
 
+    @FXML
+    private ImageView coracao;
+
     private int idJogo;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       imgJogo.setOnMouseClicked((MouseEvent e)->{
+       
+        imgJogo.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
-            try {
+            try { 
                 Main.idJogoAux = idJogo;
                 sc.switchTelaJogo(e);
             } catch (IOException e1) {
-
                 e1.printStackTrace();
             }
         });
@@ -45,25 +49,32 @@ public class ModeloBuscaController implements Initializable{
                 Main.idJogoAux = idJogo;
                 sc.switchTelaJogo(e);
             } catch (IOException e1) {
-
                 e1.printStackTrace();
             }
         });
-    }
 
-     public void setData(Jogo jogo){
+    //     coracao.setOnMouseClicked((MouseEvent e)->{
+    //         SceneController sc = new SceneController();
+    //         ControlCarrinho cc = new ControlCarrinho();
+    //         try{
+    //             cc.removerJogoCarrinho(idJogo);
+    //             sc.switchTelaCarrinho(e);
+    //         } catch(IOException e1){
+    //             e1.printStackTrace();
+    //         }
+    //     });
+     }
+
+     public void setData(Desejo desejo){
         try {
-            System.out.println(jogo.getIdJogo());
-            Image usuImage = new Image(jogo.getImgJogo());
-            imgJogo.setFill(new ImagePattern(usuImage));
-            nomeJogo.setText(jogo.getNomeJogo());
-            precoJogo.setText(jogo.getPrecoJogo().toString());
-            idJogo = jogo.getIdJogo();
-            
+            Image jogoImage = new Image(desejo.getImgJogo());
+            imgJogo.setFill(new ImagePattern(jogoImage));
+            nomeJogo.setText(desejo.getNomeJogo());
+            precoJogo.setText(desejo.getPrecoJogo().toString());
+            idJogo = desejo.getIdJogo();
         } catch (Exception e) {
             e.printStackTrace();
-        
         }
     }
-
+    
 }

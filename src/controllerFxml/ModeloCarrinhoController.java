@@ -29,7 +29,7 @@ public class ModeloCarrinhoController implements Initializable{
     @FXML
     private ImageView lixeira;
 
-    public static int idJogo;
+    private int idJogo;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

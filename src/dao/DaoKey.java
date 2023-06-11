@@ -16,7 +16,7 @@ public class DaoKey{
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT idSerial FROM Key WHERE idJogo = ? AND disponivel = 1 LIMIT 1";
+            command = "SELECT * FROM Key WHERE idJogo = ? AND disponivel = 1 LIMIT 1";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogo);
             ResultSet resultado = declaracao.executeQuery();
@@ -90,4 +90,5 @@ public class DaoKey{
             }
         }
     }
+
 }

@@ -63,7 +63,7 @@ public class TelaInicialController implements Initializable{
     private Button btnTelaBiblioteca;
 
     @FXML
-    private Button btnTelaFavoritos;
+    private Button btnTelaDesejo;
 
     @FXML
     private Button btnTelaAdmin;
@@ -273,6 +273,17 @@ public class TelaInicialController implements Initializable{
 
         //Botões do modal
 
+        
+        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
         // btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
         //     SceneController sc = new SceneController();
         //     try {
@@ -283,15 +294,15 @@ public class TelaInicialController implements Initializable{
         //     }
         // });
 
-        // btnTelaFavoritos.setOnMouseClicked((MouseEvent e)->{
-        //     SceneController sc = new SceneController();
-        //     try {
-        //         sc.switchTelaFavoritos(e);
-        //     } 
-        //     catch (IOException e1) {
-        //         e1.printStackTrace();
-        //     }
-        // });
+        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaDesejo(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
 
         btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -304,6 +315,7 @@ public class TelaInicialController implements Initializable{
         });
     }
     
+    //Chama o modal
     private void puxaModal(){
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));
@@ -323,7 +335,7 @@ public class TelaInicialController implements Initializable{
         pnModal.toFront();
         new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
     }
-
+    ////////////////////////////////////////////////////////////////////////////////////////
     private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
             Image usuImage = new Image(Main.usuImg, false);

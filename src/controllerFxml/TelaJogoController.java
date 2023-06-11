@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import controller.ControlComentario;
+import controller.ControlDesejo;
 import controller.ControlJogo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,12 @@ public class TelaJogoController implements Initializable {
     @FXML
     private Label preco;
 
+    @FXML
+    private ImageView imgHeart;
+
+    @FXML
+    private ImageView imgHeartFull;
+
     //V-box dos comentario
     @FXML
     private VBox comentarioLayout;
@@ -112,6 +119,7 @@ public class TelaJogoController implements Initializable {
 
         preLoadDadosUsuario();
         infoJogo();
+        verfificaDesejo();
 
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -137,6 +145,24 @@ public class TelaJogoController implements Initializable {
             }
         });
 
+        imgHeart.setOnMouseClicked((MouseEvent e)->{
+            imgHeartFull.setVisible(true); 
+            imgHeartFull.toFront();
+            ControlDesejo cd = new ControlDesejo();
+            cd.addDesejo();
+        });
+        
+        imgHeartFull.setOnMouseClicked((MouseEvent e)->{
+            imgHeartFull.setVisible(false);
+            imgHeart.setVisible(true);
+            imgHeart.toFront();
+            ControlDesejo cd = new ControlDesejo();
+            cd.excluiDesejo();
+        });
+        
+        
+        
+        //Referente ao comentario
         btnConfirmar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -179,6 +205,15 @@ public class TelaJogoController implements Initializable {
         }
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
+    }
+
+    private void verfificaDesejo(){
+        ControlDesejo cd = new ControlDesejo();
+        boolean desejo = cd.consultaDesejo();
+        if(desejo == true){
+            imgHeartFull.setVisible(true);
+            imgHeartFull.toFront();
+        }
     }
 
 }

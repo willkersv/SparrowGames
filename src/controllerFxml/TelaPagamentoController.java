@@ -2,13 +2,14 @@ package controllerFxml;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import controller.ControlCarrinho;
+import controller.ControlPagamento;
+import dao.DaoPagamento;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,14 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import model.Carrinho;
+import model.Pagamento;
 
-public class TelaCarrinhoController implements Initializable{
+
+public class TelaPagamentoController implements Initializable{
 
     private double x = 0, y = 0;
     //Barra superior things
@@ -55,41 +55,28 @@ public class TelaCarrinhoController implements Initializable{
     @FXML
     private Label lbNomeUsuario;
 
-
-    //Layout para aparecer os jogos
-    @FXML
-    private VBox jogoLayout;
-
-    //Parte inferior
+    //INFORMACOES PRINCIPAIS DA TELA
     @FXML
     private Label precoTotal;
 
     @FXML
-    private Button btnFinalizarCompra;
+    private TextField cpf;
 
-    private Double preco = 0.0;
+    @FXML
+    private TextField numCartao;
+
+    @FXML
+    private TextField cvv;
+
+    @FXML
+    private Button btnFinalizarCompra;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ControlCarrinho cc = new ControlCarrinho();
-        List<Carrinho> carrinho  = new ArrayList<>(cc.exibirJogosCarrinho());  
+        ControlPagamento cpg = new ControlPagamento();
 
-        for(int i =0; i<carrinho.size(); i++){
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/modeloCarrinho.fxml"));
-                HBox hBox = fxmlLoader.load();
-                ModeloCarrinhoController mcc = fxmlLoader.getController();
-                mcc.setData(carrinho.get(i));
-                jogoLayout.getChildren().add(hBox);
-                preco += carrinho.get(i).getPrecoJogo();
-                    
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        precoTotal.setText(preco.toString());
-        
+        precoTotal.setText(Main.precoTotalCarrinho.toString());
+
         preLoadDadosUsuario();
         
         barra.setOnMousePressed(mouseEvent ->{
@@ -115,7 +102,7 @@ public class TelaCarrinhoController implements Initializable{
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
-                sc.switchTelaInicial(e);
+                sc.switchTelaCarrinho(e);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -123,16 +110,6 @@ public class TelaCarrinhoController implements Initializable{
         
         btnFechar.setOnMouseClicked((MouseEvent e)->{
             System.exit(1); 
-        });
-
-        imgLupa.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.nomeJogoAux = tfPesquisa.getText();
-                sc.switchTelaBusca(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
         });
         
         imgCarrinho.setOnMouseClicked((MouseEvent e)->{
@@ -156,45 +133,36 @@ public class TelaCarrinhoController implements Initializable{
             
         // });
         
-        barra.setOnMousePressed(mouseEvent ->{
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
-        });
-
-        barra.setOnMouseDragged(mouseEvent ->{
-            SceneController.stage.setX(mouseEvent.getScreenX() - x);
-            SceneController.stage.setY(mouseEvent.getScreenY() - y);
-        });
-
-        preLoadDadosUsuario();
-
-        btnVoltar.setOnMouseClicked((MouseEvent e)->{
+        btnFinalizarCompra.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
-            try {
-                sc.switchTelaInicial(e);
-            } catch (IOException e1) {
+            ControlCarrinho cc = new ControlCarrinho();
+            DaoPagamento dp = new DaoPagamento();
+            Pagamento pgt = new Pagamento();
 
-                e1.printStackTrace();
-            }
-        });
-
-        btnFechar.setOnMouseClicked((MouseEvent e)->{
-            System.exit(1); 
-        });
-        
-        
-        btnFinalizarCompra.setOnMouseClicked((MouseEvent e)->{ //VERIFICAR QUANTIDADE E DISPONIBILIDADE DAS KEYS DO INDIVIDUO AQUI!!!!!!
-            SceneController sc = new SceneController();
+            pgt.setCpf(cpf.getText());
+            pgt.setCvv(Integer.parseInt(cpf.getText()));
+            pgt.setNumCartao(numCartao.getText());
+            pgt.setValor(Double.parseDouble(precoTotal.getText()));
+            
+            dp.insertDadosPagamento(pgt);
+            ResultSet resultUltimoId = dp.ultimoIdInserido();
+            
             try{
-                Main.precoTotalCarrinho = preco;
-                sc.switchTelaPagamento(e);
-            }catch(IOException e1){
+                cpg.finalizarCompra(resultUltimoId.getInt("idPagamento"));
+                Main.precoTotalCarrinho = 0.0;
+                precoTotal.setText("0");
+                cc.limparCarrinho();
+                sc.switchTelaBiblioteca(e);
+            }
+            catch (SQLException e1) {
                 e1.printStackTrace();
             }
+            catch(IOException e1){
+                e1.printStackTrace();
+            }
+
         });
     }
-
-    
 
     private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
@@ -209,6 +177,4 @@ public class TelaCarrinhoController implements Initializable{
         lbNomeUsuario.setText(Main.nomeUsuario);
     }
 
-    
-    
 }
