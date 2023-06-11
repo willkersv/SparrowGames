@@ -316,6 +316,14 @@
                                                       <Insets left="5.0" top="20.0" />
                                                    </HBox.margin>
                                                 </TextField>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/search.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
                                              </children>
                                           </HBox>
                                        </children>

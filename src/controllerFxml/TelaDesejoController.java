@@ -102,6 +102,8 @@ public class TelaDesejoController implements Initializable{
         });
 
         preLoadDadosUsuario();
+
+        
     }
 
     private void preLoadDadosUsuario(){

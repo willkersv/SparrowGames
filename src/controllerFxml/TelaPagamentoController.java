@@ -60,13 +60,13 @@ public class TelaPagamentoController implements Initializable{
     private Label precoTotal;
 
     @FXML
-    private TextField cpf;
+    private TextField tfCPF;
 
     @FXML
-    private TextField numCartao;
+    private TextField tfNumeroCartao;
 
     @FXML
-    private TextField cvv;
+    private TextField tfCVV;
 
     @FXML
     private Button btnFinalizarCompra;
@@ -139,9 +139,9 @@ public class TelaPagamentoController implements Initializable{
             DaoPagamento dp = new DaoPagamento();
             Pagamento pgt = new Pagamento();
 
-            pgt.setCpf(cpf.getText());
-            pgt.setCvv(Integer.parseInt(cpf.getText()));
-            pgt.setNumCartao(numCartao.getText());
+            pgt.setCpf(tfCPF.getText());
+            pgt.setCvv(Integer.parseInt(tfCPF.getText()));
+            pgt.setNumCartao(tfNumeroCartao.getText());
             pgt.setValor(Double.parseDouble(precoTotal.getText()));
             
             dp.insertDadosPagamento(pgt);

@@ -15,7 +15,7 @@ public class DaoDesejo {
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT Jogo.idJogo, Jogo.nomeJogo, Jogo.precoJogo, Jogo.imgJogo FROM jogo, desejos WHERE desejos.idUsuario = ? and desejos.idJogo = Jogo.idJogo";
+            command = "SELECT Jogo.idJogo, Jogo.nomeJogo, Jogo.precoJogo, Jogo.imgJogo FROM jogo, desejo WHERE desejo.idUsuario = ? and desejo.idJogo = Jogo.idJogo";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idIdent);
             ResultSet resultado = declaracao.executeQuery();
@@ -40,7 +40,7 @@ public class DaoDesejo {
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT Jogo.idJogo FROM jogo, desejos WHERE desejos.idUsuario = ? and desejos.idJogo = jogo.idJogo";
+            command = "SELECT Jogo.idJogo FROM jogo, desejo WHERE desejo.idUsuario = ? and desejo.idJogo = jogo.idJogo";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idIdent);
             ResultSet resultado = declaracao.executeQuery();
@@ -64,7 +64,7 @@ public class DaoDesejo {
     public void insertDesejo(){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "INSERT INTO desejos VALUES (?, ?)";
+            command = "INSERT INTO desejo VALUES (?, ?)";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idJogoAux);
             declaracao.setInt(2, Main.idIdent);
@@ -76,7 +76,7 @@ public class DaoDesejo {
             try{
                 bd.getConnection().rollback();
                 System.out.println("Transacao de adicao cancelada!");
-                System.err.println("Erro na transacao na adicao: " + ex.getMessage());
+                System.err.println("Erro na transacao de adicao: " + ex.getMessage());
             }
             catch(SQLException exe){
                 System.err.println("Erro ao cancelar a transacao de adicao: " + exe.getMessage());
@@ -87,7 +87,7 @@ public class DaoDesejo {
     public void deleteDesejo(){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "DELETE from desejos WHERE idJogo = ? and idUsuario = ?  ";
+            command = "DELETE from desejo WHERE idJogo = ? and idUsuario = ?  ";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idJogoAux);
             declaracao.setInt(2, Main.idIdent);

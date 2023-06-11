@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.ControlDesejo;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -28,7 +29,13 @@ public class ModeloDesejoController implements Initializable{
     @FXML
     private ImageView coracao;
 
-    private int idJogo;
+    @FXML
+    private ImageView imgCarrinho;
+
+    @FXML
+    private ImageView imgHeartFull;
+
+     private int idJogo;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,16 +60,18 @@ public class ModeloDesejoController implements Initializable{
             }
         });
 
-    //     coracao.setOnMouseClicked((MouseEvent e)->{
-    //         SceneController sc = new SceneController();
-    //         ControlCarrinho cc = new ControlCarrinho();
-    //         try{
-    //             cc.removerJogoCarrinho(idJogo);
-    //             sc.switchTelaCarrinho(e);
-    //         } catch(IOException e1){
-    //             e1.printStackTrace();
-    //         }
-    //     });
+        imgHeartFull.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            
+            try { 
+                Main.idJogoAux = idJogo;
+                ControlDesejo cd = new ControlDesejo();
+                cd.excluiDesejo();
+                sc.switchTelaDesejo(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
      }
 
      public void setData(Desejo desejo){

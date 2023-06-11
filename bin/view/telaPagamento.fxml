@@ -17,23 +17,23 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaPagamentoController">
    <top>
       <VBox prefHeight="90.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/close.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnMinimizar" fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/minus.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/arrow-left.png" />
                      </image>
@@ -63,12 +63,12 @@
                   </Button>
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                      <children>
-                        <TextField prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                        <TextField fx:id="tfPesquisa" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLupa" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/search%20(2).png" />
                            </image>
@@ -86,7 +86,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label fx:id="nomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                        <Label fx:id="lbNomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
@@ -143,7 +143,7 @@
                                                 <Insets bottom="10.0" left="20.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b7b9bc" height="225.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="400.0">
+                                          <Rectangle fx:id="imgCartao" arcHeight="5.0" arcWidth="5.0" fill="#b7b9bc" height="225.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="400.0">
                                              <VBox.margin>
                                                 <Insets left="20.0" />
                                              </VBox.margin>
@@ -154,7 +154,7 @@
                                        <children>
                                           <HBox prefHeight="78.0" prefWidth="652.0">
                                              <children>
-                                                <TextField prefHeight="47.0" prefWidth="523.0" promptText="Número do cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                <TextField fx:id="tfNumeroCartao" prefHeight="47.0" prefWidth="523.0" promptText="Número do cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -166,7 +166,7 @@
                                           </HBox>
                                           <HBox prefHeight="4.0" prefWidth="652.0">
                                              <children>
-                                                <TextField prefHeight="6.0" prefWidth="523.0" promptText="CPF" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                <TextField fx:id="tfCPF" prefHeight="6.0" prefWidth="523.0" promptText="CPF" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -178,7 +178,7 @@
                                           </HBox>
                                           <HBox prefHeight="44.0" prefWidth="652.0">
                                              <children>
-                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Nome no cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                <TextField fx:id="tfNomeCartao" prefHeight="40.0" prefWidth="250.0" promptText="Nome no cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -186,7 +186,7 @@
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
                                                 </TextField>
-                                                <TextField prefHeight="40.0" prefWidth="250.0" promptText="Código de segurança" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                                <TextField fx:id="tfCVV" prefHeight="40.0" prefWidth="250.0" promptText="Código de segurança" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -211,12 +211,12 @@
                                                       <Font name="System Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label text="20,00" textFill="WHITE">
+                                                <Label fx:id="precoTotal" text="20,00" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
+                                                <Button fx:id="btnFinalizarCompra" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>

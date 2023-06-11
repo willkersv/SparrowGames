@@ -35,27 +35,30 @@ public class DaoCarrinho{
         }
     }
 
-    public void insertJogoCarrinho(){
+    public boolean insertJogoCarrinho(int idUsuario, int idJogo){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "INSERT INTO Carrinho VALUES (?,?,NULL)";
+            command = "INSERT INTO Carrinho VALUES (?,?)";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setInt(1, Main.idIdent);
-            declaracao.setInt(2, Main.idJogoAux);
+            declaracao.setInt(1, idUsuario);
+            declaracao.setInt(2, idJogo);
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Adicionou com sucesso o produto no carrinho!");
+            return true;
         }
         catch(SQLException ex){
             try{
                 bd.getConnection().rollback();
                 System.out.println("Transacao de adicao cancelada!");
                 System.err.println("Erro na transacao na adicao: " + ex.getMessage());
+                return false;
             }
             catch(SQLException exe){
                 System.err.println("Erro ao cancelar a transacao de adicao: " + exe.getMessage());
+                return false;
             }
-        }  
+        }
     }
 
     public void limparCarrinho(){

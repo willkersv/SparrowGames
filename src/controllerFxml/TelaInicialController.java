@@ -102,43 +102,43 @@ public class TelaInicialController implements Initializable{
     }
 
     private void TelaER(MouseEvent e) throws IOException{
-        Main.idJogoAux = 4;
+        Main.idJogoAux = 2;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
 
     private void TelaTW(MouseEvent e) throws IOException{
-        Main.idJogoAux = 2;
+        Main.idJogoAux = 3;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e);
     }
 
     private void TelaDS(MouseEvent e) throws IOException{
-        Main.idJogoAux = 5;
+        Main.idJogoAux = 4;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
 
     private void TelaBB(MouseEvent e) throws IOException{
-        Main.idJogoAux = 6;
+        Main.idJogoAux = 5;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
 
     private void TelaFS(MouseEvent e) throws IOException{
-        Main.idJogoAux = 7;
+        Main.idJogoAux = 6;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
 
     private void TelaMK(MouseEvent e) throws IOException{
-        Main.idJogoAux = 8;
+        Main.idJogoAux = 7;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }
 
     private void TelaWD(MouseEvent e) throws IOException{
-        Main.idJogoAux = 9;
+        Main.idJogoAux = 8;
         SceneController sc = new SceneController();
         sc.switchTelaJogo(e); 
     }

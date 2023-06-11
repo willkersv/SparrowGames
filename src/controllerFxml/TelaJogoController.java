@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import controller.ControlCarrinho;
 import controller.ControlComentario;
 import controller.ControlDesejo;
 import controller.ControlJogo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -23,6 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.StageStyle;
 import model.Comentario;
 
 public class TelaJogoController implements Initializable {
@@ -72,6 +77,9 @@ public class TelaJogoController implements Initializable {
 
     @FXML
     private ImageView imgHeartFull;
+
+    @FXML
+    private Button btnAddCarrinho;
 
     //V-box dos comentario
     @FXML
@@ -159,7 +167,22 @@ public class TelaJogoController implements Initializable {
             ControlDesejo cd = new ControlDesejo();
             cd.excluiDesejo();
         });
-        
+
+        btnAddCarrinho.setOnMouseClicked((MouseEvent e)->{
+            ControlCarrinho ccr = new ControlCarrinho();
+            if(ccr.addJogoCarrinho() == false){
+                Alert a = new Alert(AlertType.CONFIRMATION);
+                a.initStyle(StageStyle.UNDECORATED);
+                a.setContentText("O jogo já foi adicionado ao seu carrinho");
+                a.show();
+            }else{
+                Alert a = new Alert(AlertType.CONFIRMATION);
+                a.initStyle(StageStyle.UNDECORATED);
+                a.setContentText("Jogo adicionado ao carrinho");
+                a.show();
+            }
+
+        });
         
         
         //Referente ao comentario

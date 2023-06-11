@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import controllerFxml.Main;
 import dao.DaoCarrinho;
 import model.Carrinho;
 
@@ -33,8 +34,14 @@ public class ControlCarrinho {
         }
     }
 
-    public void addJogoCarrinho(int idJogo){
-        dcr.insertJogoCarrinho();
+    public boolean addJogoCarrinho(){
+        
+        if(dcr.insertJogoCarrinho(Main.idIdent, Main.idJogoAux) == true){
+            return true;
+        }else{
+            return false;
+        }
+            
     }
 
     public void removerJogoCarrinho(int idJogo){

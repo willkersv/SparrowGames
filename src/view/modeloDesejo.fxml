@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,13 +12,19 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1040.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.ModeloDesejoController">
    <children>
-      <Rectangle fx:id="imgJogo" arcHeight="5.0" arcWidth="5.0" fill="#63696f" height="75.0" stroke="BLACK" strokeType="INSIDE" width="122.5" />
+      <Rectangle fx:id="imgJogo" arcHeight="5.0" arcWidth="5.0" fill="#63696f" height="75.0" stroke="BLACK" strokeType="INSIDE" width="122.5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Rectangle>
       <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="835.0">
          <children>
             <Label fx:id="nomeJogo" text="Nome do Jogo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="835.0">
                <children>
@@ -46,18 +53,24 @@
             <Insets left="10.0" />
          </HBox.margin>
       </VBox>
-      <ImageView fitHeight="59.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCarrinho" fitHeight="59.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/shopping-cart.png" />
          </image>
          <HBox.margin>
             <Insets right="10.0" />
          </HBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="heartFull" fitHeight="59.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHeartFull" fitHeight="59.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/heartFull3.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </HBox>
