@@ -15,7 +15,7 @@ public class DaoBiblioteca{
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT Jogo.idJogo, Jogo.nomeJogo, Jogo.imgJogo Biblioteca.idSerial FROM Jogo, Biblioteca WHERE Biblioteca.idUsuario = ? and Biblioteca.idJogo = Jogo.idJogo;";
+            command = "SELECT Jogo.idJogo, Jogo.nomeJogo, Jogo.imgJogo, Biblioteca.idSerial FROM Jogo, Biblioteca WHERE Biblioteca.idUsuario = ? and Biblioteca.idJogo = Jogo.idJogo;";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idIdent);
             ResultSet resultado = declaracao.executeQuery();

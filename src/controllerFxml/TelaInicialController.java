@@ -164,6 +164,10 @@ public class TelaInicialController implements Initializable{
             System.exit(1); 
         });
 
+        btnMinimizar.setOnMouseClicked((MouseEvent e)->{
+            SceneController.stage.setIconified(true);
+        });
+
         imgLupa.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -272,8 +276,6 @@ public class TelaInicialController implements Initializable{
         });
 
         //Botões do modal
-
-        
         btnTelaConta.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -284,15 +286,15 @@ public class TelaInicialController implements Initializable{
             }
         });
         
-        // btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
-        //     SceneController sc = new SceneController();
-        //     try {
-        //         sc.switchTelaBiblioteca(e);
-        //     } 
-        //     catch (IOException e1) {
-        //         e1.printStackTrace();
-        //     }
-        // });
+        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaBiblioteca(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
 
         btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -337,14 +339,8 @@ public class TelaInicialController implements Initializable{
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     private void preLoadDadosUsuario(){
-        if(Main.usuImg != null){
-            Image usuImage = new Image(Main.usuImg, false);
-            circleUsu.setFill(new ImagePattern(usuImage));
-        }
-        else{
-            Image usuImage = new Image("/images/sparrow games.png");
-            circleUsu.setFill(new ImagePattern(usuImage));
-        }
+        Image usuImage = new Image(Main.usuImg, false);
+        circleUsu.setFill(new ImagePattern(usuImage));
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
     }

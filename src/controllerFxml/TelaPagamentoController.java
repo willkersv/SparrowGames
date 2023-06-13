@@ -2,13 +2,11 @@ package controllerFxml;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import controller.ControlCarrinho;
 import controller.ControlPagamento;
-import dao.DaoPagamento;
+//import dao.DaoPagamento;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -70,6 +69,9 @@ public class TelaPagamentoController implements Initializable{
 
     @FXML
     private Button btnFinalizarCompra;
+
+    @FXML
+    private Label lbTeste;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -89,6 +91,11 @@ public class TelaPagamentoController implements Initializable{
             SceneController.stage.setY(mouseEvent.getScreenY() - y);
         });
 
+        tfNumeroCartao.setOnKeyPressed((KeyEvent e)->{
+            //lbNumCartao.setText(tfNumeroCartao.getText());
+            //lbCVV.setText(tfCVV.getText());
+            //lbNomeCartao.setText(tfNomeCartao.getText());
+        });
         imgLupa.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -136,26 +143,23 @@ public class TelaPagamentoController implements Initializable{
         btnFinalizarCompra.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             ControlCarrinho cc = new ControlCarrinho();
-            DaoPagamento dp = new DaoPagamento();
+            //DaoPagamento dp = new DaoPagamento();
             Pagamento pgt = new Pagamento();
 
             pgt.setCpf(tfCPF.getText());
-            pgt.setCvv(Integer.parseInt(tfCPF.getText()));
+            pgt.setCvv(Integer.parseInt(tfCVV.getText()));
             pgt.setNumCartao(tfNumeroCartao.getText());
             pgt.setValor(Double.parseDouble(precoTotal.getText()));
             
-            dp.insertDadosPagamento(pgt);
-            ResultSet resultUltimoId = dp.ultimoIdInserido();
+            //dp.insertDadosPagamento(pgt);
+            //int resultUltimoId = dp.ultimoIdInserido();
             
             try{
-                cpg.finalizarCompra(resultUltimoId.getInt("idPagamento"));
+                cpg.finalizarCompra(pgt);
                 Main.precoTotalCarrinho = 0.0;
                 precoTotal.setText("0");
                 cc.limparCarrinho();
                 sc.switchTelaBiblioteca(e);
-            }
-            catch (SQLException e1) {
-                e1.printStackTrace();
             }
             catch(IOException e1){
                 e1.printStackTrace();

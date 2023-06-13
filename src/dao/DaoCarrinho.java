@@ -38,7 +38,7 @@ public class DaoCarrinho{
     public boolean insertJogoCarrinho(int idUsuario, int idJogo){
         ConnectBd bd = new ConnectBd();
         try{
-            command = "INSERT INTO Carrinho VALUES (?,?)";
+            command = "INSERT INTO Carrinho VALUES (?, ?)";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idUsuario);
             declaracao.setInt(2, idJogo);
@@ -65,7 +65,7 @@ public class DaoCarrinho{
         ConnectBd bd = new ConnectBd();                                                     
                                                                                         
         try{                                                                                 
-            command = "DELETE * FROM Carrinho WHERE idUsuario = ?";
+            command = "DELETE FROM Carrinho WHERE idUsuario = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, Main.idIdent);
             declaracao.execute();

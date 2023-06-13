@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controller.ControlJogo;
+import controller.ControlKey;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -87,11 +88,16 @@ public class TelaAdminController implements Initializable{
     @FXML
     private TextField tfSerialKey;
 
+    @FXML
+    private Button btnKey;
+
     //parte referte a exlusao de usuarios do sistema
     @FXML
     private TextField tfIdUsuario;
 
-    
+    @FXML
+    private ImageView lupaUsu;
+
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -108,14 +114,6 @@ public class TelaAdminController implements Initializable{
 
         preLoadDadosUsuario();
 
-        imgJogo.setOnMouseClicked((MouseEvent e)->{
-           selecionaFoto();
-        });
-
-        btnCamera.setOnMouseClicked((MouseEvent e)->{
-           selecionaFoto();
-        });
-
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -125,6 +123,34 @@ public class TelaAdminController implements Initializable{
                 e1.printStackTrace();
             }
         });
+        
+        imgJogo.setOnMouseClicked((MouseEvent e)->{
+           selecionaFoto();
+        });
+
+        btnCamera.setOnMouseClicked((MouseEvent e)->{
+           selecionaFoto();
+        });
+        
+        //Acoes da key
+        btnKey.setOnMouseClicked((MouseEvent e)->{
+            ControlKey ck = new ControlKey();
+            boolean confirma = ck.addKey(Integer.parseInt(tfIdJogo.getText()), tfSerialKey.getText());
+            if(confirma == true){
+                limpaCamposKey();
+                Alert a = new Alert(AlertType.CONFIRMATION);
+                a.initStyle(StageStyle.UNDECORATED);
+                a.setContentText("Key inserida com sucesso no banco");
+                a.show();
+            }
+           else{
+                Alert a = new Alert(AlertType.WARNING);
+                a.initStyle(StageStyle.UNDECORATED);
+                a.setContentText("Erro ao inserir a key");
+                a.show();
+           }
+        });
+        
 
     }
 
@@ -148,7 +174,10 @@ public class TelaAdminController implements Initializable{
             a.show();
         }
         else{    
-            System.out.println("f total ao cadastrar o jogo");
+            Alert a = new Alert(AlertType.WARNING);
+            a.initStyle(StageStyle.UNDECORATED);
+            a.setContentText("Erro ao adiconar o jogo"); 
+            a.show();
         } 
     
     }
@@ -189,6 +218,11 @@ public class TelaAdminController implements Initializable{
         tfDesenvolvedora.setText("");
         tfDescricao.setText(""); 
     
+    }
+
+    private void limpaCamposKey() {
+        tfIdJogo.setText("");
+        tfSerialKey.setText("");
     }
 
     

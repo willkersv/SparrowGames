@@ -4,8 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//import model.Key;
-
 public class DaoKey{
     private PreparedStatement declaracao;
     private String command = "";
@@ -16,10 +14,11 @@ public class DaoKey{
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT * FROM Key WHERE idJogo = ? AND disponivel = 1 LIMIT 1";
+            command = "SELECT * FROM sparrow.key WHERE idJogo = ? AND disponivel = 1 LIMIT 1";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogo);
             ResultSet resultado = declaracao.executeQuery();
+            resultado.next();
             System.out.println("Transacao realizada com sucesso!");
             return resultado;
         }
@@ -41,7 +40,7 @@ public class DaoKey{
         ConnectBd bd = new ConnectBd();//                                 MUDAR A DISPONIBILIDADE PARA FALSE APENAS QUANDO O CARA COMPRAR OS JOGOS, APENAS DEPOIS DO PAGAMENTO.
 
         try{                                                                                 
-            command = "UPDATE Key SET disponivel = ? WHERE idSerial = ?";
+            command = "UPDATE sparrow.key SET disponivel = ? WHERE idSerial = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             if(disponivel){
                 declaracao.setInt(1, 1);
@@ -70,7 +69,7 @@ public class DaoKey{
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT COUNT(*) AS qtd_keys FROM Key WHERE idJogo = ? AND disponivel = 1";
+            command = "SELECT COUNT(*) AS qtd_keys FROM sparrow.key WHERE idJogo = ? AND disponivel = 1";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogo);
             ResultSet resultado = declaracao.executeQuery();
@@ -90,5 +89,33 @@ public class DaoKey{
             }
         }
     }
+
+    public boolean insertKey(int idJogo, String IdSerial){
+        ConnectBd bd = new ConnectBd();
+
+        try{
+            command = "INSERT INTO sparrow.key VALUES (?, ?, true)";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setInt(1, idJogo);
+            declaracao.setString(2, IdSerial);
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Transacao realizada");
+            return true;
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao de adicao cancelada!");
+                System.err.println("Erro na transacao: " + ex.getMessage());
+                return false;
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+                return false;
+            }
+        }
+    }
+
 
 }

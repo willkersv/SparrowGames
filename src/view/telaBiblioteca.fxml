@@ -14,10 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaJogoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.TelaBibliotecaController">
    <right>
       <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
          <content>
@@ -52,54 +51,10 @@
                         </Line>
                         <HBox prefHeight="265.0" prefWidth="1080.0">
                            <children>
-                              <VBox prefHeight="145.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: #272727;">
+                              <VBox fx:id="jogoLayout" prefHeight="145.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: #272727;">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
-                                 <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1040.0" style="-fx-background-color: #272727;">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#63696f" height="75.0" stroke="BLACK" strokeType="INSIDE" width="122.5" />
-                                          <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="868.0">
-                                             <children>
-                                                <Label text="Nome do Jogo" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <HBox prefHeight="17.0" prefWidth="753.0">
-                                                   <children>
-                                                      <Label text="Sua Key:" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <padding>
-                                                            <Insets right="5.0" />
-                                                         </padding>
-                                                      </Label>
-                                                      <Label text="KeyDoKabaço" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="372.0" style="-fx-background-color: #D7D7D7;" text="Exibir Key">
-                                             <HBox.margin>
-                                                <Insets right="20.0" />
-                                             </HBox.margin>
-                                             <font>
-                                                <Font name="System Bold" size="16.0" />
-                                             </font>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
                               </VBox>
                            </children>
                         </HBox>
@@ -123,20 +78,29 @@
          <children>
             <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/close.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/arrow-left.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnMinimizar" fitHeight="30.0" fitWidth="30.0" layoutX="996.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/minus.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </Pane>
@@ -163,15 +127,21 @@
                   </Button>
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                      <children>
-                        <TextField prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                        <TextField fx:id="tfPesquisa" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLupa" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/search%20(2).png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </HBox>
@@ -186,12 +156,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label fx:id="nomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                        <Label fx:id="lbNomeUsuario" alignment="CENTER" ellipsisString="" prefHeight="30.0" prefWidth="79.0" text="Usuário" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                        <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
                      </children>
                   </HBox>
                </children>

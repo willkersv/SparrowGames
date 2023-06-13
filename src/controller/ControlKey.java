@@ -2,6 +2,8 @@ package controller;
 
 import java.util.Random;
 
+import dao.DaoKey;
+
 public class ControlKey {
     
     public String gerarKey(){
@@ -21,5 +23,11 @@ public class ControlKey {
         key = sb.toString();
         System.out.println("Key de ativacao do jogo: " + key);
         return key;
+    }
+
+    public boolean addKey(int idJogo, String idSerial){
+        DaoKey dk = new DaoKey();
+        boolean confirma = dk.insertKey(idJogo, idSerial);
+        return confirma;
     }
 }

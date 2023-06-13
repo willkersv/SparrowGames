@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import controller.ControlDesejo;
+import controller.ControlBiblioteca;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,12 +20,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import model.Desejo;
+import model.Biblioteca;
 
-public class TelaDesejoController implements Initializable{
-
-    private double x = 0, y = 0;
+public class TelaBibliotecaController implements Initializable{
     
+    private double x = 0, y = 0;
+
     //BARRA SUPERIOR THINGS
     @FXML
     private Pane barra;
@@ -43,10 +43,10 @@ public class TelaDesejoController implements Initializable{
     private ImageView imgLupa;
 
     @FXML
-    private ImageView imgCarrinho;
+    private TextField tfPesquisa;
 
     @FXML
-    private TextField tfPesquisa;
+    private ImageView imgCarrinho;
 
     //////////////////////////////
     @FXML
@@ -60,24 +60,24 @@ public class TelaDesejoController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ControlDesejo cd = new ControlDesejo();
-        List<Desejo> desejo  = new ArrayList<>(cd.exibirDesejo());  
+        ControlBiblioteca cb = new ControlBiblioteca();
+        List<Biblioteca> bibliotecaList  = new ArrayList<>(cb.exibirJogosBiblioteca());  
 
-        for(int i =0; i<desejo.size(); i++){
+        for(int i =0; i<bibliotecaList.size(); i++){
             
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/modeloDesejo.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/view/modeloBiblioteca.fxml"));
                 HBox hBox = fxmlLoader.load();
-                ModeloDesejoController mdc = fxmlLoader.getController();
-                mdc.setData(desejo.get(i));
+                ModeloBibliotecaController mcd = fxmlLoader.getController();
+                mcd.setData(bibliotecaList.get(i));
                 jogoLayout.getChildren().add(hBox);
                     
             } catch (Exception e) {
-                e.printStackTrace();
+            e.printStackTrace();
             }
         }
-
+        
         barra.setOnMousePressed(mouseEvent ->{
             x = mouseEvent.getSceneX();
             y = mouseEvent.getSceneY();
@@ -125,10 +125,7 @@ public class TelaDesejoController implements Initializable{
                 e1.printStackTrace();
             }
         });
-
-        preLoadDadosUsuario();
-
-        
+    
     }
 
     private void preLoadDadosUsuario(){
@@ -143,5 +140,4 @@ public class TelaDesejoController implements Initializable{
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
     }
-    
 }

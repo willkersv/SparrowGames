@@ -91,7 +91,6 @@ public class SceneController {
         stage.show();
     }
 
-    //tela de buscar jogos
     public void switchTelaBusca(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/telaBusca.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

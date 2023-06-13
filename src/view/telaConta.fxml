@@ -153,14 +153,17 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </Circle>
-                                                <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="211.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="circleCamera" fitHeight="43.0" fitWidth="43.0" layoutX="211.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/camera.png" />
                                                    </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </ImageView>
                                              </children>
                                           </Pane>
-                                          <Label text="Willker Dark Santana" textFill="WHITE">
+                                          <Label fx:id="lbNovoNome" text="Willker Dark Santana" textFill="WHITE">
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
@@ -192,7 +195,7 @@
                                                 <Image url="@../images/user.png" />
                                              </image>
                                           </ImageView>
-                                          <TextField prefHeight="40.0" prefWidth="250.0" promptText="Novo nome" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;">
+                                          <TextField fx:id="tfNovoNome" prefHeight="40.0" prefWidth="250.0" promptText="Novo nome" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -200,10 +203,13 @@
                                                 <Insets left="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgUpdate" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/check.png" />
                                              </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                        </children>
                                     </HBox>

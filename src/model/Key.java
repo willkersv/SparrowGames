@@ -1,6 +1,7 @@
 package model;
 
 public class Key {
+    
     private int idJogo;
 
     private String idSerial;

@@ -103,5 +103,9 @@ public class ControlUsuario{
         return codRecSenha;
     }
 
+    public void attNome(String novoNome){
+        DaoUsuario du = new DaoUsuario();
+        du.updateNomeUsuario(novoNome);
+    }
 
 }

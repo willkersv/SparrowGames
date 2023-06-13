@@ -13,12 +13,12 @@ import model.Pagamento;
 
 public class ControlPagamento {
 
-    public void finalizarCompra(int idPagamento) {
+    public void finalizarCompra(Pagamento pg) {
         DaoKey dk = new DaoKey();
         DaoCarrinho dc = new DaoCarrinho();
         DaoBiblioteca db = new DaoBiblioteca();
         DaoPagamento dp = new DaoPagamento();
-        Pagamento pgmt = new Pagamento();
+        Pagamento pgmt = pg;
         Key key = new Key();
         int idJogo;
         try {
@@ -30,6 +30,10 @@ public class ControlPagamento {
 
                 // Procura as key's dos jogos em questao
                 ResultSet resultKey = dk.findByIdJogo(idJogo);
+                
+                pgmt.setIdJogo(idJogo);
+                pgmt.setIdUsuario(Main.idIdent);
+                dp.insertDadosPagamento(pgmt);
 
                 // Monta uma key com o resultado na querry anterior
                 key.setIdSerial(resultKey.getString("idSerial"));
@@ -40,12 +44,12 @@ public class ControlPagamento {
                 dk.attDisponivel(resultKey.getString("idSerial"), false);
 
                 // Monta um tipo pagamento para a funcao de inserer confirmacao de pagamento
-                pgmt.setIdJogo(idJogo);
-                pgmt.setIdPagamento(idPagamento);
-                pgmt.setIdUsuario(Main.idIdent);
+                //pgmt.setIdJogo(idJogo);
+                //pgmt.setIdPagamento(idPagamento);
+                //pgmt.setIdUsuario(Main.idIdent);
                 
                 // Insere confirmacao do pagamento no banco
-                dp.insertPagamentoConfirmado(pgmt);
+                //dp.insertPagamentoConfirmado(pgmt);
 
                 // Insere o jogo na biblioteca do usuario ja passando a key
                 db.insertJogoBiblioteca(key);

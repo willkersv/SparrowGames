@@ -4,15 +4,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.ControlCarrinho;
 import controller.ControlDesejo;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.StageStyle;
 import model.Desejo;
 
 public class ModeloDesejoController implements Initializable{
@@ -72,6 +76,26 @@ public class ModeloDesejoController implements Initializable{
                 e1.printStackTrace();
             }
         });
+
+        imgCarrinho.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            
+            try { 
+                Main.idJogoAux = idJogo;
+                ControlDesejo cd = new ControlDesejo();
+                ControlCarrinho cc = new ControlCarrinho();
+                cc.addJogoCarrinho();
+                cd.excluiDesejo();
+                Alert a = new Alert(AlertType.CONFIRMATION);
+                a.initStyle(StageStyle.UNDECORATED);
+                a.setContentText("O jogo foi adicionado ao carrinho de compras");
+                a.show();
+                sc.switchTelaDesejo(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
      }
 
      public void setData(Desejo desejo){

@@ -74,4 +74,9 @@ public class ControlJogo {
         }
 
     }
+
+    public void attPreco(Double novoPreco){
+        DaoJogo dj = new DaoJogo();
+        dj.updatePreco(novoPreco, Main.idJogoAux);
+    }
 }

@@ -179,6 +179,9 @@
                                                    <HBox.margin>
                                                       <Insets left="20.0" top="30.0" />
                                                    </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="TEXT" />
+                                                   </cursor>
                                                 </TextField>
                                              </children>
                                           </HBox>
@@ -258,6 +261,9 @@
                                                    <HBox.margin>
                                                       <Insets left="20.0" top="20.0" />
                                                    </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="TEXT" />
+                                                   </cursor>
                                                 </TextField>
                                                 <TextField fx:id="tfSerialKey" prefHeight="40.0" prefWidth="250.0" promptText="Serial Key" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                                    <font>
@@ -266,16 +272,22 @@
                                                    <HBox.margin>
                                                       <Insets left="20.0" top="20.0" />
                                                    </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="TEXT" />
+                                                   </cursor>
                                                 </TextField>
                                              </children>
                                           </HBox>
-                                          <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Adicionar Key">
+                                          <Button fx:id="btnKey" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Adicionar Key">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                              <VBox.margin>
                                                 <Insets left="20.0" top="30.0" />
                                              </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Button>
                                        </children>
                                     </VBox>
@@ -316,7 +328,7 @@
                                                       <Insets left="5.0" top="20.0" />
                                                    </HBox.margin>
                                                 </TextField>
-                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgLupaUsu" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/search.png" />
                                                    </image>

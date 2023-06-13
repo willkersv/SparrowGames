@@ -165,4 +165,29 @@ public class DaoJogo{
         }
     }
 
+    public void updatePreco(Double novoPreco, int idJogo){
+        ConnectBd bd = new ConnectBd();                                                       
+                                                                                        
+        try{                                                                                 
+            command = "UPDATE jogo SET precoJogo = '?' WHERE idJogo = ?";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setDouble(1, novoPreco);
+            declaracao.setInt(2, idJogo);
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Transacao de uptade realizada com suceso!");
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao de update cancelada!");
+                System.err.println("Erro na transacao de uptade: " + ex.getMessage());
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+            }
+            
+        }
+    }
+
 }

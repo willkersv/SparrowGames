@@ -6,7 +6,11 @@ public class Biblioteca {
 
     private int idJogo;
 
-    private boolean favorito;
+    private String nomeJogo;
+
+    private String imgJogo;
+
+    private String idSerial;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -24,11 +28,28 @@ public class Biblioteca {
         this.idJogo = idJogo;
     }
 
-    public boolean isFavorito() {
-        return favorito;
+    public String getNomeJogo() {
+        return nomeJogo;
     }
 
-    public void setFavorito(boolean favorito) {
-        this.favorito = favorito;
+    public void setNomeJogo(String nomeJogo) {
+        this.nomeJogo = nomeJogo;
     }
+
+    public String getImgJogo() {
+        return imgJogo;
+    }
+
+    public void setImgJogo(String imgJogo) {
+        this.imgJogo = imgJogo;
+    }
+
+    public String getIdSerial() {
+        return idSerial;
+    }
+
+    public void setIdSerial(String idSerial) {
+        this.idSerial = idSerial;
+    }
+
 }

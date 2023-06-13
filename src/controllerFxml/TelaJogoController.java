@@ -168,6 +168,20 @@ public class TelaJogoController implements Initializable {
             cd.excluiDesejo();
         });
 
+        
+        //funcao para editar preco do game
+        // btnEditarJogo.setOnMouseClicked((MouseEvent e)->{
+        //     ControlJogo cj = new ControlJogo();
+        //     cj.attPreco(tfNovoPreco.getText());
+        // SceneController sc = new SceneController();
+        //     try {
+        //         sc.switchTelaJogo(e);
+        //     } catch (IOException e1) {
+
+        //         e1.printStackTrace();
+        //     }
+        // });
+
         btnAddCarrinho.setOnMouseClicked((MouseEvent e)->{
             ControlCarrinho ccr = new ControlCarrinho();
             if(ccr.addJogoCarrinho() == false){
