@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import controller.ControlJogo;
 import controller.ControlKey;
+import controller.ControlUsuario;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,19 +23,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import model.Jogo;
 
 public class TelaAdminController implements Initializable{
 
     private double x = 0, y = 0;
-
-    @FXML
-    private Pane pnModal;
 
     //Barra superior
     @FXML
@@ -56,6 +57,29 @@ public class TelaAdminController implements Initializable{
 
     @FXML
     private ImageView imgCarrinho;
+
+    //Modal things
+    
+    //Variavel para o modalzinho
+    private boolean permite = true;
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
 
     //Parte referente ao jogo
     private String caminhoImgJogo;
@@ -96,7 +120,16 @@ public class TelaAdminController implements Initializable{
     private TextField tfIdUsuario;
 
     @FXML
-    private ImageView lupaUsu;
+    private ImageView imgLupaUsu;
+
+    @FXML
+    private ImageView imgLixeira;
+
+    @FXML
+    private Circle circleUsu2;
+
+    @FXML
+    private Label lbNomeUsuario2;
 
     
     @Override
@@ -111,7 +144,8 @@ public class TelaAdminController implements Initializable{
             SceneController.stage.setX(mouseEvent.getScreenX() - x);
             SceneController.stage.setY(mouseEvent.getScreenY() - y);
         });
-
+        
+        camposInv();
         preLoadDadosUsuario();
 
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
@@ -119,10 +153,51 @@ public class TelaAdminController implements Initializable{
             try {
                 sc.switchTelaInicial(e);
             } catch (IOException e1) {
-
                 e1.printStackTrace();
             }
         });
+
+        //Botões do modal
+        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
+        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaBiblioteca(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaDesejo(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaAdmin(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
         
         imgJogo.setOnMouseClicked((MouseEvent e)->{
            selecionaFoto();
@@ -151,7 +226,14 @@ public class TelaAdminController implements Initializable{
            }
         });
         
+        btnFechar.setOnMouseClicked((MouseEvent e)->{
+            System.exit(1); 
+        });
 
+        imgLupaUsu.setOnMouseClicked((MouseEvent e) -> {
+            ControlUsuario cu = new ControlUsuario();
+            cu.findByIdUsu(Integer.parseInt(tfIdUsuario.getText()));
+        });
     }
 
     //Funcoes para adicionar o jogo
@@ -188,28 +270,46 @@ public class TelaAdminController implements Initializable{
         File file = fc.showOpenDialog(new Stage());
         //se der erro no notebook, colcoar ali em baixo o "file:///"+
         if(file != null){
-            
             Image Img = new Image(file.getAbsolutePath(), false);
             imgJogo.setFill(new ImagePattern(Img));
             caminhoImgJogo = file.getAbsolutePath();
-            
         }}
     
 
-    //preload
+    //Puxa/Volta o modal
+    private void puxaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
+        slide.setByX(-200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
+    }
+
+    private void voltaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.5));
+        slide.setNode(pnModal);  
+        slide.setByX(200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
+    }
+
+
     private void preLoadDadosUsuario(){
-        if(Main.usuImg != null){
-            Image usuImage = new Image(Main.usuImg, false);
-            circleUsu.setFill(new ImagePattern(usuImage));
-            
-        }
-        else{
-            Image usuImage = new Image("/images/sparrow games.png");
-            circleUsu.setFill(new ImagePattern(usuImage));
-            
-        }
+
+        Image usuImage = new Image(Main.usuImg, false);
+        circleUsu.setFill(new ImagePattern(usuImage));
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
+    }
+
+    private void camposInv(){
+        imgLixeira.setVisible(false);
+        circleUsu2.setVisible(false);
+        lbNomeUsuario2.setVisible(false);
     }
 
     private void limpaCamposJogo() {
@@ -217,7 +317,6 @@ public class TelaAdminController implements Initializable{
         tfPrecoJogo.setText("");
         tfDesenvolvedora.setText("");
         tfDescricao.setText(""); 
-    
     }
 
     private void limpaCamposKey() {

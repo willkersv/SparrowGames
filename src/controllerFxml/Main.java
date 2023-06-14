@@ -16,6 +16,8 @@ import java.io.IOException;
 
 public class Main extends Application {
     
+    //Passar esses auxiliadores para a Helper
+    
     //Identificadores do usuario durante toda a utilizacao do sistema
     public static String nomeUsuario;
     public static String emailIdent;
@@ -33,6 +35,8 @@ public class Main extends Application {
     //Torna a tela Draggeble
     private double xOffset = 0;
     private double yOffset = 0;
+
+   // public static boolean permite = true;
 
     public static Scene mainScene;     
     public static void main(String[] args) {
@@ -65,7 +69,7 @@ public class Main extends Application {
             }
         });
         primaryStage.setScene(TelaLogin);
-        new animatefx.animation.ZoomIn(root).setSpeed(2).play();;
+        new animatefx.animation.ZoomIn(root).setSpeed(2).play();
         primaryStage.show();
     }
 

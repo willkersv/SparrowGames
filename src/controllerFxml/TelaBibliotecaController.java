@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import controller.ControlBiblioteca;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,6 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.util.Duration;
 import model.Biblioteca;
 
 public class TelaBibliotecaController implements Initializable{
@@ -48,6 +52,29 @@ public class TelaBibliotecaController implements Initializable{
     @FXML
     private ImageView imgCarrinho;
 
+    //Modal things
+    
+    //Variavel para o modalzinho
+    private boolean permite = true;
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
+
     //////////////////////////////
     @FXML
     private VBox jogoLayout;
@@ -74,7 +101,7 @@ public class TelaBibliotecaController implements Initializable{
                 jogoLayout.getChildren().add(hBox);
                     
             } catch (Exception e) {
-            e.printStackTrace();
+                e.printStackTrace();
             }
         }
         
@@ -125,7 +152,69 @@ public class TelaBibliotecaController implements Initializable{
                 e1.printStackTrace();
             }
         });
+
+        //Botões do modal
+        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
+        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaBiblioteca(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaDesejo(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaAdmin(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     
+    }
+
+    //Puxa/Volta o modal
+    private void puxaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
+        slide.setByX(-200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
+    }
+
+    private void voltaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.5));
+        slide.setNode(pnModal);  
+        slide.setByX(200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
     }
 
     private void preLoadDadosUsuario(){

@@ -35,6 +35,26 @@ public class ControlUsuario{
         return false;
     }
 
+    public Usuario findByIdUsu(int idUsu){
+        try{
+            Usuario us = new Usuario();
+            DaoUsuario du = new DaoUsuario();
+            ResultSet resultado = du.findById(idUsu);
+            if(resultado.next()){
+                us.setImgUsuario(resultado.getString("ImgUsuario"));
+                us.setNomeUsuario(resultado.getString("nomeUsuario"));
+                return us;
+            }
+            else{
+                System.out.println("Usuario não existe!!!!!");
+                return null;
+            }
+        } catch (SQLException e) {
+            System.out.println("Problema com a transacao!"); 
+            return null;    
+        }
+    }
+
     public String consultaCodRec(String email, String codRec){
         try {
             DaoUsuario du = new DaoUsuario();

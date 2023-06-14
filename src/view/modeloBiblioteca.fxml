@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1040.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.ModeloBibliotecaController">
+<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1040.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.ModeloBibliotecaController">
    <children>
       <Rectangle fx:id="imgJogo" arcHeight="5.0" arcWidth="5.0" fill="#63696f" height="75.0" stroke="BLACK" strokeType="INSIDE" width="122.5" />
       <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="868.0">

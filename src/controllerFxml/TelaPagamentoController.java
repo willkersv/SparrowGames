@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import controller.ControlCarrinho;
 import controller.ControlPagamento;
-//import dao.DaoPagamento;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,6 +19,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import model.Pagamento;
 
 
@@ -47,6 +50,29 @@ public class TelaPagamentoController implements Initializable{
     @FXML
     private ImageView imgCarrinho;
 
+    //Modal things
+    
+    //Variavel para o modalzinho
+    private boolean permite = true;
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
+
     //Dados user
     @FXML
     private Circle circleUsu;
@@ -56,8 +82,23 @@ public class TelaPagamentoController implements Initializable{
 
     //INFORMACOES PRINCIPAIS DA TELA
     @FXML
+    private Rectangle imgCartao;
+
+    @FXML
+    private Label lbNumeroCartao;
+    
+    @FXML
+    private Label lbCVV;
+    
+    @FXML
+    private Label lbNomeCartao;
+    
+    @FXML
     private Label precoTotal;
 
+    @FXML
+    private TextField tfNomeCartao;
+    
     @FXML
     private TextField tfCPF;
 
@@ -70,8 +111,14 @@ public class TelaPagamentoController implements Initializable{
     @FXML
     private Button btnFinalizarCompra;
 
+    //Painel obrigado
     @FXML
-    private Label lbTeste;
+    private Pane pnObrigado;
+
+    @FXML
+    private ImageView imgFecharObrigado;
+
+
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,21 +138,6 @@ public class TelaPagamentoController implements Initializable{
             SceneController.stage.setY(mouseEvent.getScreenY() - y);
         });
 
-        tfNumeroCartao.setOnKeyPressed((KeyEvent e)->{
-            //lbNumCartao.setText(tfNumeroCartao.getText());
-            //lbCVV.setText(tfCVV.getText());
-            //lbNomeCartao.setText(tfNomeCartao.getText());
-        });
-        imgLupa.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.nomeJogoAux = tfPesquisa.getText();
-                sc.switchTelaBusca(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -118,6 +150,69 @@ public class TelaPagamentoController implements Initializable{
         btnFechar.setOnMouseClicked((MouseEvent e)->{
             System.exit(1); 
         });
+
+        //Botões do modal
+        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
+        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaBiblioteca(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaDesejo(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaAdmin(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        circleUsu.setOnMouseClicked((MouseEvent e)->{
+            if(permite == true){
+                puxaModal();
+                permite = false;
+            }
+            else{
+                voltaModal();
+                permite = true;
+            }
+            
+        });
+
+        imgLupa.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                Main.nomeJogoAux = tfPesquisa.getText();
+                sc.switchTelaBusca(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
         
         imgCarrinho.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -128,57 +223,125 @@ public class TelaPagamentoController implements Initializable{
             }
         });
 
-        // circleUsu.setOnMouseClicked((MouseEvent e)->{
-        //     if(permite == true){
-        //         puxaModal();
-        //         permite = false;
-        //     }
-        //     else{
-        //         voltaModal();
-        //         permite = true;
-        //     }
+        tfNumeroCartao.setOnKeyTyped((KeyEvent e)->{
             
-        // });
+            if(tfNumeroCartao.getText().length() == 1){
+                System.out.println(tfNumeroCartao.getText().substring(0, 1));
+                int primNum = Integer.parseInt(tfNumeroCartao.getText().substring(0, 1));
+                System.out.println(primNum);
+                if(primNum == 5){
+                    Image usuImage = new Image("/images/cartaoMaster.png", false);
+                    imgCartao.setFill(new ImagePattern(usuImage));
+                }
+                else if(primNum == 4){
+                    Image usuImage = new Image("/images/cartaoVisa.png", false);
+                    imgCartao.setFill(new ImagePattern(usuImage));
+                }
+                else{
+                    Image usuImage = new Image("/images/cartaoPadrao.png", false);
+                    imgCartao.setFill(new ImagePattern(usuImage));  
+                }
+            }
+            lbNumeroCartao.setText(tfNumeroCartao.getText());
+            
+        });
+
+        tfCVV.setOnKeyTyped((KeyEvent e)->{
+            lbCVV.setText(tfCVV.getText());
+        });
+
+        tfNomeCartao.setOnKeyTyped((KeyEvent e)->{
+            lbNomeCartao.setText(tfNomeCartao.getText());
+        });
+        
+        
+        
+        imgFecharObrigado.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                voltaObrigado();
+                sc.switchTelaBiblioteca(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
         
         btnFinalizarCompra.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
             ControlCarrinho cc = new ControlCarrinho();
-            //DaoPagamento dp = new DaoPagamento();
             Pagamento pgt = new Pagamento();
 
+            //insere dados no tipo Pagamento
             pgt.setCpf(tfCPF.getText());
             pgt.setCvv(Integer.parseInt(tfCVV.getText()));
             pgt.setNumCartao(tfNumeroCartao.getText());
             pgt.setValor(Double.parseDouble(precoTotal.getText()));
             
-            //dp.insertDadosPagamento(pgt);
-            //int resultUltimoId = dp.ultimoIdInserido();
-            
-            try{
-                cpg.finalizarCompra(pgt);
-                Main.precoTotalCarrinho = 0.0;
-                precoTotal.setText("0");
-                cc.limparCarrinho();
-                sc.switchTelaBiblioteca(e);
-            }
-            catch(IOException e1){
-                e1.printStackTrace();
-            }
+
+            cpg.finalizarCompra(pgt);
+            Main.precoTotalCarrinho = 0.0;
+            precoTotal.setText("0");
+            cc.limparCarrinho();
+            sobeObrigado();
 
         });
+
+        //Faz as limitacoes com o length do campo e se só pode numeros
+        Helper.limitTextField(tfNumeroCartao, 16);
+        Helper.onlyNumbers(tfNumeroCartao);
+        
+        Helper.limitTextField(tfCVV, 3);
+        Helper.onlyNumbers(tfCVV);
+
+        Helper.mascaraCPF(tfCPF);
+        Helper.limitTextField(tfCPF, 14);
+ 
     }
 
+    private void sobeObrigado(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.1));
+        slide.setNode(pnObrigado);
+        slide.setToY(-608);
+        slide.play();
+
+    }
+
+    private void voltaObrigado(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0));
+        slide.setNode(pnObrigado);
+        slide.setToY(608);
+        slide.play();
+    }
+
+    //Puxa/Volta o modal
+    private void puxaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
+        slide.setByX(-200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
+    }
+
+    private void voltaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.5));
+        slide.setNode(pnModal);  
+        slide.setByX(200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
+    }
+    
     private void preLoadDadosUsuario(){
-        if(Main.usuImg != null){
-            Image usuImage = new Image(Main.usuImg, false);
-            circleUsu.setFill(new ImagePattern(usuImage));
-        }
-        else{
-            Image usuImage = new Image("/images/sparrow games.png");
-            circleUsu.setFill(new ImagePattern(usuImage));
-        }
+        
+        Image usuImage = new Image(Main.usuImg, false);
+        circleUsu.setFill(new ImagePattern(usuImage));
+        usuImage = new Image("/images/cartaoPadrao.png", false);
+        imgCartao.setFill(new ImagePattern(usuImage));
         //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
     }
-
 }

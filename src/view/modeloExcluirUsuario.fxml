@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="94.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Circle fill="#8593a1" radius="23.0" stroke="BLACK" strokeType="INSIDE">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </Circle>
+      <Label prefHeight="20.0" prefWidth="204.0" text="Usuário" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/trash.png" />
+         </image>
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </ImageView>
+   </children>
+</HBox>

@@ -29,7 +29,7 @@
    <center>
       <Pane prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #272727;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pnCadastro" layoutY="810.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="pnCadastro" layoutY="810.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <TextField fx:id="tfNomeCad" layoutX="230.0" layoutY="247.0" prefHeight="40.0" prefWidth="250.0" promptText="Nome" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;">
                      <font>
@@ -112,7 +112,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="pnLogin" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="pnLogin" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <TextField fx:id="tfEmail" layoutX="231.0" layoutY="248.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                      <font>
@@ -156,7 +156,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="pnRecSenha" layoutX="700.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="pnRecSenha" layoutX="700.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <TextField fx:id="tfEmailRec" layoutX="231.0" layoutY="255.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;">
                      <font>
@@ -203,7 +203,7 @@
                      </font>
                   </Button>
                </children></Pane>
-            <Pane fx:id="pnRedSenha" layoutY="-700.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="pnRedSenha" layoutY="-700.0" prefHeight="670.0" prefWidth="680.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <PasswordField fx:id="tfNovaSenha2" layoutX="231.0" layoutY="311.0" prefHeight="40.0" prefWidth="250.0" promptText="Confirme a senha" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;">
                      <font>
@@ -266,7 +266,7 @@
                   </PasswordField>
                </children>
             </Pane>
-            <Pane fx:id="barraCod" layoutY="680.0" prefHeight="80.0" prefWidth="680.0" style="-fx-background-color: #565759;">
+            <Pane fx:id="barraCod" layoutY="680.0" prefHeight="80.0" prefWidth="680.0" style="-fx-background-color: #333333;">
                <children>
                   <Label layoutX="140.0" layoutY="21.0" prefHeight="20.0" prefWidth="346.0" text="Atenção: Este é o seu código de recuperação de senha:" textFill="WHITE">
                      <font>

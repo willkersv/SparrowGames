@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 
@@ -27,6 +28,9 @@ public class TelaInicialController implements Initializable{
     @FXML
     private Pane barra;
 
+    @FXML
+    private ImageView btnVoltar;
+    
     @FXML
     private ImageView btnFechar;
 
@@ -42,10 +46,6 @@ public class TelaInicialController implements Initializable{
     @FXML
     private ImageView imgCarrinho;
     
-    //Variavel para o modalzinho
-    private boolean permite = true;
-    
-    //pre load de dados do user
     @FXML
     private Circle circleUsu;
 
@@ -53,6 +53,7 @@ public class TelaInicialController implements Initializable{
     private Label lbNomeUsuario;
     
     //Modal things
+    
     @FXML
     private Pane pnModal;
 
@@ -68,6 +69,8 @@ public class TelaInicialController implements Initializable{
     @FXML
     private Button btnTelaAdmin;
 
+    @FXML
+    private Line linha4;
 
     //Image view dos jogos da tela
     @FXML
@@ -147,60 +150,9 @@ public class TelaInicialController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { 
-        
-        barra.setOnMousePressed(mouseEvent ->{
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
-        });
 
-        barra.setOnMouseDragged(mouseEvent ->{
-            SceneController.stage.setX(mouseEvent.getScreenX() - x);
-            SceneController.stage.setY(mouseEvent.getScreenY() - y);
-        });
-
-        preLoadDadosUsuario();
-
-        btnFechar.setOnMouseClicked((MouseEvent e)->{
-            System.exit(1); 
-        });
-
-        btnMinimizar.setOnMouseClicked((MouseEvent e)->{
-            SceneController.stage.setIconified(true);
-        });
-
-        imgLupa.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.nomeJogoAux = tfPesquisa.getText();
-                sc.switchTelaBusca(e);
-            } catch (IOException e1) {
-
-                e1.printStackTrace();
-            }
-            
-        });
-        
-        imgCarrinho.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaCarrinho(e);
-            } catch (IOException e1) {
-
-                e1.printStackTrace();
-            }
-        });
-
-        circleUsu.setOnMouseClicked((MouseEvent e)->{
-            if(permite == true){
-                puxaModal();
-                permite = false;
-            }
-            else{
-                voltaModal();
-                permite = true;
-            }
-            
-        });
+        Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
+                            btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
 
         //imagens para ir para os jogos
         imgTL.setOnMouseClicked((MouseEvent e)->{
@@ -274,75 +226,6 @@ public class TelaInicialController implements Initializable{
             }
 
         });
-
-        //Botões do modal
-        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaConta(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaBiblioteca(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaDesejo(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaAdmin(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
     }
     
-    //Chama o modal
-    private void puxaModal(){
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.4));
-        slide.setNode(pnModal);
-        slide.setByX(-200);
-        slide.play();
-        pnModal.toFront();
-        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
-    }
-
-    private void voltaModal(){
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.5));
-        slide.setNode(pnModal);  
-        slide.setByX(200);
-        slide.play();
-        pnModal.toFront();
-        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
-    }
-    ////////////////////////////////////////////////////////////////////////////////////////
-    private void preLoadDadosUsuario(){
-        Image usuImage = new Image(Main.usuImg, false);
-        circleUsu.setFill(new ImagePattern(usuImage));
-        //Faz nome aparecer ao lado da foto do usuário
-        lbNomeUsuario.setText(Main.nomeUsuario);
-    }
-
 }

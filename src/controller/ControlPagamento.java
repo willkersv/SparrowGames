@@ -43,14 +43,6 @@ public class ControlPagamento {
                 // Altera a disponibilidade da key capturada do banco
                 dk.attDisponivel(resultKey.getString("idSerial"), false);
 
-                // Monta um tipo pagamento para a funcao de inserer confirmacao de pagamento
-                //pgmt.setIdJogo(idJogo);
-                //pgmt.setIdPagamento(idPagamento);
-                //pgmt.setIdUsuario(Main.idIdent);
-                
-                // Insere confirmacao do pagamento no banco
-                //dp.insertPagamentoConfirmado(pgmt);
-
                 // Insere o jogo na biblioteca do usuario ja passando a key
                 db.insertJogoBiblioteca(key);
             }

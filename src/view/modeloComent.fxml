@@ -9,14 +9,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="1040.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.ModeloComentController">
+<HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="1040.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFxml.ModeloComentController">
    <children>
       <Circle fx:id="fotoComentario" fill="#8593a1" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
       <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="946.0">
          <children>
             <Label fx:id="nomeUsuario" text="Willker Dark Santana" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label fx:id="lbComentario" text="Eu sou o Willker, adoro falar palavras estranhas" textFill="WHITE" wrapText="true">

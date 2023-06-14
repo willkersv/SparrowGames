@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.ResourceBundle.Control;
 
 import controller.ControlUsuario;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -17,9 +18,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class TelaContaController implements Initializable{
     
@@ -47,10 +50,33 @@ public class TelaContaController implements Initializable{
     @FXML
     private Label lbNomeUsuario;
 
+    //Modal things
+    
+    //Variavel para o modalzinho
+    private boolean permite = true;
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
+
     //Campos para edicao
     @FXML
     private Circle circleUsu2;
-
+    
     private String caminhoImg;
 
     @FXML
@@ -125,7 +151,28 @@ public class TelaContaController implements Initializable{
             caminhoImg = file.getAbsolutePath();
         }}
 
-     private void preLoadDadosUsuario(){
+     //Puxa/Volta o modal
+    private void puxaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
+        slide.setByX(-200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
+    }
+
+    private void voltaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.5));
+        slide.setNode(pnModal);  
+        slide.setByX(200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
+    }
+     
+    private void preLoadDadosUsuario(){
         Image usuImage = new Image(Main.usuImg, false);
         circleUsu.setFill(new ImagePattern(usuImage));
         circleUsu2.setFill(new ImagePattern(usuImage));     

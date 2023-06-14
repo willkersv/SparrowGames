@@ -26,13 +26,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.StageStyle;
 import model.Comentario;
 
 public class TelaJogoController implements Initializable {
-
-    private double x = 0, y = 0;
 
     //BARRA SUPERIOR
     @FXML
@@ -55,6 +54,34 @@ public class TelaJogoController implements Initializable {
 
     @FXML
     private Label lbNomeUsuario;
+
+    @FXML
+    private TextField tfPesquisa;
+    
+    @FXML
+    private ImageView imgLupa;
+
+    //Modal things
+    
+    //Variavel para o modalzinho
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
 
     //Campos do jogo
     @FXML
@@ -80,6 +107,12 @@ public class TelaJogoController implements Initializable {
 
     @FXML
     private Button btnAddCarrinho;
+
+    @FXML
+    private TextField tfNovoPreco;
+
+    @FXML  
+    private ImageView imgConfirmaPreco;
 
     //V-box dos comentario
     @FXML
@@ -114,62 +147,33 @@ public class TelaJogoController implements Initializable {
             e.printStackTrace();
             }
         }
+
+        Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
+                            btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
+        preLoadDados();
         
-        barra.setOnMousePressed(mouseEvent ->{
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
-        });
-
-        barra.setOnMouseDragged(mouseEvent ->{
-            SceneController.stage.setX(mouseEvent.getScreenX() - x);
-            SceneController.stage.setY(mouseEvent.getScreenY() - y);
-        });
-
-        preLoadDadosUsuario();
         infoJogo();
+        
         verfificaDesejo();
 
-        btnVoltar.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaInicial(e);
-            } catch (IOException e1) {
-
-                e1.printStackTrace();
-            }
-        });
-
-        btnFechar.setOnMouseClicked((MouseEvent e)->{
-            System.exit(1); 
-        });
-
-        imgCarrinho.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaCarrinho(e);
-            } catch (IOException e1) {
-
-                e1.printStackTrace();
-            }
-        });
-
+        //parte referente ao jogo
         imgHeart.setOnMouseClicked((MouseEvent e)->{
             imgHeartFull.setVisible(true); 
+            new animatefx.animation.ZoomIn(imgHeartFull).setSpeed(1.4).play();
             imgHeartFull.toFront();
             ControlDesejo cd = new ControlDesejo();
             cd.addDesejo();
         });
         
         imgHeartFull.setOnMouseClicked((MouseEvent e)->{
-            imgHeartFull.setVisible(false);
             imgHeart.setVisible(true);
+            new animatefx.animation.ZoomOut(imgHeartFull).setSpeed(1.4).play();
             imgHeart.toFront();
             ControlDesejo cd = new ControlDesejo();
             cd.excluiDesejo();
         });
 
         
-        //funcao para editar preco do game
         // btnEditarJogo.setOnMouseClicked((MouseEvent e)->{
         //     ControlJogo cj = new ControlJogo();
         //     cj.attPreco(tfNovoPreco.getText());
@@ -198,7 +202,6 @@ public class TelaJogoController implements Initializable {
 
         });
         
-        
         //Referente ao comentario
         btnConfirmar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
@@ -210,9 +213,6 @@ public class TelaJogoController implements Initializable {
                 e1.printStackTrace();
             }
         });
-
-
-        
     }
 
     private void infoJogo(){
@@ -228,22 +228,7 @@ public class TelaJogoController implements Initializable {
         imgJogo.setFill(new ImagePattern(image));
         imgJogo.setSmooth(true); 
     }
-
-    private void preLoadDadosUsuario(){
-        if(Main.usuImg != null){
-            Image usuImage = new Image(Main.usuImg, false);
-            circleUsu.setFill(new ImagePattern(usuImage));
-            circleUsuComent.setFill(new ImagePattern(usuImage));
-        }
-        else{
-            Image usuImage = new Image("/images/sparrow games.png");
-            circleUsu.setFill(new ImagePattern(usuImage));
-            circleUsuComent.setFill(new ImagePattern(usuImage));
-        }
-        //Faz nome aparecer ao lado da foto do usuário
-        lbNomeUsuario.setText(Main.nomeUsuario);
-    }
-
+    
     private void verfificaDesejo(){
         ControlDesejo cd = new ControlDesejo();
         boolean desejo = cd.consultaDesejo();
@@ -252,5 +237,20 @@ public class TelaJogoController implements Initializable {
             imgHeartFull.toFront();
         }
     }
+    
+    private void preLoadDados(){
+        //Imagem do Usuario no comentario
+        Image usuImage = new Image(Main.usuImg, false);
+        circleUsuComent.setFill(new ImagePattern(usuImage));
+        if(Main.verAdmin == false){
+            imgConfirmaPreco.setVisible(false);
+            tfNovoPreco.setVisible(false);
+            btnTelaAdmin.setVisible(false);
+            linha4.setVisible(false);
+            pnModal.setMaxHeight(124);
+        }
+    }
+
+    
 
 }

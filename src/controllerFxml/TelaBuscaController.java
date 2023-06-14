@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import controller.ControlJogo;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,6 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.util.Duration;
 import model.Jogo;
 
 public class TelaBuscaController implements Initializable{
@@ -44,6 +48,27 @@ public class TelaBuscaController implements Initializable{
 
     @FXML
     private TextField tfPesquisa;
+
+    //Modal things
+    
+    @FXML
+    private Pane pnModal;
+
+    @FXML
+    private Button btnTelaConta;
+    
+    @FXML
+    private Button btnTelaBiblioteca;
+
+    @FXML
+    private Button btnTelaDesejo;
+
+    @FXML
+    private Button btnTelaAdmin;
+
+    @FXML
+    private Line linha4;
+
    //////////////////////////////////
     @FXML
     private VBox jogoLayout;
@@ -75,21 +100,7 @@ public class TelaBuscaController implements Initializable{
         }
         
         preLoadDadosUsuario();
-        
-        //Botoes do topo
-        imgLupa.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.nomeJogoAux = tfPesquisa.getText();
-                sc.switchTelaBusca(e);
-            } catch (IOException e1) {
 
-                e1.printStackTrace();
-            }
-            
-        });
-        
-        
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
             SceneController sc = new SceneController();
             try {
@@ -103,6 +114,60 @@ public class TelaBuscaController implements Initializable{
         btnFechar.setOnMouseClicked((MouseEvent e)->{
             System.exit(1); 
         });
+        
+        //Botões do modal
+        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
+        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaBiblioteca(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaDesejo(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaAdmin(e);
+            } 
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        
+        //////
+        imgLupa.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                Main.nomeJogoAux = tfPesquisa.getText();
+                sc.switchTelaBusca(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            
+        });
+        
 
         
         barra.setOnMousePressed(mouseEvent ->{
@@ -116,6 +181,27 @@ public class TelaBuscaController implements Initializable{
         });
     }
 
+    //Puxa/Volta o modal
+    private void puxaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pnModal);
+        slide.setByX(-200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
+    }
+
+    private void voltaModal(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.5));
+        slide.setNode(pnModal);  
+        slide.setByX(200);
+        slide.play();
+        pnModal.toFront();
+        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
+    }
+    
     private void preLoadDadosUsuario(){
         if(Main.usuImg != null){
             Image usuImage = new Image(Main.usuImg, false);

@@ -20,7 +20,7 @@
    <top>
       <VBox prefHeight="90.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -38,7 +38,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="37.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnVoltar" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/arrow-left.png" />
                      </image>
@@ -48,7 +48,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #565759;">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #4D4D4D;">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
@@ -56,7 +56,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/sparrow_games-removebg-preview.png" />
+                                    <Image url="@../images/logoSparrow.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -98,6 +98,9 @@
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
                         </Label>
                         <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
                      </children>
@@ -110,13 +113,13 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER">
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A; -fx-border-color: #1A1A1A;" vbarPolicy="NEVER">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+                  <VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1080.0">
                            <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets right="5.0" />
                                  </HBox.margin>
@@ -131,7 +134,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#565759" />
+                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#333333" />
                         <VBox alignment="TOP_CENTER" prefHeight="499.0" prefWidth="1080.0">
                            <VBox.margin>
                               <Insets top="10.0" />
@@ -139,7 +142,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" prefHeight="246.0" prefWidth="1060.0">
                                  <children>
-                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="1056.0">
+                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="1056.0">
                                        <children>
                                           <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="361.0">
                                              <children>
@@ -171,11 +174,35 @@
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
                                           </Label>
+                                          <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1056.0">
+                                             <children>
+                                                <Label text="Deseja alterar sua imagem de perfil?" textFill="WHITE" />
+                                                <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/check.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="5.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/close.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                  </children>
                               </HBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
+                              <VBox prefHeight="175.0" prefWidth="1060.0">
                                  <children>
                                     <Label alignment="CENTER" text="Editar conta:" textFill="WHITE">
                                        <font>
@@ -212,6 +239,26 @@
                                              </cursor>
                                           </ImageView>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1060.0">
+                                       <children>
+                                          <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/log-out.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Sair da conta" textFill="#d30909">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
                                     </HBox>
                                  </children>
                               </VBox>
@@ -220,19 +267,19 @@
                               <Insets left="20.0" />
                            </padding>
                         </VBox>
-                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#565759" />
+                        <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#333333" />
                      </children>
                   </VBox>
                </content>
             </ScrollPane>
-            <Pane fx:id="pnModal" layoutX="1110.0" layoutY="10.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #565759;">
+            <Pane fx:id="pnModal" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #333333;">
                <children>
                   <VBox prefHeight="145.0" prefWidth="200.0">
                      <children>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                         <HBox prefHeight="0.0" prefWidth="250.0">
                            <children>
-                              <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="104.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Minha conta" textFill="WHITE">
+                              <Button fx:id="btnTelaConta" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="104.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Minha conta" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -241,8 +288,14 @@
                                        <image>
                                           <Image url="@../images/user.png" />
                                        </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </ImageView>
                                  </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                            <VBox.margin>
@@ -250,7 +303,7 @@
                            </VBox.margin>
                         </HBox>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
+                        <Button fx:id="btnTelaBiblioteca" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="88.0" prefWidth="201.0" style="-fx-background-color: transparent;" text="Biblioteca" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -261,22 +314,28 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
+                        <Button fx:id="btnTelaDesejo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Lista de desejos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/star.png" />
+                                    <Image url="@../images/Heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
+                        <Button fx:id="btnTelaAdmin" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="531.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Área do admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -287,6 +346,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>

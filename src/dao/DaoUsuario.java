@@ -120,10 +120,10 @@ public class DaoUsuario {
         ConnectBd bd = new ConnectBd();
         
         try{
-            command = "DELETE FROM Usuario WHERE idUsuario = ?";
+            command = "DELETE cFROM Comentario, Carrinho, Pagamento, Biblioteca, Desejo, Usuario WHERE idUsuario = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setString(1, id);
-            declaracao.executeBatch();
+            declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Transacao realizada com sucesso!");
 
@@ -191,7 +191,6 @@ public class DaoUsuario {
             
         }
     }
-
 
 
 }

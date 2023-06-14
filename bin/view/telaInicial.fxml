@@ -20,7 +20,7 @@
    <top>
       <VBox prefHeight="90.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+            <Pane fx:id="barra" prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                <children>
                   <ImageView fx:id="btnFechar" fitHeight="30.0" fitWidth="30.0" layoutX="1042.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,7 +40,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #565759;">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #4D4D4D;">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
@@ -48,7 +48,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/sparrow_games-removebg-preview.png" />
+                                    <Image url="@../images/logoSparrow.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -78,7 +78,10 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="465.0" scaleShape="false" />
+                  <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="465.0" scaleShape="false">
+                     <children>
+                        <ImageView fx:id="btnVoltar" disable="true" fitHeight="11.0" fitWidth="17.0" layoutX="105.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></Pane>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="60.0" prefWidth="180.0">
                      <children>
                         <ImageView fx:id="imgCarrinho" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -94,7 +97,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
                         <Circle fx:id="circleUsu" fill="#7a8997" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
@@ -111,7 +114,7 @@
    <center>
       <Pane layoutX="700.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565759;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pnModal" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #565759;">
+            <Pane fx:id="pnModal" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #333333;">
                <children>
                   <VBox prefHeight="145.0" prefWidth="200.0">
                      <children>
@@ -158,14 +161,14 @@
                            </cursor>
                         </Button>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
-                        <Button fx:id="btnTelaDesejo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE">
+                        <Button fx:id="btnTelaDesejo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Lista de desejos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/star.png" />
+                                    <Image url="@../images/Heart1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -189,14 +192,14 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Line fx:id="linha4" endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>
                   </VBox>
                </children>
             </Pane>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER">
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A; -fx-border-color: #1A1A1A;" vbarPolicy="NEVER">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="810.0" prefWidth="1080.0" style="-fx-background-color: #272727;">
+                  <VBox alignment="TOP_CENTER" prefHeight="810.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                      <children>
                         <ImageView fitHeight="192.0" fitWidth="1032.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -208,7 +211,7 @@
                         </ImageView>
                         <VBox prefHeight="266.0" prefWidth="1078.0">
                            <children>
-                              <Label text="Mais vendidos:" textFill="WHITE">
+                              <Label text="Recomendados:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
                                  </font>
@@ -243,7 +246,7 @@
                                              <children>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/wallet%20(3).png" />
+                                                      <Image url="@../images/wallet.png" />
                                                    </image>
                                                    <HBox.margin>
                                                       <Insets />
@@ -289,7 +292,7 @@
                                              <children>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/wallet%20(3).png" />
+                                                      <Image url="@../images/wallet.png" />
                                                    </image>
                                                    <HBox.margin>
                                                       <Insets />
@@ -332,7 +335,7 @@
                                              <children>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/wallet%20(3).png" />
+                                                      <Image url="@../images/wallet.png" />
                                                    </image>
                                                    <HBox.margin>
                                                       <Insets />
@@ -375,7 +378,7 @@
                                              <children>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/wallet%20(3).png" />
+                                                      <Image url="@../images/wallet.png" />
                                                    </image>
                                                    <HBox.margin>
                                                       <Insets />
@@ -435,7 +438,7 @@
                                                    <children>
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../images/wallet%20(3).png" />
+                                                            <Image url="@../images/wallet.png" />
                                                          </image>
                                                          <HBox.margin>
                                                             <Insets />
@@ -481,7 +484,7 @@
                                                    <children>
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../images/wallet%20(3).png" />
+                                                            <Image url="@../images/wallet.png" />
                                                          </image>
                                                          <HBox.margin>
                                                             <Insets />
@@ -524,7 +527,7 @@
                                                    <children>
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../images/wallet%20(3).png" />
+                                                            <Image url="@../images/wallet.png" />
                                                          </image>
                                                          <HBox.margin>
                                                             <Insets />
@@ -546,7 +549,7 @@
                                              <children>
                                                 <ImageView fx:id="imgWD" fitHeight="150.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/9.png" />
+                                                      <Image url="@../images/10.png" />
                                                    </image>
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
@@ -567,7 +570,7 @@
                                                    <children>
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../images/wallet%20(3).png" />
+                                                            <Image url="@../images/wallet.png" />
                                                          </image>
                                                          <HBox.margin>
                                                             <Insets />
