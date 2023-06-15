@@ -121,7 +121,7 @@
          <children>
             <Pane fx:id="pnModal" layoutX="1100.0" prefHeight="164.0" prefWidth="200.0" style="-fx-background-color: #333333;">
                <children>
-                  <VBox prefHeight="145.0" prefWidth="200.0">
+                  <VBox fx:id="pnModal" prefHeight="145.0" prefWidth="200.0">
                      <children>
                         <Line endX="100.0" startX="-100.0" stroke="#272727" />
                         <HBox prefHeight="0.0" prefWidth="250.0">
@@ -197,42 +197,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Line fx:id="linha4" endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>
                   </VBox>
-               </children>
-            </Pane>
-            <Pane fx:id="pnTeste1" layoutX="190.0" layoutY="600.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #4D4D4D;">
-               <children>
-                  <Pane prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #1A1A1A;">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="671.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/close.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <ImageView fitHeight="112.0" fitWidth="110.0" layoutX="295.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/confirmGif.gif" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="208.0" text="Pagamento Confirmado!" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="48.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="175.0" layoutY="280.0" text="Obrigado por comprar na Sparrow" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="135.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/logoSparrow.png" />
-                     </image>
-                  </ImageView>
                </children>
             </Pane>
             <VBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="583.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
@@ -274,7 +241,7 @@
                                           <Insets bottom="10.0" left="20.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Rectangle fx:id="imgCartao1" arcHeight="5.0" arcWidth="5.0" fill="#b7b9bc" height="225.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="400.0">
+                                    <Rectangle fx:id="imgCartao" arcHeight="5.0" arcWidth="5.0" fill="#b7b9bc" height="225.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="400.0">
                                        <VBox.margin>
                                           <Insets left="20.0" />
                                        </VBox.margin>
@@ -285,7 +252,7 @@
                                  <children>
                                     <HBox prefHeight="78.0" prefWidth="652.0">
                                        <children>
-                                          <TextField fx:id="tfNumeroCartao1" prefHeight="47.0" prefWidth="523.0" promptText="Número do cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                          <TextField fx:id="tfNumeroCartao" prefHeight="47.0" prefWidth="523.0" promptText="Número do cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -297,7 +264,7 @@
                                     </HBox>
                                     <HBox prefHeight="4.0" prefWidth="652.0">
                                        <children>
-                                          <TextField fx:id="tfCPF1" prefHeight="6.0" prefWidth="523.0" promptText="CPF" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                          <TextField fx:id="tfCPF" prefHeight="6.0" prefWidth="523.0" promptText="CPF" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -309,7 +276,7 @@
                                     </HBox>
                                     <HBox prefHeight="44.0" prefWidth="652.0">
                                        <children>
-                                          <TextField fx:id="tfNomeCartao1" prefHeight="40.0" prefWidth="250.0" promptText="Nome no cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                          <TextField fx:id="tfNomeCartao" prefHeight="40.0" prefWidth="250.0" promptText="Nome no cartão" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -317,7 +284,7 @@
                                                 <Insets left="20.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <TextField fx:id="tfCVV1" prefHeight="40.0" prefWidth="250.0" promptText="Código de segurança" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
+                                          <TextField fx:id="tfCVV" prefHeight="40.0" prefWidth="250.0" promptText="Código de segurança" style="-fx-background-color: transparent; -fx-border-color: #D7D7D7; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: #D7D7D7;" styleClass="campos">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -342,12 +309,12 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="precoTotal1" text="20,00" textFill="WHITE">
+                                          <Label fx:id="precoTotal" text="20,00" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="btnFinalizarCompra1" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
+                                          <Button fx:id="btnFinalizarCompra" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="Finalizar Compra">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -369,29 +336,65 @@
                   <Line endX="935.2929077148438" endY="-1.4497476816177368" startX="-100.0" stroke="#333333" />
                </children>
             </VBox>
-            <Pane fx:id="pnCartao" layoutX="22.0" layoutY="161.0" prefHeight="225.0" prefWidth="400.0">
+            <Pane layoutX="22.0" layoutY="161.0" prefHeight="225.0" prefWidth="400.0">
                <children>
-                  <Label layoutX="92.0" layoutY="81.0" prefHeight="36.0" prefWidth="233.0" text="1234567891234569">
+                  <Label fx:id="lbNumeroCartao" layoutX="92.0" layoutY="81.0" prefHeight="36.0" prefWidth="233.0">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="46.0" layoutY="188.0" prefHeight="23.0" prefWidth="46.0" text="123">
+                  <Label fx:id="lbCVV" layoutX="46.0" layoutY="188.0" prefHeight="23.0" prefWidth="46.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="94.0" layoutY="117.0" prefHeight="23.0" prefWidth="212.0" text="Willker Santana Viana">
+                  <Label fx:id="lbNomeCartao" layoutX="94.0" layoutY="117.0" prefHeight="23.0" prefWidth="212.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Label layoutX="14.0" layoutY="188.0" prefHeight="23.0" prefWidth="46.0" text="CVV:">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                </children></Pane>
+            <Pane fx:id="pnObrigado" layoutX="190.0" layoutY="582.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #4D4D4D;">
+               <children>
+                  <Pane prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #1A1A1A;">
+                     <children>
+                        <ImageView fx:id="imgFecharObrigado" fitHeight="30.0" fitWidth="30.0" layoutX="671.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="112.0" fitWidth="110.0" layoutX="295.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/confirmGif.gif" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="72.0" layoutY="208.0" text="Pagamento Confirmado!" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="175.0" layoutY="280.0" text="Obrigado por comprar na Sparrow" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="135.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logoSparrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </center>

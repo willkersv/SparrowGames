@@ -5,6 +5,11 @@ import java.sql.SQLException;
 import java.util.Random;
 
 import controllerFxml.Main;
+import dao.DaoBiblioteca;
+import dao.DaoCarrinho;
+import dao.DaoComentario;
+import dao.DaoDesejo;
+import dao.DaoPagamento;
 import dao.DaoUsuario;
 import model.Usuario;
 
@@ -126,6 +131,22 @@ public class ControlUsuario{
     public void attNome(String novoNome){
         DaoUsuario du = new DaoUsuario();
         du.updateNomeUsuario(novoNome);
+    }
+
+    public void deletarUsuario(int idUsuario){
+        DaoBiblioteca db = new DaoBiblioteca();
+        DaoCarrinho dc = new DaoCarrinho();
+        DaoComentario dcm = new DaoComentario();
+        DaoDesejo dd = new DaoDesejo();
+        DaoPagamento dp = new DaoPagamento();
+        DaoUsuario du = new DaoUsuario();
+
+        db.deleteUsingIdUsu(idUsuario);
+        dc.deleteUsingIdUsu(idUsuario);
+        dcm.deleteUsingIdUsu(idUsuario);
+        dd.deleteUsingIdUsu(idUsuario);
+        dp.deleteUsingIdUsu(idUsuario);
+        du.deleteUsingIdUsu(idUsuario);
     }
 
 }

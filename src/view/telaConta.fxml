@@ -71,12 +71,12 @@
                   </Button>
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                      <children>
-                        <TextField prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                        <TextField fx:id="tfPesquisa" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLupa" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/search%20(2).png" />
                            </image>
@@ -176,8 +176,8 @@
                                           </Label>
                                           <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1056.0">
                                              <children>
-                                                <Label text="Deseja alterar sua imagem de perfil?" textFill="WHITE" />
-                                                <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                <Label fx:id="lbConfirmaFoto" text="Deseja alterar sua imagem de perfil?" textFill="WHITE" visible="false" />
+                                                <ImageView fx:id="imgConfirmaFoto" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                                    <image>
                                                       <Image url="@../images/check.png" />
                                                    </image>
@@ -188,7 +188,7 @@
                                                       <Insets left="10.0" right="5.0" />
                                                    </HBox.margin>
                                                 </ImageView>
-                                                <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgCancelaFoto" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                                    <image>
                                                       <Image url="@../images/close.png" />
                                                    </image>
@@ -243,7 +243,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1060.0">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1060.0">
                                        <children>
                                           <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -350,7 +350,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Line fx:id="linha4" endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>
                   </VBox>
                </children>

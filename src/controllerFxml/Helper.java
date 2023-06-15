@@ -100,8 +100,8 @@ public class Helper{
     
     }
 
-    public static void preLoadComum(Pane barra, ImageView btnVoltar, ImageView btnMinimizar, ImageView btnFechar, Label lbNomeUsuario, Circle circleUsu, ImageView imgLupa, ImageView imgCarrinho,
-                                    Button btnTelaConta, Button btnTelaBiblioteca, Button btnTelaDesejo, Button btnTelaAdmin, TextField tfPesquisa, 
+    public static void preLoadComum(Pane barra, ImageView btnVoltar, ImageView btnMinimizar, ImageView btnFechar, Label lbNomeUsuario, Circle circleUsu, ImageView imgLupa, 
+                                    ImageView imgCarrinho, Button btnTelaConta, Button btnTelaBiblioteca, Button btnTelaDesejo, Button btnTelaAdmin, TextField tfPesquisa, 
                                     Pane pnModal, Line linha4){
         
         
@@ -135,7 +135,6 @@ public class Helper{
 
         Image usuImage = new Image(Main.usuImg, false);
         circleUsu.setFill(new ImagePattern(usuImage));
-        //Faz nome aparecer ao lado da foto do usuário
         lbNomeUsuario.setText(Main.nomeUsuario);
         if(Main.verAdmin == false){
             btnTelaAdmin.setVisible(false);
@@ -153,7 +152,6 @@ public class Helper{
                 pnModal.toFront();
                 new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
                 permite = false;
-                System.out.println(Helper.permite);
             }
             else{
                 TranslateTransition slide = new TranslateTransition();
@@ -164,7 +162,6 @@ public class Helper{
                 pnModal.toFront();
                 new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();
                 Helper.permite = true;
-                System.out.println(Helper.permite + "Entrei aqui");
             } 
         });
         

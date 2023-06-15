@@ -44,5 +44,10 @@ public class ControlComentario {
         dct.insertComentario(comentario);
     }
 
+    public void deletarComentario(int idComentario){
+        DaoComentario dc = new DaoComentario();
+        dc.deleteComentario(idComentario);
+    }
+
 
 }

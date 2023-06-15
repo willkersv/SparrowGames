@@ -27,7 +27,6 @@ import model.Pagamento;
 
 public class TelaPagamentoController implements Initializable{
 
-    private double x = 0, y = 0;
     //Barra superior things
     @FXML
     private Pane barra;
@@ -53,7 +52,6 @@ public class TelaPagamentoController implements Initializable{
     //Modal things
     
     //Variavel para o modalzinho
-    private boolean permite = true;
     
     @FXML
     private Pane pnModal;
@@ -118,6 +116,7 @@ public class TelaPagamentoController implements Initializable{
     @FXML
     private ImageView imgFecharObrigado;
 
+    int i = 0;
 
     
     @Override
@@ -125,103 +124,11 @@ public class TelaPagamentoController implements Initializable{
         ControlPagamento cpg = new ControlPagamento();
 
         precoTotal.setText(Main.precoTotalCarrinho.toString());
-
+        
         preLoadDadosUsuario();
         
-        barra.setOnMousePressed(mouseEvent ->{
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
-        });
-
-        barra.setOnMouseDragged(mouseEvent ->{
-            SceneController.stage.setX(mouseEvent.getScreenX() - x);
-            SceneController.stage.setY(mouseEvent.getScreenY() - y);
-        });
-
-        btnVoltar.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaCarrinho(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        btnFechar.setOnMouseClicked((MouseEvent e)->{
-            System.exit(1); 
-        });
-
-        //Botões do modal
-        btnTelaConta.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaConta(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        btnTelaBiblioteca.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaBiblioteca(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        btnTelaDesejo.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaDesejo(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        btnTelaAdmin.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaAdmin(e);
-            } 
-            catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        circleUsu.setOnMouseClicked((MouseEvent e)->{
-            if(permite == true){
-                puxaModal();
-                permite = false;
-            }
-            else{
-                voltaModal();
-                permite = true;
-            }
-            
-        });
-
-        imgLupa.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                Main.nomeJogoAux = tfPesquisa.getText();
-                sc.switchTelaBusca(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        imgCarrinho.setOnMouseClicked((MouseEvent e)->{
-            SceneController sc = new SceneController();
-            try {
-                sc.switchTelaCarrinho(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
+        Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
+                            btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
 
         tfNumeroCartao.setOnKeyTyped((KeyEvent e)->{
             
@@ -251,9 +158,12 @@ public class TelaPagamentoController implements Initializable{
         });
 
         tfNomeCartao.setOnKeyTyped((KeyEvent e)->{
-            lbNomeCartao.setText(tfNomeCartao.getText());
+            String temp = tfNomeCartao.getText().toUpperCase();
+            tfNomeCartao.setText("");
+            tfNomeCartao.replaceText(0, i, temp);
+            tfNomeCartao.selectForward();
+            lbNomeCartao.setText(tfNomeCartao.getText().toUpperCase());
         });
-        
         
         
         imgFecharObrigado.setOnMouseClicked((MouseEvent e)->{
@@ -298,11 +208,16 @@ public class TelaPagamentoController implements Initializable{
     }
 
     private void sobeObrigado(){
+        System.out.println("entro aqui");
         TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.1));
+        pnObrigado.toBack();
+        slide.setDuration(Duration.seconds(0.01));
         slide.setNode(pnObrigado);
-        slide.setToY(-608);
+        slide.setToY(-582);
         slide.play();
+        pnObrigado.toFront();
+        new animatefx.animation.ZoomIn(pnObrigado).setSpeed(1.7).play();;
+        System.out.println("morro aqui");
 
     }
 
@@ -313,35 +228,9 @@ public class TelaPagamentoController implements Initializable{
         slide.setToY(608);
         slide.play();
     }
-
-    //Puxa/Volta o modal
-    private void puxaModal(){
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.4));
-        slide.setNode(pnModal);
-        slide.setByX(-200);
-        slide.play();
-        pnModal.toFront();
-        new animatefx.animation.ZoomIn(pnModal).setSpeed(1.4).play();;
-    }
-
-    private void voltaModal(){
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.5));
-        slide.setNode(pnModal);  
-        slide.setByX(200);
-        slide.play();
-        pnModal.toFront();
-        new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();;
-    }
-    
+   
     private void preLoadDadosUsuario(){
-        
-        Image usuImage = new Image(Main.usuImg, false);
-        circleUsu.setFill(new ImagePattern(usuImage));
-        usuImage = new Image("/images/cartaoPadrao.png", false);
+        Image usuImage = new Image("/images/cartaoPadrao.png", false);
         imgCartao.setFill(new ImagePattern(usuImage));
-        //Faz nome aparecer ao lado da foto do usuário
-        lbNomeUsuario.setText(Main.nomeUsuario);
     }
 }

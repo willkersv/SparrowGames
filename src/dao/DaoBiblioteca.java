@@ -60,5 +60,28 @@ public class DaoBiblioteca{
         }  
     }
 
+    public void deleteUsingIdUsu(int id){
+        ConnectBd bd = new ConnectBd();
+        
+        try{
+            command = "DELETE FROM Biblioteca WHERE idUsuario = ?";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setInt(1, id);
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Transacao realizada com sucesso!");
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao cancelada!");
+                System.err.println("Erro na transacao: " + ex.getMessage());
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+            }
+        }
+    }
+
 
 }

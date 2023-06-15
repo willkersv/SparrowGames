@@ -254,7 +254,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Line fx:id="linha4" endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>
                   </VBox>
                </children>

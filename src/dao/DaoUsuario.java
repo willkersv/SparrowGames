@@ -116,17 +116,16 @@ public class DaoUsuario {
         }  
     }
 
-    public void deleteUsuario(String id){
+    public void deleteUsingIdUsu(int id){
         ConnectBd bd = new ConnectBd();
         
         try{
-            command = "DELETE cFROM Comentario, Carrinho, Pagamento, Biblioteca, Desejo, Usuario WHERE idUsuario = ?";
+            command = "DELETE FROM Usuario WHERE idUsuario = ?";
             declaracao = bd.getConnection().prepareStatement(command);
-            declaracao.setString(1, id);
+            declaracao.setInt(1, id);
             declaracao.execute();
             bd.getConnection().commit();
             System.out.println("Transacao realizada com sucesso!");
-
         }
         catch(SQLException ex){
             try{
@@ -137,7 +136,6 @@ public class DaoUsuario {
             catch(SQLException exe){
                 System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
             }
-            
         }
     }
 

@@ -72,12 +72,12 @@
                   </Button>
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                      <children>
-                        <TextField prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                        <TextField fx:id="tfPesquisa" prefHeight="32.0" prefWidth="894.0" promptText="Pesquisar" style="-fx-border-color: transparent; -fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLupa" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/search%20(2).png" />
                            </image>
@@ -192,7 +192,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Line endX="100.0" startX="-100.0" stroke="#272727" />
+                        <Line fx:id="linha4" endX="100.0" startX="-100.0" stroke="#272727" />
                      </children>
                   </VBox>
                </children>
@@ -406,7 +406,7 @@
                                        <children>
                                           <HBox prefHeight="39.0" prefWidth="719.0">
                                              <children>
-                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imgMonke" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/user-minus.png" />
                                                    </image>
