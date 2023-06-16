@@ -45,10 +45,10 @@ public class ModeloComentController implements Initializable{
             System.out.println(idUsuario);
             System.out.println(Main.idIdent);
             if(Main.verAdmin == true){
-            lixeira.setVisible(true);     
+                lixeira.setVisible(true);     
             }
             else if(Main.verAdmin == false && Main.idIdent == idUsuario){
-            lixeira.setVisible(true);     
+                lixeira.setVisible(true);     
             } 
         } catch (Exception e) {
             e.printStackTrace();

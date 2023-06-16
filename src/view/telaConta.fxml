@@ -118,7 +118,7 @@
          <children>
             <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A; -fx-border-color: #1A1A1A;" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="lbExcluirConta" alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
+                  <VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1080.0">
                            <children>
@@ -246,11 +246,17 @@
                                              <image>
                                                 <Image url="@../images/user-cross.png" />
                                              </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                           <Label fx:id="lbExcluirConta" text="Excluir conta ;(" textFill="RED">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Label>
                                        </children>
                                        <VBox.margin>

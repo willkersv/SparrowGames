@@ -148,8 +148,6 @@ public class TelaInicialController implements Initializable{
 
         Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
                             btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
-        
-        
 
         //imagens para ir para os jogos
         imgTL.setOnMouseClicked((MouseEvent e)->{

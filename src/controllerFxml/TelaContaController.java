@@ -102,6 +102,12 @@ public class TelaContaController implements Initializable{
     @FXML
     private ImageView imgSairConta;
 
+    @FXML
+    private Label lbExcluirConta;
+
+    @FXML
+    private ImageView imgExcluirConta;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -158,27 +164,45 @@ public class TelaContaController implements Initializable{
         });
 
         lbSairConta.setOnMouseClicked((MouseEvent e)->{
-
-                SceneController sc = new SceneController();
-                try {
-                    sc.switchTelaLogin(e);
-                } catch (IOException e1) {
-
-                    e1.printStackTrace();
-                }
-             
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaLogin(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
 
         imgSairConta.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaLogin(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
 
-                SceneController sc = new SceneController();
-                try {
-                    sc.switchTelaLogin(e);
-                } catch (IOException e1) {
+        lbExcluirConta.setOnMouseClicked((MouseEvent e)->{
+            
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaLogin(e);
+                ControlUsuario cu = new ControlUsuario();
+                cu.deletarUsuario(Main.idIdent);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }      
+        });
 
-                    e1.printStackTrace();
-                }
-             
+        imgExcluirConta.setOnMouseClicked((MouseEvent e)->{
+            
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaLogin(e);
+                ControlUsuario cu = new ControlUsuario();
+                cu.deletarUsuario(Main.idIdent);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }      
         });
     }
 
