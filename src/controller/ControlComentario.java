@@ -20,6 +20,7 @@ public class ControlComentario {
             while(resultado.next()){
                 Comentario comentario = new Comentario();
                 comentario.setIdComentario(resultado.getInt("idComentario"));
+                comentario.setIdUsuario(resultado.getInt("idUsuario"));
                 comentario.setNomeUsuario(resultado.getString("nomeUsuario"));
                 comentario.setImgUsuario(resultado.getString("imgUsuario"));
                 comentario.setComentario(resultado.getString("comentario"));

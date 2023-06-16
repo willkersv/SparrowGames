@@ -32,6 +32,8 @@ public class ModeloComentController implements Initializable{
 
     private int idComentario;
 
+    private int idUsuario;
+
     public void setData(Comentario comentario){
         try {
             Image usuImage = new Image(comentario.getImgUsuario());
@@ -39,13 +41,21 @@ public class ModeloComentController implements Initializable{
             nomeUsuario.setText(comentario.getNomeUsuario());
             lbComentario.setText(comentario.getComentario());
             idComentario = comentario.getIdComentario();
+            idUsuario = comentario.getIdUsuario();
+            System.out.println(idUsuario);
+            System.out.println(Main.idIdent);
+            if(Main.verAdmin == true){
+            lixeira.setVisible(true);     
+            }
+            else if(Main.verAdmin == false && Main.idIdent == idUsuario){
+            lixeira.setVisible(true);     
+            } 
         } catch (Exception e) {
             e.printStackTrace();
         
         }
     }
-   
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lixeira.setOnMouseClicked((MouseEvent e)->{
@@ -58,10 +68,9 @@ public class ModeloComentController implements Initializable{
                 e1.printStackTrace();
             }
         });
-
-        if(Main.verAdmin == false){
-            lixeira.setVisible(false);
-        }
+        
+            
+        
     }
       
 }

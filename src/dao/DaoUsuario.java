@@ -190,5 +190,30 @@ public class DaoUsuario {
         }
     }
 
+    public void updateImgUsuario(String imgUsuario, int idUsuario){
+        ConnectBd bd = new ConnectBd();                                                       
+                                                                                        
+        try{                                                                                 
+            command = "UPDATE usuario SET imgUsuario = ? where emailUsuario = ?";
+            declaracao = bd.getConnection().prepareStatement(command);
+            declaracao.setString(1, imgUsuario);
+            declaracao.setInt(2, idUsuario);
+            declaracao.execute();
+            bd.getConnection().commit();
+            System.out.println("Transacao de uptade realizada com suceso FERINHA, mudou a foto!");
+        }
+        catch(SQLException ex){
+            try{
+                bd.getConnection().rollback();
+                System.out.println("Transacao de update cancelada!");
+                System.err.println("Erro na transacao de uptade: " + ex.getMessage());
+            }
+            catch(SQLException exe){
+                System.err.println("Erro ao cancelar transacao: " + exe.getMessage());
+            }
+            
+        }
+    }
+
 
 }

@@ -30,7 +30,7 @@
             <Insets left="10.0" />
          </HBox.margin>
       </VBox>
-      <ImageView fx:id="lixeira" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="lixeira" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/trash.png" />
          </image>

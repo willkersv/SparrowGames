@@ -14,7 +14,7 @@ public class DaoComentario{
         ConnectBd bd = new ConnectBd();
 
         try{
-            command = "SELECT Comentario.idComentario, Usuario.nomeUsuario, Comentario.comentario, Usuario.imgUsuario FROM Comentario, Usuario WHERE Comentario.idJogo = ? AND Usuario.idUsuario = Comentario.idUsuario";
+            command = "SELECT Comentario.idUsuario, Comentario.idComentario, Usuario.nomeUsuario, Comentario.comentario, Usuario.imgUsuario FROM Comentario, Usuario WHERE Comentario.idJogo = ? AND Usuario.idUsuario = Comentario.idUsuario";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setInt(1, idJogo);
             ResultSet resultado = declaracao.executeQuery();

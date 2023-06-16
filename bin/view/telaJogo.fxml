@@ -121,9 +121,9 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER">
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="580.0" prefWidth="1080.0" style="-fx-background-color: #2c2c2c; -fx-border-color: #2c2c2c;" vbarPolicy="NEVER">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
+                  <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                      <children>
                         <HBox prefHeight="372.0" prefWidth="1054.0">
                            <children>
@@ -221,7 +221,7 @@
                               <Insets left="26.0" top="20.0" />
                            </VBox.margin>
                         </HBox>
-                        <VBox prefHeight="300.0" prefWidth="1093.0">
+                        <VBox prefHeight="266.0" prefWidth="1080.0">
                            <children>
                               <Label text="Comentários:" textFill="WHITE">
                                  <VBox.margin>
@@ -233,7 +233,7 @@
                               </Label>
                               <HBox prefHeight="265.0" prefWidth="1080.0">
                                  <children>
-                                    <VBox fx:id="comentarioLayout" prefHeight="255.0" prefWidth="1086.0" spacing="20.0" style="-fx-background-color: #1A1A1A;">
+                                    <VBox fx:id="comentarioLayout" prefHeight="211.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: #1A1A1A;">
                                        <HBox.margin>
                                           <Insets left="20.0" />
                                        </HBox.margin>

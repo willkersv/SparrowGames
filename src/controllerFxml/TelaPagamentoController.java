@@ -129,6 +129,15 @@ public class TelaPagamentoController implements Initializable{
         
         Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
                             btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
+        
+        btnVoltar.setOnMouseClicked((MouseEvent e)->{
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaCarrinho(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
 
         tfNumeroCartao.setOnKeyTyped((KeyEvent e)->{
             

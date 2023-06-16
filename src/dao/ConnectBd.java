@@ -15,13 +15,13 @@ public class ConnectBd {
         try{
             connection = DriverManager.getConnection(mysqlURL+nomeBD, usuario, senha);
             connection.setAutoCommit(false);
-            System.out.println("Conectado com sucesso aaaaaaaa");
+            System.out.println("Conectado com sucesso ao Banco de Dados Sparrow");
         }
         catch(SQLException ex){
-            System.err.println("Erro de conexao: " +ex.getMessage());
+            System.err.println("Erro de conexao com o Banco: " +ex.getMessage());
         }
         catch(Exception ex){
-            System.err.println("Erro geral " + ex.getMessage());
+            System.err.println("Erro geral" + ex.getMessage());
         }
     }
     

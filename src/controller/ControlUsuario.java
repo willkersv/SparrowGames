@@ -104,6 +104,12 @@ public class ControlUsuario{
         System.out.println("usuario alterado");
     }
 
+    public void alterarFotoUsuario(String caminhoImg){
+        DaoUsuario du = new DaoUsuario();
+        du.updateImgUsuario(caminhoImg, Main.idIdent);
+        System.out.println("usuario alterado");
+    }
+
     public void alterarSenhaUsuario(String novaSenha, String codRec){
         DaoUsuario du = new DaoUsuario();
         du.updateSenhaUsuario(novaSenha, codRec);
@@ -126,11 +132,6 @@ public class ControlUsuario{
         String codRecSenha = sb.toString();
         System.out.println("Codigo de recuperacao de senha: " + codRecSenha);
         return codRecSenha;
-    }
-
-    public void attNome(String novoNome){
-        DaoUsuario du = new DaoUsuario();
-        du.updateNomeUsuario(novoNome);
     }
 
     public void deletarUsuario(int idUsuario){

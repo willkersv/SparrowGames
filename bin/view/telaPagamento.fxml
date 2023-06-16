@@ -108,7 +108,10 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                        <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
                      </children>
                   </HBox>
                </children>
@@ -350,7 +353,7 @@
                   </Label>
                   <Label fx:id="lbNomeCartao" layoutX="94.0" layoutY="117.0" prefHeight="23.0" prefWidth="212.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                   <Label layoutX="14.0" layoutY="188.0" prefHeight="23.0" prefWidth="46.0" text="CVV:">

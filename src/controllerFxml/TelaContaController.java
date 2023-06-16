@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import controller.ControlUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -94,7 +93,14 @@ public class TelaContaController implements Initializable{
     private TextField tfNovoNome;
 
     @FXML
-    private ImageView imgUpdate;
+    private ImageView imgUpdateNome;
+
+    //parte inferior
+    @FXML
+    private Label lbSairConta;
+
+    @FXML
+    private ImageView imgSairConta;
 
 
     @Override
@@ -103,7 +109,7 @@ public class TelaContaController implements Initializable{
         preLoadDados();
 
         Helper.preLoadComum(barra, btnVoltar, btnMinimizar, btnFechar, lbNomeUsuario, circleUsu, imgLupa, imgCarrinho, btnTelaConta, btnTelaBiblioteca, 
-                            btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);  
+                            btnTelaDesejo, btnTelaAdmin, tfPesquisa, pnModal, linha4);
 
                             
         circleUsu2.setOnMouseClicked((MouseEvent e)->{
@@ -113,10 +119,32 @@ public class TelaContaController implements Initializable{
             imgCancelaFoto.setVisible(true);
         });
         
-        imgUpdate.setOnMouseClicked((MouseEvent e)->{
+        imgConfirmaFoto.setOnMouseClicked((MouseEvent e)->{
+            ControlUsuario cu = new ControlUsuario();
+            cu.alterarFotoUsuario(caminhoImg);
+            Main.usuImg = caminhoImg;
+            SceneController sc = new SceneController();
+            try {
+                sc.switchTelaConta(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+             
+        });
+
+        imgCancelaFoto.setOnMouseClicked((MouseEvent e)->{
+            lbConfirmaFoto.setVisible(false);
+            imgConfirmaFoto.setVisible(false);
+            imgCancelaFoto.setVisible(false);
+            Image usuImage = new Image(Main.usuImg, false);
+            circleUsu2.setFill(new ImagePattern(usuImage));
+
+        });
+        
+        imgUpdateNome.setOnMouseClicked((MouseEvent e)->{
             ControlUsuario cu = new ControlUsuario();
             if(tfNovoNome.getText() != "" || tfNovoNome.getText() != null){
-                cu.attNome(tfNovoNome.getText());
+                cu.alterarNomeUsuario(tfNovoNome.getText());
                 Main.nomeUsuario = tfNovoNome.getText();
                 SceneController sc = new SceneController();
                 try {
@@ -126,6 +154,30 @@ public class TelaContaController implements Initializable{
                     e1.printStackTrace();
                 }
             }
+             
+        });
+
+        lbSairConta.setOnMouseClicked((MouseEvent e)->{
+
+                SceneController sc = new SceneController();
+                try {
+                    sc.switchTelaLogin(e);
+                } catch (IOException e1) {
+
+                    e1.printStackTrace();
+                }
+             
+        });
+
+        imgSairConta.setOnMouseClicked((MouseEvent e)->{
+
+                SceneController sc = new SceneController();
+                try {
+                    sc.switchTelaLogin(e);
+                } catch (IOException e1) {
+
+                    e1.printStackTrace();
+                }
              
         });
     }

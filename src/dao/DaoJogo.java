@@ -169,7 +169,7 @@ public class DaoJogo{
         ConnectBd bd = new ConnectBd();                                                       
                                                                                         
         try{                                                                                 
-            command = "UPDATE jogo SET precoJogo = '?' WHERE idJogo = ?";
+            command = "UPDATE jogo SET precoJogo = ? WHERE idJogo = ?";
             declaracao = bd.getConnection().prepareStatement(command);
             declaracao.setDouble(1, novoPreco);
             declaracao.setInt(2, idJogo);

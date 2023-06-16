@@ -1,6 +1,7 @@
 package controllerFxml;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.function.UnaryOperator;
 
 import javafx.animation.TranslateTransition;
@@ -24,7 +25,7 @@ public class Helper{
     private static double x = 0, y = 0;
 
     private static boolean permite = true;
-
+   
     public static void limitTextField(TextField textField, int limit) {
         UnaryOperator<Change> textLimitFilter = change -> {
             if (change.isContentChange()) {
@@ -116,6 +117,16 @@ public class Helper{
         });
         
         btnVoltar.setOnMouseClicked((MouseEvent e)->{
+            if(permite == false){
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.5));
+                slide.setNode(pnModal);  
+                slide.setByX(200);
+                slide.play();
+                pnModal.toFront();
+                new animatefx.animation.ZoomOut(pnModal).setSpeed(1.4).play();
+                Helper.permite = true;
+            }
             SceneController sc = new SceneController();
             try {
                 sc.switchTelaInicial(e);
@@ -136,6 +147,7 @@ public class Helper{
         Image usuImage = new Image(Main.usuImg, false);
         circleUsu.setFill(new ImagePattern(usuImage));
         lbNomeUsuario.setText(Main.nomeUsuario);
+        
         if(Main.verAdmin == false){
             btnTelaAdmin.setVisible(false);
             linha4.setVisible(false);

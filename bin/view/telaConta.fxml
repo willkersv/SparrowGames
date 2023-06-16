@@ -102,7 +102,10 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                        <Circle fx:id="circleUsu" fill="#95a0ab" radius="23.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
                      </children>
                   </HBox>
                </children>
@@ -115,7 +118,7 @@
          <children>
             <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="610.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A; -fx-border-color: #1A1A1A;" vbarPolicy="NEVER">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
+                  <VBox fx:id="lbExcluirConta" alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1080.0" style="-fx-background-color: #1A1A1A;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1080.0">
                            <children>
@@ -230,7 +233,7 @@
                                                 <Insets left="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <ImageView fx:id="imgUpdate" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgUpdateNome" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/check.png" />
                                              </image>
@@ -238,6 +241,17 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
+                                          <Pane prefHeight="33.0" prefWidth="554.0" />
+                                          <ImageView fx:id="imgExcluirConta" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/user-cross.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbExcluirConta" text="Excluir conta ;(" textFill="RED">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                        <VBox.margin>
                                           <Insets top="10.0" />
@@ -245,15 +259,21 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1060.0">
                                        <children>
-                                          <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgSairConta" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/log-out.png" />
                                              </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
-                                          <Label text="Sair da conta" textFill="#d30909">
+                                          <Label fx:id="lbSairConta" text="Sair da conta" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Label>
                                        </children>
                                        <VBox.margin>
